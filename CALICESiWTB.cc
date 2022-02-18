@@ -6,22 +6,23 @@
 // \start date: 17 February 2021
 //**************************************************
 
-
-#include "G4RunManager.hh" 
-#include "G4UImanager.hh" 
-
+//Includers from project files
+//
 #include "CaliceDetectorConstruction.hh" 
 #include "CalicePrimaryGeneratorAction.hh" 
 //#include "CaliceEventAction.hh" 
 //#include "CaliceRunAction.hh" 
 
+//Includers from Geant4 and C++
+//
+#include "G4RunManager.hh" 
+#include "G4UImanager.hh" 
 #include "G4UIterminal.hh" 
 #include <cstring>
 #include <climits>
 #include <errno.h>
 #include "G4SystemOfUnits.hh"
 #include "G4ProcessManager.hh"
-// Physics lists
 #include "G4PhysListFactory.hh"
 #include "G4VModularPhysicsList.hh"
 #include "G4GenericPhysicsList.hh"
@@ -30,29 +31,26 @@
 #include "QGSP_BERT.hh"
 #include "QGSP_FTFP_BERT.hh"
 #include "QBBC.hh"
-
-//#ifdef G4VIS_USE 
-//#include "CaliceVisManager.hh"
 #include "G4VisExecutive.hh"
-//#endif 
 #include "G4UIExecutive.hh"
 #include "G4GDMLParser.hh"
 #include <fstream>
+
 using namespace std;
 
-//main function
+//main() of CALICESiWTB
 //
 int main( int argc, char** argv ) {
     
     //Set Random Seed Engine and intial seed
     //
-    CLHEP::HepRandomEngine* defaultEngine;
-    defaultEngine = new CLHEP::Ranlux64Engine(1234567,4);
-    CLHEP::HepRandom::setTheEngine( /*&*/defaultEngine );
-    G4long seed = time( NULL );
-    CLHEP::HepRandom::setTheSeed( seed );
+    //CLHEP::HepRandomEngine* defaultEngine;
+    //defaultEngine = new CLHEP::Ranlux64Engine(1234567,4);
+    //CLHEP::HepRandom::setTheEngine( /*&*/defaultEngine );
+    //G4long seed = time( NULL );
+    //CLHEP::HepRandom::setTheSeed( seed );
 
-    //Initializing RunManager and creating mandatory objects
+    //Initializing RunManager
     //
     G4RunManager* runManager = new G4RunManager;
 
@@ -62,17 +60,16 @@ int main( int argc, char** argv ) {
     parser.Read("myCaliceGeometry.gdml");
     runManager->SetUserInitialization( new CaliceDetectorConstruction(parser) );
 
+    
     //Mandatory User Actions: 2- Physics List
     //
-    G4VModularPhysicsList* physList = NULL;
-    G4PhysListFactory factory;
-    G4String physListName;
-    /*if (argv[2] != NULL) {         //argv[2] usage
-        physListName = argv[2];
-        physList = factory.GetReferencePhysList(physListName);
-    }*/
-    /*else*/ physList = new FTFP_BERT; //FTFP_BERT default physics list
-    runManager->SetUserInitialization(physList);
+    G4String custom_pl = "FTFP_BERT"; //FTFP_BERT default PL
+    if (argc == 3) {                  //argv[2] usage
+        custom_pl = argv[2];
+    }
+    auto physListFactory = new G4PhysListFactory;
+    auto physList = physListFactory->GetReferencePhysList( custom_pl );
+    runManager->SetUserInitialization( physList );
     
     G4cout<<"argc --------------------------------------------------------------------------------------------->"<<argc<<G4endl;
     //argv[1] usage    
@@ -144,7 +141,7 @@ int main( int argc, char** argv ) {
     delete visManager;
     //#endif 
     delete runManager;
-    delete defaultEngine;
+    //delete defaultEngine;
 
 }
 
