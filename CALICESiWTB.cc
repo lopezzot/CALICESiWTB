@@ -71,7 +71,6 @@ int main( int argc, char** argv ) {
     auto physList = physListFactory->GetReferencePhysList( custom_pl );
     runManager->SetUserInitialization( physList );
     
-    G4cout<<"argc --------------------------------------------------------------------------------------------->"<<argc<<G4endl;
     //argv[1] usage    
     /*G4String particleName = ((string)argv[1]).substr(4);
     particleName = particleName.substr(0,3);
@@ -79,7 +78,8 @@ int main( int argc, char** argv ) {
     particleEnergy = particleEnergy.substr(0,particleEnergy.find("GeV"));
     G4String outputname = "Calice_" + physListName + "_" + particleName + "_" + particleEnergy + "GeV.root"; 
     */
-    G4cout<<"argc --------------------------------------------------------------------------------------------->"<<argc<<G4endl;
+    G4String outputname = "CALICESiWTBout.root";
+
     //Mandatory User Actions: 3- PrimaryGeneratorAction
     //
     runManager->SetUserAction( new CalicePrimaryGeneratorAction );
@@ -89,57 +89,40 @@ int main( int argc, char** argv ) {
     //runManager->SetUserAction( new CaliceRunAction(outputname)  );
     //runManager->SetUserAction( new CaliceEventAction );
 
-    // Initialize run manager
+    // Initialize run manager, not needed can be done in macros, to be removed
     //
     //runManager->Initialize();
 
     //Visualization
     //
-    //#ifdef G4VIS_USE 
     auto visManager = new G4VisExecutive;
     visManager->Initialize();
-    //#endif 
+
     //User Interface initialization
     //
     G4UImanager* UI = G4UImanager::GetUIpointer();
-    G4cout<<"argc --------------------------------------------------------------------------------------------->"<<argc<<G4endl;
-    if ( argc==1 ) {    // Define UI session for interactive mode.
-        G4cout<<"NON BATCHHHHHHHHHHHHHHHHHHHHHHHHH"<<G4endl;
+
+    if ( argc == 1 ) {    // Define UI session for interactive mode
+        G4cout<<"-->CALICESiWTB: interactive mode"<<G4endl;
         G4UIExecutive* session = new G4UIExecutive(argc,argv);
 	UI->ApplyCommand( "/control/execute CALICESiWTB_init_vis.mac" );
         if ( session->IsGUI() ) {
             UI->ApplyCommand( "/control/execute CALICESiWTB_gui.mac" );
-            /*
-	    // Create empty scene
-	    G4String visCommand = "/vis/scene/create";
-	    UI->ApplyCommand(visCommand);
-	    // Choose one default viewer (you can always change it later on)
-	    visCommand = "/vis/open OGL";
-	    UI->ApplyCommand(visCommand);
-	    visCommand = "/vis/viewer/flush";
-	    UI->ApplyCommand(visCommand);
-	    visCommand = "/tracking/storeTrajectory 1";
-	    UI->ApplyCommand(visCommand);
-	    UI->ApplyCommand("/control/execute gui.g4");
-	    */
         }
-	G4cout << "Now, please, apply beamOn command..." << G4endl;
         session->SessionStart();
-	//delete session;
+	delete session;
         delete UI;
     }    
-    else {  // Batch mode
-	    G4String command = "/control/execute ";
-            G4cout<<"BATCHHHHHHHHHHHHHHHHHHHHHHHHH"<<G4endl;
-	    G4String fileName = argv[1];
-	    UI->ApplyCommand(command+fileName);
+    else {                // Batch mode (macros)
+	G4String command = "/control/execute ";
+        G4cout<<"-->CALICESiWTB: batch mode"<<G4endl;
+	G4String fileName = argv[1];
+	UI->ApplyCommand(command+fileName);
     }
 
     //Job termination
     //
-    //#ifdef G4VIS_USE 
     delete visManager;
-    //#endif 
     delete runManager;
     //delete defaultEngine;
 
