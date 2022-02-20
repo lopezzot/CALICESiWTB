@@ -22,6 +22,12 @@ else()
     find_package(Geant4 REQUIRED)
 endif()
 
+#Find ROOT package
+# 
+#list(APPEND CMAKE_PREFIX_PATH $ENV{ROOTSYS})
+find_package(ROOT REQUIRED COMPONENTS RIO Net)
+include(${ROOT_USE_FILE})
+
 #Setup Geant4 include directories and project include directories
 #
 include(${Geant4_USE_FILE})
