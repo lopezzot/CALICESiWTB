@@ -10,7 +10,8 @@
 //Includers from project files
 //
 #include "CaliceEcalSD.hh"
-#include "CaliceAnalysisManager.hh"
+//#include "CaliceAnalysisManager.hh"
+//#include "CaliceCalorimeterHit.hh"
 
 //Includers from Geant4
 //
@@ -20,9 +21,8 @@
 #include "G4Track.hh"
 #include "G4TouchableHandle.hh"
 #include "G4SystemOfUnits.hh"
-#include "CaliceCalorimeterHit.hh"
 #include "G4SDManager.hh"
-#include <TH3D.h>
+//#include <TH3D.h>
 #include <math.h>
 #include "G4RunManager.hh"
 #include "G4Event.hh"
@@ -32,11 +32,11 @@
 //Define constructor
 //
 CaliceEcalSD::CaliceEcalSD(const G4String& name, const G4String& hitsCollectionName)
-    :G4VSensitiveDetector(name),fHitsCollection(0),MeV2MIP(0.155),
+    :G4VSensitiveDetector(name)/*,fHitsCollection(0)*/,MeV2MIP(0.155),
     fNofReadoutLayers(30),fNofCells(9720) {
     
-    theCaliceAnalysis = CaliceAnalysisManager::GetPointer();
-    collectionName.insert(hitsCollectionName);
+    //theCaliceAnalysis = CaliceAnalysisManager::GetPointer();
+    //collectionName.insert(hitsCollectionName);
 
 }
 
@@ -48,11 +48,11 @@ CaliceEcalSD::~CaliceEcalSD() {}
 //
 void CaliceEcalSD::Initialize(G4HCofThisEvent* hce) {
     
-    fHitsCollection = new CaliceHitsCollection( SensitiveDetectorName, collectionName[0] );
+    //fHitsCollection = new CaliceHitsCollection( SensitiveDetectorName, collectionName[0] );
   
     // Add this collection in hce
     G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
-    hce->AddHitsCollection( hcID, fHitsCollection );
+    //hce->AddHitsCollection( hcID, fHitsCollection );
     totE = 0.;  
  
 }
@@ -60,7 +60,7 @@ void CaliceEcalSD::Initialize(G4HCofThisEvent* hce) {
 //Define CaliceEcalSD()
 //
 G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
-    
+    /*
     G4float edep = (aStep->GetTotalEnergyDeposit()/MeV)/MeV2MIP; //get energy deposition in units of MIP = 0.155 MeV 
     G4double stepLength = 0.;
     stepLength = aStep->GetStepLength()/mm;
@@ -102,13 +102,13 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
     theCaliceAnalysis->h_energyPerHit->Fill(edep);
   
     return true;
-
+    */
 }
 
 //Define EndOfEvent method
 //
 void CaliceEcalSD::EndOfEvent(G4HCofThisEvent*) {
-  
+    /* 
     //Storing the hits in ROOT file
     //
     G4int NbHits = fHitsCollection->entries();
@@ -154,7 +154,7 @@ void CaliceEcalSD::EndOfEvent(G4HCofThisEvent*) {
     }
     theCaliceAnalysis->totEdep = totE;
     totE = 0;
-
+    */
 }
 
 void CaliceEcalSD::clear() {}

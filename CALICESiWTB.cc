@@ -10,8 +10,8 @@
 //
 #include "CaliceDetectorConstruction.hh" 
 #include "CalicePrimaryGeneratorAction.hh" 
-//#include "CaliceEventAction.hh" 
-//#include "CaliceRunAction.hh" 
+#include "CaliceRunAction.hh" 
+#include "CaliceEventAction.hh" 
 
 //Includers from Geant4 and C++
 //
@@ -86,8 +86,8 @@ int main( int argc, char** argv ) {
 
     //Optional user actions
     //
-    //runManager->SetUserAction( new CaliceRunAction(outputname)  );
-    //runManager->SetUserAction( new CaliceEventAction );
+    runManager->SetUserAction( new CaliceRunAction(outputname)  );
+    runManager->SetUserAction( new CaliceEventAction );
 
     // Initialize run manager, not needed can be done in macros, to be removed
     //
