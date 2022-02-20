@@ -13,7 +13,7 @@ ifndef G4INSTALL
     G4INSTALL == ../../..
 endif
 
-CPPFLAGS += `root-config --cflags`
+#CPPFLAGS += `root-config --cflags`
 
 .PHONY: all
 all: lib bin
