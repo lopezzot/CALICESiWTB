@@ -1,0 +1,13 @@
+/run/initialize
+/run/verbose 0
+/event/verbose 0 
+/tracking/verbose 0 
+#
+#/gps/pos/radius 6.5 mm
+/gun/particle pi-
+/gun/energy 6 GeV
+#/gun/position 0 0 -1.0 m
+#
+/run/beamOn 100000
+#
+
