@@ -11,7 +11,7 @@
 //
 #include "CaliceEventAction.hh"
 #include "CaliceEcalSD.hh"
-//#include "CaliceAnalysisManager.hh"
+#include "CaliceAnalysisManager.hh"
 //#include "CaliceCalorimeterHit.hh"
 
 //Includers from Geant4
@@ -32,7 +32,9 @@ CaliceEventAction::CaliceEventAction():
     debugStarted(false) {
     
     UI = G4UImanager::GetUIpointer();
-    //man = CaliceAnalysisManager::GetPointer();
+    //Get CaliceAnalysisManager (the one and only)
+    //
+    man = CaliceAnalysisManager::GetPointer();
 
 }
 
@@ -76,7 +78,10 @@ void CaliceEventAction::PrintEventStatistics(G4double gapEdep, G4double gapTrack
 //BeginOfEventAction definition
 //
 void CaliceEventAction::BeginOfEventAction(const G4Event* evt) {
-    //man->BeginOfEvent(); 
+
+    //Initialize to 0 some variables in CaliceAnalysisManager
+    //
+    man->BeginOfEvent(); 
     /*  if(man->GetVerbose() > 0 || G4int(nEvt/printModulo)*printModulo == nEvt) {
         G4cout << "CaliceEventAction: Event # "
                << nEvt << " started" << G4endl;
@@ -93,16 +98,18 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
     //auto caloHit = (*caloHC)[caloHC->entries()-1];
 
     auto eventID = evt->GetEventID();
-    //man->EndOfEvent(); 
+    //Increment nevent in CaliceAnalysisManager and fill ROOT tree
+    //
+    man->EndOfEvent(); 
     
-    //  auto printModulo = G4RunManager::GetRunManager()->GetPrintProgress();
+    //auto printModulo = G4RunManager::GetRunManager()->GetPrintProgress();
 
     if(debugStarted) {
         UI->ApplyCommand("/tracking/verbose  0");
         debugStarted = false;
     }
 
-    if (!(evt->GetEventID()%1000) )  G4cout << "End of event #" << eventID  << G4endl;
+    if (!(evt->GetEventID()%1000) )  G4cout << "-->CALICESiWTB::CaliceEventAction: End of event #" << eventID  << G4endl;
 
 }
 
