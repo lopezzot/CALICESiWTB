@@ -110,9 +110,9 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
     y = aStep->GetPreStepPoint()->GetPosition().y()/mm;
     z = aStep->GetPreStepPoint()->GetPosition().z()/mm;
     
-    //theCaliceAnalysis->h_xProfile->Fill(x);
-    //theCaliceAnalysis->h_yProfile->Fill(y);
-    //theCaliceAnalysis->h_zProfile->Fill(z);
+    theCaliceAnalysis->h_xProfile->Fill(x);
+    theCaliceAnalysis->h_yProfile->Fill(y);
+    theCaliceAnalysis->h_zProfile->Fill(z);
     //theCaliceAnalysis->h_energyPerHit->Fill(edep);
 
     return true;
