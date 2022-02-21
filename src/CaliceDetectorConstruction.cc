@@ -16,7 +16,7 @@
 //
 #include "CaliceDetectorConstruction.hh"
 //#include "CaliceSensitiveCalorimeter.hh"
-//#include "CaliceEcalSD.hh"
+#include "CaliceEcalSD.hh"
  
 //Constructor definition
 //
@@ -39,8 +39,8 @@ G4VPhysicalVolume* CaliceDetectorConstruction::Construct() {
 //
 void CaliceDetectorConstruction::ConstructSDandField() {
     
-    //auto ecalSD = new CaliceEcalSD("EcalSD", "CaloHitsCollection");
-    //G4SDManager::GetSDMpointer()->AddNewDetector(ecalSD);
+    auto ecalSD = new CaliceEcalSD("EcalSD", "CaloHitsCollection");
+    G4SDManager::GetSDMpointer()->AddNewDetector(ecalSD);
  
     //G4cout << "Constructing Sensitive Detector..." << G4endl; 
     ///////////////////////////////////////////////////////////////////////
@@ -76,7 +76,7 @@ void CaliceDetectorConstruction::ConstructSDandField() {
                 <<  G4endl << G4endl;
 
                 G4LogicalVolume* myvol = (*iter).first;
-                //myvol->SetSensitiveDetector(ecalSD);
+                myvol->SetSensitiveDetector(ecalSD);
             }
         }
     }

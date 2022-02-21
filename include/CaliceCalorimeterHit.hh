@@ -96,7 +96,7 @@ class CaliceCalorimeterHit : public G4VHit {
 //
 using CaliceHitsCollection = G4THitsCollection<CaliceCalorimeterHit>;
 
-/*extern G4ThreadLocal*/ G4Allocator<CaliceCalorimeterHit>* CaliceCalorimeterHitAllocator;
+extern /*G4ThreadLocal*/ G4Allocator<CaliceCalorimeterHit>* CaliceCalorimeterHitAllocator;
 
 //Inline methods declaration
 //

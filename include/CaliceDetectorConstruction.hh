@@ -19,7 +19,7 @@ class G4GDMLParser;
 
 //Includers from project files
 //
-//class CaliceEcalSD;
+class CaliceEcalSD;
 
 /*Class for laoding GDML geometry*/
 

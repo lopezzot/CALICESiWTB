@@ -11,7 +11,7 @@
 //
 #include "CaliceEcalSD.hh"
 //#include "CaliceAnalysisManager.hh"
-//#include "CaliceCalorimeterHit.hh"
+#include "CaliceCalorimeterHit.hh"
 
 //Includers from Geant4
 //
@@ -36,7 +36,7 @@ CaliceEcalSD::CaliceEcalSD(const G4String& name, const G4String& hitsCollectionN
     fNofReadoutLayers(30),fNofCells(9720) {
     
     //theCaliceAnalysis = CaliceAnalysisManager::GetPointer(); //the one and only
-    //collectionName.insert(hitsCollectionName);
+    collectionName.insert(hitsCollectionName);
 
 }
 
@@ -48,11 +48,11 @@ CaliceEcalSD::~CaliceEcalSD() {}
 //
 void CaliceEcalSD::Initialize(G4HCofThisEvent* hce) {
     
-    //fHitsCollection = new CaliceHitsCollection( SensitiveDetectorName, collectionName[0] );
+    fHitsCollection = new CaliceHitsCollection( SensitiveDetectorName, collectionName[0] );
   
     // Add this collection in hce
     G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
-    //hce->AddHitsCollection( hcID, fHitsCollection );
+    hce->AddHitsCollection( hcID, fHitsCollection );
     totE = 0.;  
  
 }
