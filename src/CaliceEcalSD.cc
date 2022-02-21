@@ -96,14 +96,13 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
     
     //Add values
     //
-    /* 
+     
     if ( aStep->GetTrack()->GetParentID() == 0 && aStep->GetSecondaryInCurrentStep() != NULL ) {
         theCaliceAnalysis->MClayer = layerNumber;
         theCaliceAnalysis->firstInteractionLayer = layerNumber;
         theCaliceAnalysis->isInteraction = true;
     }
-    */
-   
+    
     //Filling output tree and histograms
     //
     x = aStep->GetPreStepPoint()->GetPosition().x()/mm;
