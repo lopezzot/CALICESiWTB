@@ -12,7 +12,7 @@
 #include "CaliceEventAction.hh"
 #include "CaliceEcalSD.hh"
 #include "CaliceAnalysisManager.hh"
-//#include "CaliceCalorimeterHit.hh"
+#include "CaliceCalorimeterHit.hh"
 
 //Includers from Geant4
 //
@@ -42,27 +42,24 @@ CaliceEventAction::CaliceEventAction():
 //
 CaliceEventAction::~CaliceEventAction() { }
 
-/*
-CaliceHitsCollection*
-CaliceEventAction::GetHitsCollection(const G4String& hcName,
-                                  const G4Event* event) const
-{
-  G4int hcID
-    = G4SDManager::GetSDMpointer()->GetCollectionID(hcName);
-  auto hitsCollection
-    = static_cast<CaliceHitsCollection*>(
-        event->GetHCofThisEvent()->GetHC(hcID));
+//GetHitsCollection definition
+//
+CaliceHitsCollection* CaliceEventAction::GetHitsCollection(const G4String& hcName,
+                                                           const G4Event* event) const {
+    G4int hcID
+        = G4SDManager::GetSDMpointer()->GetCollectionID(hcName);
+    auto hitsCollection
+        = static_cast<CaliceHitsCollection*>(event->GetHCofThisEvent()->GetHC(hcID));
 
-  if ( ! hitsCollection ) {
-    G4ExceptionDescription msg;
-    msg << "Cannot access hitsCollection ID " << hcID;
-    G4Exception("CaliceEventAction::GetHitsCollection()",
-      "MyCode0003", FatalException, msg);
-  }
+    if ( ! hitsCollection ) {
+        G4ExceptionDescription msg;
+        msg << "Cannot access hitsCollection ID " << hcID;
+        G4Exception("CaliceEventAction::GetHitsCollection()",
+            "MyCode0003", FatalException, msg);
+    }
 
-  return hitsCollection;
+    return hitsCollection;
 }
-*/
 
 //PrintEventStatistics method definition
 //

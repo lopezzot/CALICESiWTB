@@ -14,7 +14,7 @@
 
 //Includers from project files
 //
-//#include "CaliceCalorimeterHit.hh" 
+#include "CaliceCalorimeterHit.hh" 
 class CaliceAnalysisManager;
 
 //Includers from Geant4
@@ -38,7 +38,7 @@ class CaliceEventAction : public G4UserEventAction {
 
     private:
 
-        //CaliceHitsCollection* GetHitsCollection(const G4String& hcName,const G4Event* event) const;
+        CaliceHitsCollection* GetHitsCollection(const G4String& hcName,const G4Event* event) const;
 
         void PrintEventStatistics(G4double gapEdep, G4double gapTrackLength) const;
         

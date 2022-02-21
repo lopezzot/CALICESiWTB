@@ -99,13 +99,13 @@ void CaliceAnalysisManager::bookAnalysisTree() {
 
     //Histograms definition
     //
-    h_xProfile = new TH1D("h_xProfile","Shower profile vs X",100,-100,100);
-    h_yProfile = new TH1D("h_yProfile","Shower profile vs Y",100,-100,100);
-    h_zProfile = new TH1D("h_zProfile","Shower profile vs Z",100,1300,1500);
+    h_xProfile = new TH1D("h_xProfile","Shower profile vs X",100,-100.,100.);
+    h_yProfile = new TH1D("h_yProfile","Shower profile vs Y",100,-100.,100.);
+    h_zProfile = new TH1D("h_zProfile","Shower profile vs Z",100,1300.,1500.);
     h_longitudinalHits = new TH1I("h_longitudinalHits","longitudinal hit distribution",30,0,30);
-    h_longitudinalE = new TH1F("h_longitudinalE","longitudinal hit distribution",30,0,30);
-    h_energyPerHit = new TH1D("h_energyPerHit","energy per hit",100,0,20);
-    h_energyPerEvent = new TH1D("h_energyPerEvent","energy per event",100,0,50);
+    h_longitudinalE = new TH1F("h_longitudinalE","longitudinal hit distribution",30,0.,30.);
+    h_energyPerHit = new TH1D("h_energyPerHit","energy per hit",100,0.,20.);
+    h_energyPerEvent = new TH1D("h_energyPerEvent","energy per event",100,0.,50.);
     //h_EoverR = new TH2D("h_EoverR","deposited Energy [MIP] over distance from shower center",50,0,100,22,0,22);
 
 }
