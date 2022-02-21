@@ -35,7 +35,7 @@ CaliceEcalSD::CaliceEcalSD(const G4String& name, const G4String& hitsCollectionN
     :G4VSensitiveDetector(name)/*,fHitsCollection(0)*/,MeV2MIP(0.155),
     fNofReadoutLayers(30),fNofCells(9720) {
     
-    //theCaliceAnalysis = CaliceAnalysisManager::GetPointer();
+    //theCaliceAnalysis = CaliceAnalysisManager::GetPointer(); //the one and only
     //collectionName.insert(hitsCollectionName);
 
 }
@@ -60,6 +60,7 @@ void CaliceEcalSD::Initialize(G4HCofThisEvent* hce) {
 //Define CaliceEcalSD()
 //
 G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
+    G4cout<<"HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"<<G4endl;
     /*
     G4float edep = (aStep->GetTotalEnergyDeposit()/MeV)/MeV2MIP; //get energy deposition in units of MIP = 0.155 MeV 
     G4double stepLength = 0.;

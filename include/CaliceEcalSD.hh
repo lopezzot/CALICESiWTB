@@ -50,7 +50,7 @@ class CaliceEcalSD : public G4VSensitiveDetector {
 
     private:
 
-        //CaliceAnalysisManager*   theCaliceAnalysis;
+        //CaliceAnalysisManager*  theCaliceAnalysis; //the one and only
         //CaliceHitsCollection* fHitsCollection;
         G4int fNofReadoutLayers; 
         G4int fNofCells;
