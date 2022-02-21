@@ -131,9 +131,9 @@ void CaliceAnalysisManager::BeginOfRun(G4String filename) {
 //
 void CaliceAnalysisManager::EndOfRun() {
 
-  fOutputFile->Write();
-  fOutputFile->Close();
-  G4cout << "-->CALICESiWTB::CaliceAnalysisManager: Output file written and closed" << G4endl;
+    fOutputFile->Write();
+    fOutputFile->Close();
+    G4cout << "-->CALICESiWTB::CaliceAnalysisManager: Output file written and closed" << G4endl;
 
 }
 
