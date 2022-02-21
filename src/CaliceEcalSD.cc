@@ -60,7 +60,14 @@ void CaliceEcalSD::Initialize(G4HCofThisEvent* hce) {
 //Define CaliceEcalSD()
 //
 G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
-    G4cout<<"HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"<<G4endl;
+
+    //Print out some info step-by-step
+    //
+    G4cout<<"Track #: "<< aStep->GetTrack()->GetTrackID()<< " " <<
+            "Step #: " << aStep->GetTrack()->GetCurrentStepNumber()<< " "<<
+            "Volume: " << aStep->GetPreStepPoint()->GetTouchableHandle()->GetVolume()->GetName()<< " " <<
+            "Particle "<< aStep->GetTrack()->GetParticleDefinition()->GetParticleName()<< " " <<
+            "Dep(MeV) "<< aStep->GetTotalEnergyDeposit()<<G4endl;
     /*
     G4float edep = (aStep->GetTotalEnergyDeposit()/MeV)/MeV2MIP; //get energy deposition in units of MIP = 0.155 MeV 
     G4double stepLength = 0.;
