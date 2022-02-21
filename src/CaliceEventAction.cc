@@ -109,7 +109,7 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
         debugStarted = false;
     }
 
-    if (!(evt->GetEventID()%1000) )  G4cout << "-->CALICESiWTB::CaliceEventAction: End of event #" << eventID  << G4endl;
+    if (!(evt->GetEventID()%1000) )  G4cout << "------>CALICESiWTB::CaliceEventAction: End of event #" << eventID  << G4endl;
 
 }
 

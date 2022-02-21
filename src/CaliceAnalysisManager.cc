@@ -123,7 +123,7 @@ void CaliceAnalysisManager::BeginOfRun(G4String filename) {
     bookAnalysisTree();
     SetBeamEnergy(fParticleEnergy);
     //  if(verbose > 0) 
-    G4cout << "-->CALCIESiWTB::CaliceAnalysisManager: Output file created"<<G4endl;
+    G4cout << "---->CALCIESiWTB::CaliceAnalysisManager: Output file created"<<G4endl;
 
 }
 
@@ -133,7 +133,7 @@ void CaliceAnalysisManager::EndOfRun() {
 
     fOutputFile->Write();
     fOutputFile->Close();
-    G4cout << "-->CALICESiWTB::CaliceAnalysisManager: Output file written and closed" << G4endl;
+    G4cout << "---->CALICESiWTB::CaliceAnalysisManager: Output file written and closed" << G4endl;
 
 }
 
