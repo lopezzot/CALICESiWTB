@@ -1,5 +1,5 @@
 //**************************************************
-// \file  CaliceDetectorConstruction.cc
+// \file CaliceDetectorConstruction.cc
 // \brief: Implementation of 
 //         CaliceDetectorConstruction class
 // \author: Lorenzo Pezzotti (CERN EP-SFT-sim) 
