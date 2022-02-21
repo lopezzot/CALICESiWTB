@@ -73,13 +73,12 @@ int main( int argc, char** argv ) {
     runManager->SetUserInitialization( physList );
     
     //argv[1] usage    
-    /*G4String particleName = ((string)argv[1]).substr(4);
+    G4String particleName = ((string)argv[1]).substr(4);
     particleName = particleName.substr(0,3);
     G4String particleEnergy = ((string)argv[1]).substr(8);
     particleEnergy = particleEnergy.substr(0,particleEnergy.find("GeV"));
-    G4String outputname = "Calice_" + physListName + "_" + particleName + "_" + particleEnergy + "GeV.root"; 
-    */
-    G4String outputname = "CALICESiWTBout.root";
+    G4String outputname = "Calice_" + custom_pl + "_" + particleName + "_" + particleEnergy + "GeV.root";  
+    //G4String outputname = "CALICESiWTBout.root";
 
     //Mandatory User Actions: 3- PrimaryGeneratorAction
     //

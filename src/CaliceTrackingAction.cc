@@ -73,7 +73,7 @@ void CaliceTrackingAction::PostUserTrackingAction(const G4Track* aTrack) {
 	        }       
             }
         }
-        G4cout << "  Nchar= " << n_char << " n_neut= " << n_neut << G4endl;
+        //G4cout << "  Nchar= " << n_char << " n_neut= " << n_neut << G4endl;
         //fCaliceAnalysis->SetFirstInteraction(z,n_char,n_neut);
     }
         
