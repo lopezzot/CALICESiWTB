@@ -47,6 +47,11 @@ target_link_libraries(CALICESiWTB ${ROOT_LIBRARIES})
 #Copy all scripts to the build directory
 #
 set(CALICESiWTB_SCRIPTS
+    run_pi-_2GeV.mac 
+    run_pi-_4GeV.mac 
+    run_pi-_6GeV.mac 
+    run_pi-_8GeV.mac 
+    run_pi-_10GeV.mac 
     CALICESiWTB_init_vis.mac
     CALICESiWTB_gui.mac
     )
