@@ -47,6 +47,7 @@ target_link_libraries(CALICESiWTB ${ROOT_LIBRARIES})
 #Copy all scripts to the build directory
 #
 set(CALICESiWTB_SCRIPTS
+    myCaliceGeometry.gdml
     run_pi-_2GeV.mac 
     run_pi-_4GeV.mac 
     run_pi-_6GeV.mac 
