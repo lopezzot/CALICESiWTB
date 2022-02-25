@@ -55,11 +55,11 @@ void MyLongitudinalPlots()
   modelName = "QGSP_BERT";
 
   //single pion QGSP_BERT
-  filename[0] = "../../build6/results/Calice_QGSP_BERT_pi-_2GeV.root";
-  filename[1] = "../../build6/results/Calice_QGSP_BERT_pi-_4GeV.root";
-  filename[2] = "../../build6/results/Calice_QGSP_BERT_pi-_6GeV.root";
-  filename[3] = "../../build6/results/Calice_QGSP_BERT_pi-_8GeV.root";
-  filename[4] = "../../build6/results/Calice_QGSP_BERT_pi-_10GeV.root";
+  filename[0] = "../../build9/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "../../build6/results/Calice_QBBC_pi-_4GeV.root";
+  filename[2] = "../../build6/results/Calice_QBBC_pi-_6GeV.root";
+  filename[3] = "../../build6/results/Calice_QBBC_pi-_8GeV.root";
+  filename[4] = "../../build6/results/Calice_QBBC_pi-_10GeV.root";
   
   /* express longitudinal shower shapes in terms of layer numbers (0..30) or pseudolayer numbers (0..60) to account for difference in absorber thickness (sampling) in modules */
   // will be normalised bin-by-bin with the number of entries (= events)
@@ -205,13 +205,14 @@ void MyLongitudinalPlots()
 
           //read the events
           int numberOfEvents =  tree->GetEntries();
+          std::cout<<numberOfEvents<<std::endl;
           for ( int n =  0 ; n < numberOfEvents ; n++ )
             {
               tree->GetEntry(n);
-              if ( nhits < 25 ) continue;
+              //if ( nhits < 25 ) continue;
               //Last step of the event selection
               if (isInteraction && reconstructedInteractionLayer >= minLayer && reconstructedInteractionLayer < maxLayer)               {
-  //            if (isInteraction)               {
+              //if (isInteraction)               {
                   double energySum = 0.;
                   for (int layer = reconstructedInteractionLayer; layer < 30; layer++)
                     {
