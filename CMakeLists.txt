@@ -41,6 +41,7 @@ target_link_libraries(CALICESiWTB ${Geant4_LIBRARIES})
 #
 set(CALICESiWTB_SCRIPTS
     myCaliceGeometry.gdml
+    runSim.py
     run_pi-_2GeV.mac 
     run_pi-_4GeV.mac 
     run_pi-_6GeV.mac 
