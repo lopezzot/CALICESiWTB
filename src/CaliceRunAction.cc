@@ -36,7 +36,7 @@ CaliceRunAction::CaliceRunAction(G4String listname, CaliceEventAction* evtaction
     analysisManager->SetVerboseLevel( 1 );
     analysisManager->SetNtupleMerging( 1 );    
 
-    analysisManager->CreateNtuple("CALICESiWTBout", "tree");
+    analysisManager->CreateNtuple("tree", "tree");
     analysisManager->CreateNtupleIColumn("isInteraction");
     analysisManager->CreateNtupleIColumn("firstInteractionLayer");
     analysisManager->CreateNtupleIColumn("nhits");
