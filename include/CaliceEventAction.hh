@@ -15,7 +15,6 @@
 //Includers from project files
 //
 #include "CaliceCalorimeterHit.hh" 
-//class CaliceAnalysisManager;
 
 //Includers from Geant4
 //
@@ -46,8 +45,6 @@ class CaliceEventAction : public G4UserEventAction {
         void PrintEventStatistics(G4double gapEdep, G4double gapTrackLength) const;
         
         G4UImanager*          UI;
-        
-        //CaliceAnalysisManager* man; //the one and only
         
         std::vector<G4int>    selectedEvents;
         G4int printModulo;

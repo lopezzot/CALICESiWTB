@@ -16,10 +16,6 @@
 //
 #include "G4UserTrackingAction.hh"
 
-//Includers from project files
-//
-//class CaliceAnalysisManager;
-
 class CaliceTrackingAction : public G4UserTrackingAction {
 
     public:
@@ -35,8 +31,6 @@ class CaliceTrackingAction : public G4UserTrackingAction {
 
         CaliceTrackingAction & operator=(const CaliceTrackingAction &right);
         CaliceTrackingAction(const CaliceTrackingAction&);
-
-        //CaliceAnalysisManager* fCaliceAnalysis; //the one and only
 
 };
 

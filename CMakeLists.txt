@@ -22,12 +22,6 @@ else()
     find_package(Geant4 REQUIRED)
 endif()
 
-#ROOT
-#list(APPEND CMAKE_PREFIX_PATH $ENV{ROOTSYS})
-#find_package(ROOT REQUIRED COMPONENTS RIO)
-#include(${ROOT_USE_FILE})
-#include_directories(${ROOT_INCLUDE_DIRS})
-
 #Setup Geant4 include directories and project include directories
 #
 include(${Geant4_USE_FILE})
@@ -42,7 +36,6 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 #
 add_executable(CALICESiWTB CALICESiWTB.cc ${sources} ${headers})
 target_link_libraries(CALICESiWTB ${Geant4_LIBRARIES})
-#target_link_libraries(CALICESiWTB ${ROOT_LIBRARIES})
 
 #Copy all scripts to the build directory
 #

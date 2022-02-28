@@ -11,7 +11,6 @@
 //
 #include "CaliceEventAction.hh"
 #include "CaliceEcalSD.hh"
-//#include "CaliceAnalysisManager.hh"
 #include "CaliceCalorimeterHit.hh"
 
 //Includers from Geant4
@@ -35,10 +34,6 @@ CaliceEventAction::CaliceEventAction():
     felayer{},
     fhitslayer{} {
     UI = G4UImanager::GetUIpointer();
-    //Get CaliceAnalysisManager (the one and only)
-    //
-    //man = CaliceAnalysisManager::GetPointer();
-
 }
 
 //Deconstructor definition
@@ -83,13 +78,6 @@ void CaliceEventAction::BeginOfEventAction(const G4Event* evt) {
     fhitslayer.clear();
     for ( unsigned int i = 0; i<30; i++) { fhitslayer.push_back(0.); }
 
-    //Initialize to 0 some variables in CaliceAnalysisManager
-    //
-    //man->BeginOfEvent(); 
-    /*  if(man->GetVerbose() > 0 || G4int(nEvt/printModulo)*printModulo == nEvt) {
-        G4cout << "CaliceEventAction: Event # "
-               << nEvt << " started" << G4endl;
-    }*/
 }
 
 //EndOfEventAction definition
@@ -104,8 +92,6 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
     for(unsigned int i=0; i<caloHC->entries(); i++){
         analysisManager->FillNtupleIColumn(2, caloHC->entries() );
     }
-
-
 
     float samplingFraction = 1.0;
     int NbHits = caloHC->entries();
@@ -139,9 +125,6 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
     analysisManager->AddNtupleRow();
 
     auto eventID = evt->GetEventID();
-    //Increment nevent in CaliceAnalysisManager and fill ROOT tree
-    //
-    //man->EndOfEvent(); 
     
     //auto printModulo = G4RunManager::GetRunManager()->GetPrintProgress();
 

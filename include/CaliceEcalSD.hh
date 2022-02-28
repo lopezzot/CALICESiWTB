@@ -15,7 +15,6 @@
 //Includers from project files
 //
 #include "CaliceCalorimeterHit.hh"
-//class CaliceAnalysisManager;
 
 //Includers from Geant4
 //
@@ -51,7 +50,6 @@ class CaliceEcalSD : public G4VSensitiveDetector {
 
     private:
 
-        //CaliceAnalysisManager*  theCaliceAnalysis; //the one and only
         CaliceHitsCollection* fHitsCollection;
         G4int fNofReadoutLayers; 
         G4int fNofCells;

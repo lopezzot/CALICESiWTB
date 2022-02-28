@@ -10,7 +10,6 @@
 //Includers from project files
 //
 #include "CaliceEcalSD.hh"
-//#include "CaliceAnalysisManager.hh"
 #include "CaliceCalorimeterHit.hh"
 
 //Includers from Geant4
@@ -37,7 +36,6 @@ CaliceEcalSD::CaliceEcalSD(const G4String& name, const G4String& hitsCollectionN
     fNofReadoutLayers(30),fNofCells(9720), fisInteraction(false),
     fFirstInteractionLayer(-1) {
     
-    //theCaliceAnalysis = CaliceAnalysisManager::GetPointer(); //the one and only
     collectionName.insert(hitsCollectionName);
 
 }
@@ -96,15 +94,6 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
     hit->SetLayerID(layerNumber);
     fHitsCollection->insert( hit ); 
     
-    //Add values
-    //
-    //if ( aStep->GetTrack()->GetParentID() == 0 && aStep->GetSecondaryInCurrentStep() != NULL ) {
-    //    theCaliceAnalysis->MClayer = layerNumber;
-    //    theCaliceAnalysis->firstInteractionLayer = layerNumber;
-    //    theCaliceAnalysis->isInteraction = true;
-    //    fisInteraction = true;
-    //}
-
     //Add values for G4Analysis
     //
     if ( aStep->GetTrack()->GetParentID() == 0 && aStep->GetSecondaryInCurrentStep() != NULL ) {
@@ -118,11 +107,6 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
     y = aStep->GetPreStepPoint()->GetPosition().y()/mm;
     z = aStep->GetPreStepPoint()->GetPosition().z()/mm;
     
-    //theCaliceAnalysis->h_xProfile->Fill(x);
-    //theCaliceAnalysis->h_yProfile->Fill(y);
-    //theCaliceAnalysis->h_zProfile->Fill(z);
-    //theCaliceAnalysis->h_energyPerHit->Fill(edep);
-
     return true;
     
 }
@@ -131,58 +115,6 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
 //
 void CaliceEcalSD::EndOfEvent(G4HCofThisEvent*) {
      
-    //Storing the hits in ROOT file
-    //
-    G4int NbHits = fHitsCollection->entries();
- 
-    //theCaliceAnalysis->nhits = NbHits;
-    //for (G4int i=0;i<NbHits;i++) {
-    //    theCaliceAnalysis->posx[i] = 0; 
-    //    theCaliceAnalysis->posy[i] = 0;
-    //    theCaliceAnalysis->posz[i] = 0;
-    //    theCaliceAnalysis->energy[i] = 0;
-    //    theCaliceAnalysis->layer[i] = -1;
-    //}
-           
-    //float samplingFraction = 0;
-    float samplingFraction = 1.0;
-    for (G4int i=0;i<NbHits;i++) {
-
-        //theCaliceAnalysis->posx[i] = (*fHitsCollection)[i]->GetPos().x()/mm;
-        //theCaliceAnalysis->posy[i] = (*fHitsCollection)[i]->GetPos().y()/mm;
-        //theCaliceAnalysis->posz[i] = (*fHitsCollection)[i]->GetPos().z()/mm;
-        
-        int layerNumber = (*fHitsCollection)[i]->GetLayerID();
-
-        // to account for different amount of dead material preceding even
-        // and odd layers + different sampling fraction in the modules
-        if ( layerNumber < 10 ) {
-            if ( layerNumber%2==0 ) samplingFraction = 1.;
-            else samplingFraction = 1.072;
-        } 
-        else if ( layerNumber > 9 && layerNumber < 20 ) {
-            //if ( layerNumber%2==0 ) samplingFraction = 2;
-            if ( layerNumber%2==0 ) samplingFraction = 1;
-            //else samplingFraction = 2.047;
-            else samplingFraction = 1.047;
-        }
-        else {
-            //if ( layerNumber%2==0 ) samplingFraction = 3;
-            if ( layerNumber%2==0 ) samplingFraction = 1;
-            //else samplingFraction = 3.047;
-            else samplingFraction = 1.047;
-        }
-        if ( samplingFraction*(*fHitsCollection)[i]->GetEdep() < 0.6 ) continue;
-        //theCaliceAnalysis->energy[i] = samplingFraction*(*fHitsCollection)[i]->GetEdep(); // in MIP
-        //theCaliceAnalysis->layer[i] = layerNumber; //(*fHitsCollection)[i]->GetLayerID();
-        //theCaliceAnalysis->h_energyPerHit->Fill(samplingFraction*(*fHitsCollection)[i]->GetEdep());
-        //theCaliceAnalysis->elayer[layerNumber] += samplingFraction*(*fHitsCollection)[i]->GetEdep();
-        //theCaliceAnalysis->hitslayer[layerNumber]++;
-        //theCaliceAnalysis->totEdep += samplingFraction*(*fHitsCollection)[i]->GetEdep();
-    }
-    //theCaliceAnalysis->totEdep = totE;
-    totE = 0;
- 
     // G4Analysis Manager part
     //
     auto analysisManager = G4AnalysisManager::Instance();

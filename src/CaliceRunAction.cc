@@ -10,7 +10,6 @@
 //Includers from project files
 //
 #include "CaliceRunAction.hh"
-//#include "CaliceAnalysisManager.hh"
 #include "CaliceEventAction.hh"
 
 //Includers from Geant4
@@ -64,11 +63,6 @@ void CaliceRunAction::BeginOfRunAction(const G4Run* aRun) {
     //G4int id = aRun->GetRunID();
     G4cout << "-->CALICESiWTB::CaliceRunAction: Run starts now !" << G4endl; //tell me you alive
     
-    //Get CaliceAnalysisManager (the one and only)
-    //Set root output file name, book tree and set beam energy in CaliceAnalysisManager
-    //
-    //(CaliceAnalysisManager::GetPointer())->BeginOfRun(fPhysList);
-
     //Inform G4AnalysisManager out outputfile
     //
     auto analysisManager = G4AnalysisManager::Instance();
@@ -85,10 +79,6 @@ void CaliceRunAction::BeginOfRunAction(const G4Run* aRun) {
 void CaliceRunAction::EndOfRunAction(const G4Run*) {
   
     G4cout << "-->CALICESiWTB::CaliceRunAction Run ends now !" << G4endl; //tell me you alive again
-    //Get CaliceAnalysisManager (the one and only)
-    //Write root output file and close it
-    //
-    //CaliceAnalysisManager::GetPointer()->EndOfRun();
 
     //Inform G4AnalysisManager its time to end
     //
