@@ -1,4 +1,5 @@
 #include "AnalysisHelper.h"
+#include <vector>
 
 TString filename[5];
 TString modelName;
@@ -55,11 +56,16 @@ void MyLongitudinalPlots()
   modelName = "QGSP_BERT";
 
   //single pion QGSP_BERT
-  filename[0] = "../../build9/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "../../build6/results/Calice_QBBC_pi-_4GeV.root";
-  filename[2] = "../../build6/results/Calice_QBBC_pi-_6GeV.root";
-  filename[3] = "../../build6/results/Calice_QBBC_pi-_8GeV.root";
-  filename[4] = "../../build6/results/Calice_QBBC_pi-_10GeV.root";
+  //filename[0] = "../../build6/results/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/Calice_FTFP_BERT_pi-_4GeVold.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/Calice_FTFP_BERT_pi-_2GeV.root";
+  //filename[1] = "../../build6/results/Calice_FTFP_BERT_pi-_4GeV.root";
+  //filename[2] = "../../build6/results/Calice_FTFP_BERT_pi-_6GeV.root";
+  //filename[3] = "../../build6/results/Calice_FTFP_BERT_pi-_8GeV.root";
+  //filename[4] = "../../build6/results/Calice_FTFP_BERT_pi-_10GeV.root";
   
   /* express longitudinal shower shapes in terms of layer numbers (0..30) or pseudolayer numbers (0..60) to account for difference in absorber thickness (sampling) in modules */
   // will be normalised bin-by-bin with the number of entries (= events)
@@ -192,14 +198,14 @@ void MyLongitudinalPlots()
 
           TTree *tree = (TTree*)inputFile->Get("tree");
           //read the tree
-          bool isInteraction;
+          int isInteraction;
           tree->SetBranchAddress("isInteraction",&isInteraction);
           int reconstructedInteractionLayer;
           tree->SetBranchAddress("firstInteractionLayer",&reconstructedInteractionLayer);
-          float energyLayer[30];
-          tree->SetBranchAddress("elayer",&energyLayer);
-          int hitsLayer[30];
-          tree->SetBranchAddress("hitslayer",&hitsLayer);
+          vector<double>* energyLayer = NULL;
+          tree->SetBranchAddress("elayer", &energyLayer);
+          vector<int>* hitsLayer = NULL;
+          tree->SetBranchAddress("hitslayer", &hitsLayer);
           int nhits;
           tree->SetBranchAddress("nhits",&nhits);
 
@@ -211,35 +217,36 @@ void MyLongitudinalPlots()
               tree->GetEntry(n);
               //if ( nhits < 25 ) continue;
               //Last step of the event selection
-              if (isInteraction && reconstructedInteractionLayer >= minLayer && reconstructedInteractionLayer < maxLayer)               {
+              std::cout<<n<<std::endl;
+              if (isInteraction==1 && reconstructedInteractionLayer >= minLayer && reconstructedInteractionLayer < maxLayer)               {
               //if (isInteraction)               {
                   double energySum = 0.;
                   for (int layer = reconstructedInteractionLayer; layer < 30; layer++)
                     {
                       int relativeLayer = pseudoLayer[layer]-pseudoLayer[reconstructedInteractionLayer];
                       int relativeLayerAbs = layer - reconstructedInteractionLayer;
-                      histZ[file]->Fill(relativeLayerAbs,hitsLayer[layer]);
-                      histZnorm[file]->Fill(relativeLayerAbs,hitsLayer[layer]);
-                      histSquaredZ[file]->Fill(relativeLayerAbs,hitsLayer[layer]*hitsLayer[layer]);
+                      histZ[file]->Fill(relativeLayerAbs,hitsLayer->at(layer));
+                      histZnorm[file]->Fill(relativeLayerAbs,hitsLayer->at(layer));
+                      histSquaredZ[file]->Fill(relativeLayerAbs,hitsLayer->at(layer)*hitsLayer->at(layer));
                       binEntriesZ[file][relativeLayerAbs]++;
-                      meanZ[file] += hitsLayer[layer]*relativeLayerAbs;
-                      meanZsquared[file] += hitsLayer[layer]*relativeLayerAbs*relativeLayerAbs;
-                      sumOfZWeights[file] += hitsLayer[layer];
-                      energySum += energyLayer[layer];
-                      histLongitudinalMeanHitEnergy[file]->Fill(relativeLayerAbs, energyLayer[layer]);
+                      meanZ[file] += hitsLayer->at(layer)*relativeLayerAbs;
+                      meanZsquared[file] += hitsLayer->at(layer)*relativeLayerAbs*relativeLayerAbs;
+                      sumOfZWeights[file] += hitsLayer->at(layer);
+                      energySum += energyLayer->at(layer);
+                      histLongitudinalMeanHitEnergy[file]->Fill(relativeLayerAbs, energyLayer->at(layer));
                       if (layer<10)
                         {
-                          histLongitudinalProfile[file]->Fill(relativeLayer, energyLayer[layer]);
-                          histLongitudinalSquaredProfile[file]->Fill(relativeLayer, energyLayer[layer]*energyLayer[layer]);
+                          histLongitudinalProfile[file]->Fill(relativeLayer, energyLayer->at(layer));
+                          histLongitudinalSquaredProfile[file]->Fill(relativeLayer, energyLayer->at(layer)*energyLayer->at(layer));
                           binEntries[file][relativeLayer]++;
-                          meanEweightedZ[file] += energyLayer[layer]*relativeLayer;
-                          meanEweightedZsquared[file] += energyLayer[layer]*relativeLayer*relativeLayer;
-                          sumOfWeights[file] += energyLayer[layer];
+                          meanEweightedZ[file] += energyLayer->at(layer)*relativeLayer;
+                          meanEweightedZsquared[file] += energyLayer->at(layer)*relativeLayer*relativeLayer;
+                          sumOfWeights[file] += energyLayer->at(layer);
                         }
                       else if (layer >= 10 && layer < 20)
                         {
-                          double energy0 = 0.5*energyLayer[layer-1]+0.5*energyLayer[layer];
-                          double energy1 = energyLayer[layer];
+                          double energy0 = 0.5*energyLayer->at(layer-1)+0.5*energyLayer->at(layer);
+                          double energy1 = energyLayer->at(layer);
                           histLongitudinalProfile[file]->Fill(relativeLayer,energy0);
                           histLongitudinalProfile[file]->Fill(relativeLayer+1, energy1);
                           histLongitudinalSquaredProfile[file]->Fill(relativeLayer, energy0*energy0);
@@ -255,9 +262,9 @@ void MyLongitudinalPlots()
                         }
                       else if (layer >= 20)
                         {
-                          double energy0 = (2./3.)*energyLayer[layer-1]+(1./3.)*energyLayer[layer];
-                          double energy1 = (1./3.)*energyLayer[layer-1]+(2./3.)*energyLayer[layer];
-                          double energy2 = energyLayer[layer];
+                          double energy0 = (2./3.)*energyLayer->at(layer-1)+(1./3.)*energyLayer->at(layer);
+                          double energy1 = (1./3.)*energyLayer->at(layer-1)+(2./3.)*energyLayer->at(layer);
+                          double energy2 = energyLayer->at(layer);
                           histLongitudinalProfile[file]->Fill(relativeLayer, energy0);
                           histLongitudinalProfile[file]->Fill(relativeLayer+1, energy1);
                           histLongitudinalProfile[file]->Fill(relativeLayer+2, energy2);
