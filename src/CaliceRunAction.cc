@@ -75,7 +75,7 @@ void CaliceRunAction::BeginOfRunAction(const G4Run* aRun) {
     //std::string runnumber = std::to_string( aRun->GetRunID() );
     //G4String outputfile = "CALICESiWTBout_Run"+runnumber;
     G4String outputfile = "CALICESiWTBout";
-    G4String outputfile = fPhysList; 
+    //G4String outputfile = fPhysList; 
     analysisManager->OpenFile( outputfile );
 
 }
