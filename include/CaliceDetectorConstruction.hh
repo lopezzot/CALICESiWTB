@@ -35,7 +35,6 @@ class CaliceDetectorConstruction : public G4VUserDetectorConstruction {
   
     private:
         const G4GDMLParser& fParser;
-        int fNoOfCells; 
 };
 
 #endif

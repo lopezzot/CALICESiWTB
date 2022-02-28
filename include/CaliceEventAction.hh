@@ -33,7 +33,7 @@ class CaliceEventAction : public G4UserEventAction {
         virtual ~CaliceEventAction();
 
         void BeginOfEventAction(const G4Event*);
-        void   EndOfEventAction(const G4Event*);
+        void EndOfEventAction(const G4Event*);
 
         std::vector<G4double>& Getelayer() { return felayer; };
         std::vector<G4double>& Gethitslayer() { return fhitslayer; };
@@ -47,7 +47,6 @@ class CaliceEventAction : public G4UserEventAction {
         G4UImanager*          UI;
         
         std::vector<G4int>    selectedEvents;
-        G4int printModulo;
         G4bool debugStarted;
         
         std::vector<G4double> felayer;

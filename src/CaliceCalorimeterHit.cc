@@ -29,13 +29,13 @@ G4Allocator<CaliceCalorimeterHit>* CaliceCalorimeterHitAllocator = 0;
 //
 CaliceCalorimeterHit::CaliceCalorimeterHit()
     : G4VHit(),
+      fPadIDx(0),
+      fPadIDy(0),
+      fLayerID(0),
       fEdep(0.),
       fPos(0,0,0),
       fTrackLength(0.),
-      fTrackID(0),
-      fLayerID(0),
-      fPadIDx(0),
-      fPadIDy(0)
+      fTrackID(0)
       //fVolName 
 {}
 

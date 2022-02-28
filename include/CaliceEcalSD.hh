@@ -51,8 +51,8 @@ class CaliceEcalSD : public G4VSensitiveDetector {
     private:
 
         CaliceHitsCollection* fHitsCollection;
-        G4int fNofReadoutLayers; 
-        G4int fNofCells;
+        //G4int fNofReadoutLayers; 
+        //G4int fNofCells;
         float MeV2MIP;
         G4bool fisInteraction;
         G4int fFirstInteractionLayer;

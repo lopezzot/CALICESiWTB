@@ -32,7 +32,7 @@ CalicePrimaryGeneratorAction* CalicePrimaryGeneratorAction::fInstance = 0;
 
 //Constructor definition
 CalicePrimaryGeneratorAction::CalicePrimaryGeneratorAction() : 
-    particleGun(0),particleEnergy(10*GeV) {
+    particleEnergy(10*GeV), particleGun(0) {
     
         particleGun = new G4ParticleGun(1);
 

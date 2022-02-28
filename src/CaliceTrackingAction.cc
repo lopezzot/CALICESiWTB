@@ -34,7 +34,7 @@ CaliceTrackingAction::~CaliceTrackingAction() {}
 
 //PreUserTrackingAction definition
 //
-void CaliceTrackingAction::PreUserTrackingAction(const G4Track* aTrack) {
+void CaliceTrackingAction::PreUserTrackingAction(const G4Track* /*aTrack*/) {
     
 }
 

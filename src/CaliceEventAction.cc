@@ -29,7 +29,6 @@
 //Constructor definition
 //
 CaliceEventAction::CaliceEventAction():
-    printModulo(100),
     debugStarted(false),
     felayer{},
     fhitslayer{} {
@@ -71,7 +70,7 @@ void CaliceEventAction::PrintEventStatistics(G4double gapEdep, G4double gapTrack
 
 //BeginOfEventAction definition
 //
-void CaliceEventAction::BeginOfEventAction(const G4Event* evt) {
+void CaliceEventAction::BeginOfEventAction(const G4Event* /*evt*/) {
 
     felayer.clear();
     for ( unsigned int i = 0; i<30; i++) { felayer.push_back(0.); }
@@ -126,8 +125,6 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
 
     auto eventID = evt->GetEventID();
     
-    //auto printModulo = G4RunManager::GetRunManager()->GetPrintProgress();
-
     if(debugStarted) {
         UI->ApplyCommand("/tracking/verbose  0");
         debugStarted = false;

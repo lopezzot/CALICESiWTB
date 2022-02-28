@@ -32,9 +32,13 @@
 //Define constructor
 //
 CaliceEcalSD::CaliceEcalSD(const G4String& name, const G4String& hitsCollectionName)
-    :G4VSensitiveDetector(name)/*,fHitsCollection(0)*/,MeV2MIP(0.155),
-    fNofReadoutLayers(30),fNofCells(9720), fisInteraction(false),
-    fFirstInteractionLayer(-1) {
+    : G4VSensitiveDetector(name),
+      //fHitsCollection(0),
+      MeV2MIP(0.155),
+      //fNofReadoutLayers(30),
+      //fNofCells(9720),
+      fisInteraction(false),
+      fFirstInteractionLayer(-1) {
     
     collectionName.insert(hitsCollectionName);
 
