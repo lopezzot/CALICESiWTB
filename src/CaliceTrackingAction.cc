@@ -10,7 +10,7 @@
 //Includers from project files
 //
 #include "CaliceTrackingAction.hh"
-#include "CaliceAnalysisManager.hh"
+//#include "CaliceAnalysisManager.hh"
 
 //Includers from Geant4
 //
@@ -26,8 +26,8 @@
 
 //Constructor definition
 //
-CaliceTrackingAction::CaliceTrackingAction() : G4UserTrackingAction(),
-    fCaliceAnalysis(CaliceAnalysisManager::GetPointer()) //the one and only
+CaliceTrackingAction::CaliceTrackingAction() : G4UserTrackingAction()
+    /*fCaliceAnalysis(CaliceAnalysisManager::GetPointer()) //the one and only*/
 {}
 
 //Decontructor definition
@@ -38,9 +38,9 @@ CaliceTrackingAction::~CaliceTrackingAction() {}
 //
 void CaliceTrackingAction::PreUserTrackingAction(const G4Track* aTrack) {
     
-    if(0 == aTrack->GetParentID()) {
-        fCaliceAnalysis->SetBeamEnergy(aTrack->GetVertexKineticEnergy());
-    }
+    //if(0 == aTrack->GetParentID()) {
+    //    fCaliceAnalysis->SetBeamEnergy(aTrack->GetVertexKineticEnergy());
+    //}
     //fCaliceAnalysis->ScoreNewTrack(aTrack);*/
 }
 

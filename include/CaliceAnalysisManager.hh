@@ -1,3 +1,4 @@
+/*
 //**************************************************
 // \file  CaliceAnalysisManager.hh
 // \brief: Definition of 
@@ -125,3 +126,4 @@ class CaliceAnalysisManager {
 #endif
 
 //**************************************************
+*/

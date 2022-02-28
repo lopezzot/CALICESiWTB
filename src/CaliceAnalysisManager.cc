@@ -1,3 +1,4 @@
+/*
 //**************************************************
 // \file  CaliceDetectorConstruction.cc
 // \brief: Implementation of 
@@ -141,8 +142,8 @@ void CaliceAnalysisManager::EndOfRun() {
 //
 void CaliceAnalysisManager::BeginOfEvent() {
     
-    /* hitPadX->clear();
-    hitPadY->clear();*/
+    // hitPadX->clear();
+    //hitPadY->clear();
     firstInteractionLayer = -1;
     MClayer = -1;
     isInteraction = false;
@@ -170,6 +171,7 @@ void CaliceAnalysisManager::SetOutputFile(G4String name) {filename = name;}
 //SetPhysList definition
 //
 void CaliceAnalysisManager::SetPhysList(G4String listname) {fPhysListName = listname;}
+*/
 /*
 //Write definition
 //
@@ -187,6 +189,7 @@ void CaliceAnalysisManager::Write(std::vector<CaliceCalorimeterHit*>* hcont) {
 
 }
 */
+/*
 //SetBeamEnergy definition
 //
 void CaliceAnalysisManager::SetBeamEnergy(G4double val) {beamEnergy = val;}
@@ -200,4 +203,4 @@ void CaliceAnalysisManager::SetVerbose(G4int val) {verbose = val;}
 G4int CaliceAnalysisManager::GetVerbose() const {return verbose;}
 
 //**************************************************
-
+*/

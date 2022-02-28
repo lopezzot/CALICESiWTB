@@ -11,7 +11,7 @@
 //
 #include "CaliceEventAction.hh"
 #include "CaliceEcalSD.hh"
-#include "CaliceAnalysisManager.hh"
+//#include "CaliceAnalysisManager.hh"
 #include "CaliceCalorimeterHit.hh"
 
 //Includers from Geant4
@@ -23,6 +23,7 @@
 #include "G4ThreeVector.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4UImanager.hh"
+#include "G4SDManager.hh"
 #include "G4ios.hh"
 #include "Randomize.hh"
 
@@ -36,7 +37,7 @@ CaliceEventAction::CaliceEventAction():
     UI = G4UImanager::GetUIpointer();
     //Get CaliceAnalysisManager (the one and only)
     //
-    man = CaliceAnalysisManager::GetPointer();
+    //man = CaliceAnalysisManager::GetPointer();
 
 }
 
@@ -48,8 +49,7 @@ CaliceEventAction::~CaliceEventAction() { }
 //
 CaliceHitsCollection* CaliceEventAction::GetHitsCollection(const G4String& hcName,
                                                            const G4Event* event) const {
-    G4int hcID
-        = G4SDManager::GetSDMpointer()->GetCollectionID(hcName);
+    G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID(hcName);
     auto hitsCollection
         = static_cast<CaliceHitsCollection*>(event->GetHCofThisEvent()->GetHC(hcID));
 
@@ -85,7 +85,7 @@ void CaliceEventAction::BeginOfEventAction(const G4Event* evt) {
 
     //Initialize to 0 some variables in CaliceAnalysisManager
     //
-    man->BeginOfEvent(); 
+    //man->BeginOfEvent(); 
     /*  if(man->GetVerbose() > 0 || G4int(nEvt/printModulo)*printModulo == nEvt) {
         G4cout << "CaliceEventAction: Event # "
                << nEvt << " started" << G4endl;
@@ -141,7 +141,7 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
     auto eventID = evt->GetEventID();
     //Increment nevent in CaliceAnalysisManager and fill ROOT tree
     //
-    man->EndOfEvent(); 
+    //man->EndOfEvent(); 
     
     //auto printModulo = G4RunManager::GetRunManager()->GetPrintProgress();
 
