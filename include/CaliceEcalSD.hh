@@ -41,6 +41,7 @@ class CaliceEcalSD : public G4VSensitiveDetector {
         void EndOfEvent(G4HCofThisEvent* hitCollection);
         void clear();
         void PrintAll();
+        std::vector<G4double>& Getfelayer() { return felayer; };
 
         double x,y,z;
         double pixelX, pixelY, pixelZ;
@@ -55,7 +56,10 @@ class CaliceEcalSD : public G4VSensitiveDetector {
         G4int fNofReadoutLayers; 
         G4int fNofCells;
         float MeV2MIP;
+        G4bool fisInteraction;
+        G4int fFirstInteractionLayer;
 
+        std::vector<G4double> felayer;
 };
 
 #endif

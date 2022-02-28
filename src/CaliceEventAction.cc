@@ -16,6 +16,7 @@
 
 //Includers from Geant4
 //
+#include "g4root.hh"
 #include "G4Event.hh"
 #include "G4UnitsTable.hh"
 #include "G4RunManager.hh"
@@ -29,8 +30,9 @@
 //
 CaliceEventAction::CaliceEventAction():
     printModulo(100),
-    debugStarted(false) {
-    
+    debugStarted(false),
+    felayer{},
+    fhitslayer{} {
     UI = G4UImanager::GetUIpointer();
     //Get CaliceAnalysisManager (the one and only)
     //
@@ -76,6 +78,11 @@ void CaliceEventAction::PrintEventStatistics(G4double gapEdep, G4double gapTrack
 //
 void CaliceEventAction::BeginOfEventAction(const G4Event* evt) {
 
+    felayer.clear();
+    for ( unsigned int i = 0; i<30; i++) { felayer.push_back(0.); }
+    fhitslayer.clear();
+    for ( unsigned int i = 0; i<30; i++) { fhitslayer.push_back(0.); }
+
     //Initialize to 0 some variables in CaliceAnalysisManager
     //
     man->BeginOfEvent(); 
@@ -89,10 +96,77 @@ void CaliceEventAction::BeginOfEventAction(const G4Event* evt) {
 //
 void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
 
+    auto analysisManager = G4AnalysisManager::Instance();
+
     //if (fCaloHCID == -1 ) fCaloHCID = G4SDManager::GetSDMpointer()->GetCollectionID("CaloHitsCollection");
     //auto caloHC = GetHitsCollection(fCaloHCID, evt);
-    //auto caloHC = GetHitsCollection("CaloHitsCollection", evt);
-    //auto caloHit = (*caloHC)[caloHC->entries()-1];
+    auto caloHC = GetHitsCollection("CaloHitsCollection", evt);
+    for(unsigned int i=0; i<caloHC->entries(); i++){
+        G4cout<<"from event action: "<<(*caloHC)[i]->GetLayerID()<<G4endl;
+        analysisManager->FillNtupleIColumn(2, caloHC->entries() );
+    }
+
+
+
+    float samplingFraction = 1.0;
+    int NbHits = caloHC->entries();
+    for (G4int i=0;i<NbHits;i++) {
+
+        int layerNumber = (*caloHC)[i]->GetLayerID();
+
+        // to account for different amount of dead material preceding even
+        // and odd layers + different sampling fraction in the modules
+        if ( layerNumber < 10 ) {
+            if ( layerNumber%2==0 ) samplingFraction = 1.;
+            else samplingFraction = 1.072;
+        } 
+        else if ( layerNumber > 9 && layerNumber < 20 ) {
+            //if ( layerNumber%2==0 ) samplingFraction = 2;
+            if ( layerNumber%2==0 ) samplingFraction = 1;
+            //else samplingFraction = 2.047;
+            else samplingFraction = 1.047;
+        }
+        else {
+            //if ( layerNumber%2==0 ) samplingFraction = 3;
+            if ( layerNumber%2==0 ) samplingFraction = 1;
+            //else samplingFraction = 3.047;
+            else samplingFraction = 1.047;
+        }
+        if ( samplingFraction*(*caloHC)[i]->GetEdep() < 0.6 ) continue;
+            felayer[layerNumber] += samplingFraction*(*caloHC)[i]->GetEdep();
+            //theCaliceAnalysis->hitslayer[layerNumber]++;
+            fhitslayer[layerNumber]++;
+    }
+    for(unsigned int i=0; i<30; i++){G4cout<<felayer[i]<<G4endl;}
+
+
+
+
+
+
+
+    analysisManager->AddNtupleRow();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     auto eventID = evt->GetEventID();
     //Increment nevent in CaliceAnalysisManager and fill ROOT tree

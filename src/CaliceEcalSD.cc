@@ -1,5 +1,5 @@
 //**************************************************
-// \file  CaliceEcalSD.cc
+// \file   CaliceEcalSD.cc
 // \brief: Implementation of 
 //         CaliceEcalSD class
 // \author: Lorenzo Pezzotti (CERN EP-SFT-sim) 
@@ -15,6 +15,7 @@
 
 //Includers from Geant4
 //
+#include "g4root.hh"
 #include "G4HCofThisEvent.hh"
 #include "G4TouchableHistory.hh"
 #include "G4Step.hh"
@@ -33,7 +34,8 @@
 //
 CaliceEcalSD::CaliceEcalSD(const G4String& name, const G4String& hitsCollectionName)
     :G4VSensitiveDetector(name)/*,fHitsCollection(0)*/,MeV2MIP(0.155),
-    fNofReadoutLayers(30),fNofCells(9720) {
+    fNofReadoutLayers(30),fNofCells(9720), fisInteraction(false),
+    fFirstInteractionLayer(-1) {
     
     theCaliceAnalysis = CaliceAnalysisManager::GetPointer(); //the one and only
     collectionName.insert(hitsCollectionName);
@@ -90,19 +92,26 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
     CaliceCalorimeterHit* hit = new CaliceCalorimeterHit();
     hit->Add(edep, stepLength);
     hit->SetPos(aStep->GetPreStepPoint()->GetPosition());
-    hit->SetLayerID(layerNumber);
     hit->SetTrackID(trackID);
+    hit->SetLayerID(layerNumber);
     fHitsCollection->insert( hit ); 
     
     //Add values
     //
-     
     if ( aStep->GetTrack()->GetParentID() == 0 && aStep->GetSecondaryInCurrentStep() != NULL ) {
         theCaliceAnalysis->MClayer = layerNumber;
         theCaliceAnalysis->firstInteractionLayer = layerNumber;
         theCaliceAnalysis->isInteraction = true;
+        fisInteraction = true;
     }
-    
+
+    //Add values for G4Analysis
+    //
+    if ( aStep->GetTrack()->GetParentID() == 0 && aStep->GetSecondaryInCurrentStep() != NULL ) {
+        fisInteraction = true;
+        fFirstInteractionLayer = layerNumber;
+    }
+
     //Filling output tree and histograms
     //
     x = aStep->GetPreStepPoint()->GetPosition().x()/mm;
@@ -144,7 +153,7 @@ void CaliceEcalSD::EndOfEvent(G4HCofThisEvent*) {
         theCaliceAnalysis->posz[i] = (*fHitsCollection)[i]->GetPos().z()/mm;
         
         int layerNumber = (*fHitsCollection)[i]->GetLayerID();
-        
+
         // to account for different amount of dead material preceding even
         // and odd layers + different sampling fraction in the modules
         if ( layerNumber < 10 ) {
@@ -174,6 +183,15 @@ void CaliceEcalSD::EndOfEvent(G4HCofThisEvent*) {
     theCaliceAnalysis->totEdep = totE;
     totE = 0;
  
+    // G4Analysis Manager part
+    //
+    auto analysisManager = G4AnalysisManager::Instance();
+    analysisManager->FillNtupleIColumn(0, fisInteraction);
+    analysisManager->FillNtupleIColumn(1, fFirstInteractionLayer); 
+    //analysisManager->AddNtupleRow(); //done later on in EventAction
+
+    fisInteraction = false;
+    fFirstInteractionLayer = -1; 
 }
 
 void CaliceEcalSD::clear() {}

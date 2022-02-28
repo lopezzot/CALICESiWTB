@@ -18,12 +18,16 @@
 #include "G4Run.hh"
 #include "globals.hh"
 
+//Includers from project files
+//
+class CaliceEventAction;
+
 class CaliceRunAction : public G4UserRunAction {
     
     public:
         //Constructor and deconstructor
         //
-        CaliceRunAction(G4String listname);
+        CaliceRunAction(G4String listname, CaliceEventAction* evtaction);
         ~CaliceRunAction();
 
     public:
@@ -33,6 +37,7 @@ class CaliceRunAction : public G4UserRunAction {
 
     private:
         G4String fPhysList;
+        CaliceEventAction* fEventAction;
 
 };
 

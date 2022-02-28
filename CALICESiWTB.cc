@@ -60,7 +60,6 @@ int main( int argc, char** argv ) {
     G4GDMLParser parser;
     parser.Read("myCaliceGeometry.gdml");
     runManager->SetUserInitialization( new CaliceDetectorConstruction(parser) );
-
     
     //Mandatory User Actions: 2- Physics List
     //
@@ -86,8 +85,9 @@ int main( int argc, char** argv ) {
 
     //Optional user actions
     //
-    runManager->SetUserAction( new CaliceRunAction(outputname)  );
-    runManager->SetUserAction( new CaliceEventAction );
+    auto evtaction = new CaliceEventAction;
+    runManager->SetUserAction( new CaliceRunAction(outputname, evtaction)  );
+    runManager->SetUserAction( evtaction );
     runManager->SetUserAction( new CaliceTrackingAction );
 
     // Initialize run manager, not needed can be done in macros, to be removed

@@ -36,6 +36,9 @@ class CaliceEventAction : public G4UserEventAction {
         void BeginOfEventAction(const G4Event*);
         void   EndOfEventAction(const G4Event*);
 
+        std::vector<G4double>& Getelayer() { return felayer; };
+        std::vector<G4double>& Gethitslayer() { return fhitslayer; };
+
     private:
 
         CaliceHitsCollection* GetHitsCollection(const G4String& hcName,const G4Event* event) const;
@@ -49,7 +52,9 @@ class CaliceEventAction : public G4UserEventAction {
         std::vector<G4int>    selectedEvents;
         G4int printModulo;
         G4bool debugStarted;
-
+        
+        std::vector<G4double> felayer;
+        std::vector<G4double> fhitslayer;
 };
 
 #endif
