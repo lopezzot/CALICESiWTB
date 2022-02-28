@@ -75,7 +75,7 @@ void CaliceEventAction::BeginOfEventAction(const G4Event* /*evt*/) {
     felayer.clear();
     for ( unsigned int i = 0; i<30; i++) { felayer.push_back(0.); }
     fhitslayer.clear();
-    for ( unsigned int i = 0; i<30; i++) { fhitslayer.push_back(0.); }
+    for ( unsigned int i = 0; i<30; i++) { fhitslayer.push_back(0); }
 
 }
 

@@ -75,7 +75,7 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
     
     //Get info from step
     //
-    G4float edep = (aStep->GetTotalEnergyDeposit()/MeV)/MeV2MIP; //get energy deposition in units of MIP = 0.155 MeV 
+    G4double edep = (aStep->GetTotalEnergyDeposit()/MeV)/MeV2MIP; //get energy deposition in units of MIP = 0.155 MeV 
     G4double stepLength = 0.;
     stepLength = aStep->GetStepLength()/mm;
  

@@ -36,7 +36,7 @@ class CaliceEventAction : public G4UserEventAction {
         void EndOfEventAction(const G4Event*);
 
         std::vector<G4double>& Getelayer() { return felayer; };
-        std::vector<G4double>& Gethitslayer() { return fhitslayer; };
+        std::vector<G4int>& Gethitslayer() { return fhitslayer; };
 
     private:
 
@@ -50,7 +50,7 @@ class CaliceEventAction : public G4UserEventAction {
         G4bool debugStarted;
         
         std::vector<G4double> felayer;
-        std::vector<G4double> fhitslayer;
+        std::vector<G4int> fhitslayer;
 };
 
 #endif
