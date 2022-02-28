@@ -102,7 +102,6 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
     //auto caloHC = GetHitsCollection(fCaloHCID, evt);
     auto caloHC = GetHitsCollection("CaloHitsCollection", evt);
     for(unsigned int i=0; i<caloHC->entries(); i++){
-        G4cout<<"from event action: "<<(*caloHC)[i]->GetLayerID()<<G4endl;
         analysisManager->FillNtupleIColumn(2, caloHC->entries() );
     }
 
@@ -137,36 +136,7 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
             //theCaliceAnalysis->hitslayer[layerNumber]++;
             fhitslayer[layerNumber]++;
     }
-    for(unsigned int i=0; i<30; i++){G4cout<<felayer[i]<<G4endl;}
-
-
-
-
-
-
-
     analysisManager->AddNtupleRow();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     auto eventID = evt->GetEventID();
     //Increment nevent in CaliceAnalysisManager and fill ROOT tree
