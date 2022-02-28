@@ -40,7 +40,6 @@ The project targets a standalone Geant4 simulation of the CALICE SiW calorimeter
 ## How to
 
 ### Build, compile and execute on Mac/Linux
-Dependencies: CALICESiWTB requires ROOT built with CMake and sourced.
 1. git clone the repo
    ```sh
    git clone https://github.com/lopezzot/CALICESiWTB.git
