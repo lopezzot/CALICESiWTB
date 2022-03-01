@@ -57,11 +57,11 @@ void MyLongitudinalPlots()
 
   //single pion QGSP_BERT
   //filename[0] = "../../build6/results/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/Calice_FTFP_BERT_pi-_4GeVold.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/newresults/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/newresults/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/newresults/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/newresults/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/newresults/Calice_FTFP_BERT_pi-_10GeV.root";
   //filename[1] = "../../build6/results/Calice_FTFP_BERT_pi-_4GeV.root";
   //filename[2] = "../../build6/results/Calice_FTFP_BERT_pi-_6GeV.root";
   //filename[3] = "../../build6/results/Calice_FTFP_BERT_pi-_8GeV.root";
@@ -215,9 +215,8 @@ void MyLongitudinalPlots()
           for ( int n =  0 ; n < numberOfEvents ; n++ )
             {
               tree->GetEntry(n);
-              //if ( nhits < 25 ) continue;
+              if ( nhits < 25 ) continue;
               //Last step of the event selection
-              std::cout<<n<<std::endl;
               if (isInteraction==1 && reconstructedInteractionLayer >= minLayer && reconstructedInteractionLayer < maxLayer)               {
               //if (isInteraction)               {
                   double energySum = 0.;
@@ -369,22 +368,37 @@ void MyLongitudinalPlots()
   double longitudinalProfile_QGSP_BERT_8GeV[binsLong];
   double longitudinalProfile_QGSP_BERT_10GeV[binsLong];
 
-  for(int iBin=0; iBin<binsZ+1; iBin++) {
+  auto outputfile = new TFile( "HELPanalysis.root", "RECREATE" );
+  for(int iBin=0; iBin<binsZ; iBin++) {
  
-      z_QGSP_BERT_2GeV[iBin] = histZ[0]->GetBinContent(iBin); // QGSP_BERT 
-      z_QGSP_BERT_4GeV[iBin] = histZ[1]->GetBinContent(iBin); 
-      z_QGSP_BERT_6GeV[iBin] = histZ[2]->GetBinContent(iBin); 
-      z_QGSP_BERT_8GeV[iBin] = histZ[3]->GetBinContent(iBin); 
-      z_QGSP_BERT_10GeV[iBin] = histZ[4]->GetBinContent(iBin); 
+      z_QGSP_BERT_2GeV[iBin] = histZ[0]->GetBinContent(iBin+1); // QGSP_BERT 
+      if (iBin==0){
+          histZ[0]->Write();
+          histZ[1]->Write();
+          histZ[2]->Write();
+          histZ[3]->Write();
+          histZ[4]->Write();
+      }
+      z_QGSP_BERT_4GeV[iBin] = histZ[1]->GetBinContent(iBin+1); 
+      z_QGSP_BERT_6GeV[iBin] = histZ[2]->GetBinContent(iBin+1); 
+      z_QGSP_BERT_8GeV[iBin] = histZ[3]->GetBinContent(iBin+1); 
+      z_QGSP_BERT_10GeV[iBin] = histZ[4]->GetBinContent(iBin+1); 
 
   }
 
-  for(int iBin=0; iBin<binsLong+1; iBin++) {
-      longitudinalProfile_QGSP_BERT_2GeV[iBin] = histLongitudinalProfile[0]->GetBinContent(iBin);
-      longitudinalProfile_QGSP_BERT_4GeV[iBin] = histLongitudinalProfile[1]->GetBinContent(iBin);
-      longitudinalProfile_QGSP_BERT_6GeV[iBin] = histLongitudinalProfile[2]->GetBinContent(iBin);
-      longitudinalProfile_QGSP_BERT_8GeV[iBin] = histLongitudinalProfile[3]->GetBinContent(iBin);
-      longitudinalProfile_QGSP_BERT_10GeV[iBin] = histLongitudinalProfile[4]->GetBinContent(iBin);
+  for(int iBin=0; iBin<binsLong; iBin++) {
+      longitudinalProfile_QGSP_BERT_2GeV[iBin] = histLongitudinalProfile[0]->GetBinContent(iBin+1);
+      if (iBin==0){
+          histLongitudinalProfile[0]->Write();
+          histLongitudinalProfile[1]->Write();
+          histLongitudinalProfile[2]->Write();
+          histLongitudinalProfile[3]->Write();
+          histLongitudinalProfile[4]->Write();
+      }
+      longitudinalProfile_QGSP_BERT_4GeV[iBin] = histLongitudinalProfile[1]->GetBinContent(iBin+1);
+      longitudinalProfile_QGSP_BERT_6GeV[iBin] = histLongitudinalProfile[2]->GetBinContent(iBin+1);
+      longitudinalProfile_QGSP_BERT_8GeV[iBin] = histLongitudinalProfile[3]->GetBinContent(iBin+1);
+      longitudinalProfile_QGSP_BERT_10GeV[iBin] = histLongitudinalProfile[4]->GetBinContent(iBin+1);
 
 }
   //---- Z distribution ----
@@ -712,7 +726,7 @@ void MyLongitudinalPlots()
   TCanvas* canvasZ2 = new TCanvas("Z2GeV", "layer (z) of hits in the shower at 2 GeV",0,0,1000,900);
   histoZ->Draw();
   gZ_Data_2GeV_tot->Draw("p3");
-  gZ_QGSP_BERT_2GeV->Draw("pl");
+  gZ_QGSP_BERT_2GeV->Draw("l");
   gZ_Data_2GeV->Draw("p");
   TLegend *legendZ2 = new TLegend(0.57,0.61,0.93,0.92,NULL,"brNDC");
   legendZ2->SetFillColor(kWhite);
