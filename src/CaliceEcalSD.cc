@@ -70,8 +70,15 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
     /*G4cout<<"Track #: "<< aStep->GetTrack()->GetTrackID()<< " " <<
             "Step #: " << aStep->GetTrack()->GetCurrentStepNumber()<< " "<<
             "Volume: " << aStep->GetPreStepPoint()->GetTouchableHandle()->GetVolume()->GetName()<< " " <<
-            "Particle "<< aStep->GetTrack()->GetParticleDefinition()->GetParticleName()<< " " <<
-            "Dep(MeV) "<< aStep->GetTotalEnergyDeposit()<<G4endl; */
+            "Mother: " << aStep->GetPreStepPoint()->GetTouchableHandle()->GetVolume(1)->GetName()<< " " <<
+            "GranMother: " << aStep->GetPreStepPoint()->GetTouchableHandle()->GetVolume(2)->GetName()<< " " <<
+            "GGMother: " << aStep->GetPreStepPoint()->GetTouchableHandle()->GetVolume(3)->GetName()<< " " <<
+            "No: " << aStep->GetPreStepPoint()->GetTouchable()->GetReplicaNumber(3)<<G4endl;
+    G4cout<<"x: "<< aStep->GetPreStepPoint()->GetPosition().x() <<
+            "y: "<< aStep->GetPreStepPoint()->GetPosition().y() <<
+            "z: "<< aStep->GetPreStepPoint()->GetPosition().z() <<G4endl;
+            //"Particle "<< aStep->GetTrack()->GetParticleDefinition()->GetParticleName()<< " " <<
+            //"Dep(MeV) "<< aStep->GetTotalEnergyDeposit()<<G4endl;*/ 
     
     //Get info from step
     //
@@ -87,6 +94,7 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
     G4TouchableHandle theHandle = preStepPoint->GetTouchableHandle();
     int layerNumber = -1;
     layerNumber = floor(touchable->GetReplicaNumber(3)/9); //wafer number divded by 9;
+    G4cout<<layerNumber<<" "<<touchable->GetCopyNumber(3)<<" "<<touchable->GetReplicaNumber(3)<<G4endl; 
     int trackID = aStep->GetTrack()->GetTrackID();
 
     //Create a new CaliceCalorimeterHit

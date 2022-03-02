@@ -190,6 +190,7 @@ void MyLongitudinalPlots()
           sumOfWeights[e]=0.0;
         }
 
+  auto outputfile = new TFile( "HELPanalysis.root", "RECREATE" );
   TFile *inputFile;
       for (int file=0;file<5;file++)
         {
@@ -287,6 +288,8 @@ void MyLongitudinalPlots()
                     }//loop over layers
                 }//cut on reconstructed layer
             }//loop over events
+          outputfile->cd();
+          histZ[file]->Write();
           meanZ[file] /= sumOfZWeights[file];
           meanZsquared[file] /= sumOfZWeights[file];
           sigmaZ[file] = sqrt(meanZsquared[file] - meanZ[file]*meanZ[file]);
@@ -368,7 +371,6 @@ void MyLongitudinalPlots()
   double longitudinalProfile_QGSP_BERT_8GeV[binsLong];
   double longitudinalProfile_QGSP_BERT_10GeV[binsLong];
 
-  auto outputfile = new TFile( "HELPanalysis.root", "RECREATE" );
   for(int iBin=0; iBin<binsZ; iBin++) {
  
       z_QGSP_BERT_2GeV[iBin] = histZ[0]->GetBinContent(iBin+1); // QGSP_BERT 
