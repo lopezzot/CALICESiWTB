@@ -48,6 +48,8 @@ class CaliceEcalSD : public G4VSensitiveDetector {
 
         double totE;
 
+        G4int ComputeLayer( G4int copynumber );
+
     private:
 
         CaliceHitsCollection* fHitsCollection;
@@ -58,7 +60,23 @@ class CaliceEcalSD : public G4VSensitiveDetector {
         G4int fFirstInteractionLayer;
 
         std::vector<G4double> felayer;
+
 };
+
+inline G4int CaliceEcalSD::ComputeLayer( G4int copynumber ) {
+    
+    G4int layer = 0;
+    G4int doublelayer = copynumber/18;
+    G4int relcpnumber = copynumber - doublelayer*18;
+    if ( relcpnumber<6 ) { layer = 0; }
+    else if ( 6<=relcpnumber && relcpnumber<12 ) { layer = 1; }
+    else if ( 12<=relcpnumber && relcpnumber<15 ) { layer = 0; }
+    else if ( 15<=relcpnumber && relcpnumber<18 ) { layer = 1; }
+    else {G4cout<<"problem with layer numbering!!!!!!!!!!!!!!!"<<G4endl;}
+    layer = doublelayer*2 + layer;
+    return layer;    
+
+}
 
 #endif
 

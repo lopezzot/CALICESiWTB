@@ -57,7 +57,7 @@ void MyLongitudinalPlots()
 
   //single pion QGSP_BERT
   //filename[0] = "../../build6/results/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/newresults/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomput/Calice_FTFP_BERT_pi-_2GeV.root";
   filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/newresults/Calice_FTFP_BERT_pi-_4GeV.root";
   filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/newresults/Calice_FTFP_BERT_pi-_6GeV.root";
   filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/newresults/Calice_FTFP_BERT_pi-_8GeV.root";
