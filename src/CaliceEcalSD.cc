@@ -94,8 +94,8 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
     G4TouchableHandle theHandle = preStepPoint->GetTouchableHandle();
     int layerNumber = -1;
     //layerNumber = floor(touchable->GetReplicaNumber(3)/9); //wafer number divded by 9;
-    //G4cout<<layerNumber<<" "<<ComputeLayer( touchable->GetReplicaNumber(3) )<<" "<<touchable->GetReplicaNumber(3)<<G4endl; 
     layerNumber = ComputeLayer( touchable->GetReplicaNumber(3) );
+    //G4cout<<layerNumber<<" "<<ComputeLayer( touchable->GetReplicaNumber(3) )<<" "<<touchable->GetReplicaNumber(3)<<G4endl; 
     int trackID = aStep->GetTrack()->GetTrackID();
 
     //Create a new CaliceCalorimeterHit

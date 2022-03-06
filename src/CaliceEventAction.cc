@@ -105,21 +105,20 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
             else samplingFraction = 1.072;
         } 
         else if ( layerNumber > 9 && layerNumber < 20 ) {
-            //if ( layerNumber%2==0 ) samplingFraction = 2;
-            if ( layerNumber%2==0 ) samplingFraction = 1;
-            //else samplingFraction = 2.047;
-            else samplingFraction = 1.047;
+            if ( layerNumber%2==0 ) samplingFraction = 2;
+            //if ( layerNumber%2==0 ) samplingFraction = 1;
+            else samplingFraction = 2.047;
+            //else samplingFraction = 1.047;
         }
         else {
-            //if ( layerNumber%2==0 ) samplingFraction = 3;
-            if ( layerNumber%2==0 ) samplingFraction = 1;
-            //else samplingFraction = 3.047;
-            else samplingFraction = 1.047;
+            if ( layerNumber%2==0 ) samplingFraction = 3;
+            //if ( layerNumber%2==0 ) samplingFraction = 1;
+            else samplingFraction = 3.047;
+            //else samplingFraction = 1.047;
         }
         if ( samplingFraction*(*caloHC)[i]->GetEdep() < 0.6 ) continue;
-            felayer[layerNumber] += samplingFraction*(*caloHC)[i]->GetEdep();
-            //theCaliceAnalysis->hitslayer[layerNumber]++;
-            fhitslayer[layerNumber]++;
+        felayer[layerNumber] += samplingFraction*(*caloHC)[i]->GetEdep();
+        fhitslayer[layerNumber]++;
     }
     analysisManager->AddNtupleRow();
 

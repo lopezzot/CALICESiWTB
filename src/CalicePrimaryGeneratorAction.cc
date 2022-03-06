@@ -58,8 +58,8 @@ void CalicePrimaryGeneratorAction::GeneratePrimaries( G4Event* anEvent ) {
     G4double x = 0.0;
     x = xySize*(2.0*G4UniformRand() - 1.0); //->to be understood id needed in SetParticlePosition
     y = xySize*(2.0*G4UniformRand() - 1.0);
-    particleGun->SetParticlePosition( G4ThreeVector( x, y, -2*m ) );
-    //particleGun->SetParticlePosition( G4ThreeVector( -0.003*m, y, -0.5*m ) ); // particle gun not in center to avoid shooting at inter-cell gaps due to staggering of layers
+    //particleGun->SetParticlePosition( G4ThreeVector( x, y, -2*m ) );
+    particleGun->SetParticlePosition( G4ThreeVector( -0.003*m, y, -0.5*m ) ); // particle gun not in center to avoid shooting at inter-cell gaps due to staggering of layers
     particleGun->SetParticleMomentumDirection(G4ThreeVector(0,0,1) );
 
     //CaliceAnalysisManager::GetPointer()->fParticleName = particleGun->GetParticleDefinition()->GetParticleName();
