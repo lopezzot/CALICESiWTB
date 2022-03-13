@@ -88,10 +88,8 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
     //if (fCaloHCID == -1 ) fCaloHCID = G4SDManager::GetSDMpointer()->GetCollectionID("CaloHitsCollection");
     //auto caloHC = GetHitsCollection(fCaloHCID, evt);
     auto caloHC = GetHitsCollection("CaloHitsCollection", evt);
-    for(unsigned int i=0; i<caloHC->entries(); i++){
-        analysisManager->FillNtupleIColumn(2, caloHC->entries() );
-    }
 
+    G4int nbhits = 0;
     float samplingFraction = 1.0;
     int NbHits = caloHC->entries();
     for (G4int i=0;i<NbHits;i++) {
@@ -105,21 +103,43 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
             else samplingFraction = 1.072;
         } 
         else if ( layerNumber > 9 && layerNumber < 20 ) {
-            if ( layerNumber%2==0 ) samplingFraction = 2;
-            //if ( layerNumber%2==0 ) samplingFraction = 1;
-            else samplingFraction = 2.047;
-            //else samplingFraction = 1.047;
+            //if ( layerNumber%2==0 ) samplingFraction = 2;
+            if ( layerNumber%2==0 ) samplingFraction = 1;
+            //else samplingFraction = 2.047;
+            else samplingFraction = 1.047;
         }
         else {
-            if ( layerNumber%2==0 ) samplingFraction = 3;
-            //if ( layerNumber%2==0 ) samplingFraction = 1;
-            else samplingFraction = 3.047;
-            //else samplingFraction = 1.047;
+            //if ( layerNumber%2==0 ) samplingFraction = 3;
+            if ( layerNumber%2==0 ) samplingFraction = 1;
+            //else samplingFraction = 3.047;
+            else samplingFraction = 1.047;
         }
-        if ( samplingFraction*(*caloHC)[i]->GetEdep() < 0.6 ) continue;
+        if ( (*caloHC)[i]->GetEdep() < 0.6 ) continue;
         felayer[layerNumber] += samplingFraction*(*caloHC)[i]->GetEdep();
         fhitslayer[layerNumber]++;
+        nbhits++;
     }
+    analysisManager->FillNtupleIColumn(2, nbhits );
+
+    G4int checkintlayer=-1;
+    for ( int iLayer=0; iLayer<28; iLayer++) {
+        //G4cout << "layer " << iLayer << "elayer[iLayer] " << felayer[iLayer] << G4endl;
+        if ( felayer[iLayer] > 8 && felayer[iLayer+1] > 8 && felayer[iLayer+2] > 8 ) {
+              checkintlayer = iLayer;
+              break; 
+        }
+    }
+    if (checkintlayer == -1){
+        for ( int iLayer=2; iLayer<28; iLayer++) {
+            if ( (felayer[iLayer]+felayer[iLayer+1])/(felayer[iLayer-1]+felayer[iLayer-2]) > 6
+                      && (felayer[iLayer+1]+felayer[iLayer+2])/(felayer[iLayer-1]+felayer[iLayer-2]) > 6 ) {
+                checkintlayer = iLayer;
+                break;
+            }
+        }
+    }   
+    G4cout<<"new int layer: "<<checkintlayer<<G4endl;
+    analysisManager->FillNtupleIColumn(1, checkintlayer); 
     analysisManager->AddNtupleRow();
 
     auto eventID = evt->GetEventID();
@@ -129,7 +149,8 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
         debugStarted = false;
     }
 
-    if (!(evt->GetEventID()%1000) )  G4cout << "------>CALICESiWTB::CaliceEventAction: End of event #" << eventID  << G4endl;
+    //if (!(evt->GetEventID()%1000) )  G4cout << "------>CALICESiWTB::CaliceEventAction: End of event #" << eventID  << G4endl;
+    if (true )  G4cout << "------>CALICESiWTB::CaliceEventAction: End of event #" << eventID  << G4endl;
 
 }
 

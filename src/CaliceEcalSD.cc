@@ -35,6 +35,9 @@ CaliceEcalSD::CaliceEcalSD(const G4String& name, const G4String& hitsCollectionN
     : G4VSensitiveDetector(name),
       //fHitsCollection(0),
       MeV2MIP(0.155),
+      //MeV2MIP(0.25),
+      //MeV2MIP(0.3),
+      //MeV2MIP(0.2),
       //fNofReadoutLayers(30),
       //fNofCells(9720),
       fisInteraction(false),
@@ -112,6 +115,7 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
     if ( aStep->GetTrack()->GetParentID() == 0 && aStep->GetSecondaryInCurrentStep() != NULL ) {
         fisInteraction = true;
         fFirstInteractionLayer = layerNumber;
+        //G4cout<<edep<<" at layer "<<layerNumber<<G4endl;
     }
 
     //Filling output tree and histograms
@@ -127,12 +131,19 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
 //Define EndOfEvent method
 //
 void CaliceEcalSD::EndOfEvent(G4HCofThisEvent*) {
-     
+    
+    //Check if an interaction acutally happened
+    //
+    if (fFirstInteractionLayer==29){
+        fFirstInteractionLayer=-1;
+        fisInteraction=false;
+    }
+    G4cout<<"old int layer: "<<fFirstInteractionLayer<<G4endl;    
     // G4Analysis Manager part
     //
     auto analysisManager = G4AnalysisManager::Instance();
     analysisManager->FillNtupleIColumn(0, fisInteraction);
-    analysisManager->FillNtupleIColumn(1, fFirstInteractionLayer); 
+    //analysisManager->FillNtupleIColumn(1, fFirstInteractionLayer); 
     //analysisManager->AddNtupleRow(); //done later on in EventAction
 
     fisInteraction = false;

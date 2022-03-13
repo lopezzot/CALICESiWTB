@@ -71,11 +71,135 @@ void MyLongitudinalPlots()
   filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomput/Calice_FTFP_BERT_pi-_8GeV.root";
   filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomput/Calice_FTFP_BERT_pi-_10GeV.root";
   */
+  /* 
   filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputnewsamp/Calice_FTFP_BERT_pi-_2GeV.root";
   filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputnewsamp/Calice_FTFP_BERT_pi-_4GeV.root";
   filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputnewsamp/Calice_FTFP_BERT_pi-_6GeV.root";
   filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputnewsamp/Calice_FTFP_BERT_pi-_8GeV.root";
   filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputnewsamp/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+  /*
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip240/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip240/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip240/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip240/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip240/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+  /* 
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+  /*  
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300newcut/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300newcut/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300newcut/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300newcut/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300newcut/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+  /*   
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip300newcut/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip300newcut/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip300newcut/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip300newcut/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip300newcut/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+ /*  
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip300newcut/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip300newcut/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip300newcut/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip300newcut/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip300newcut/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+  /*  
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newcut/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newcut/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newcut/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newcut/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newcut/Calice_FTFP_BERT_pi-_10GeV.root";
+ */ 
+ /* 
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newcut/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newcut/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newcut/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newcut/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newcut/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+  /* 
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip155newcut/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip155newcut/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip155newcut/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip155newcut/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip155newcut/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+  /* 
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+  //filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_QBBC_pi-_2GeV.root";
+  //filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_QBBC_pi-_4GeV.root";
+  //filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_QBBC_pi-_6GeV.root";
+  //filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_QBBC_pi-_8GeV.root";
+  //filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_QBBC_pi-_10GeV.root";
+  /*
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001mip155newcut/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001mip155newcut/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001mip155newcut/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001mip155newcut/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001mip155newcut/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+  /*
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhits/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhits/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhits/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhits/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhits/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+  /*
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+  /* 
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+  /*
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+  /*
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos+0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos+0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos+0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos+0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos+0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+  /*
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosamp2newlayer/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosamp2newlayer/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosamp2newlayer/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosamp2newlayer/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosamp2newlayer/Calice_FTFP_BERT_pi-_10GeV.root";
+  */
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_FTFP_BERT_pi-_10GeV.root";
   /*
   filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputcenter/Calice_FTFP_BERT_pi-_2GeV.root";
   filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputcenter/Calice_FTFP_BERT_pi-_4GeV.root";
@@ -120,6 +244,7 @@ void MyLongitudinalPlots()
   // will be normalised bin-by-bin with the number of entries (= events)
   TH1F* histZ[5];
   int binEntriesZ[5][30];
+  double EnergyZ[5][30];
   for (int e = 0; e<5;e++)
         {
           int energy = 2*(e+1);
@@ -133,6 +258,7 @@ void MyLongitudinalPlots()
           for (int b=0;b<30;b++)
             {
               binEntriesZ[e][b] = 0;
+              EnergyZ[e][b] = 0;
             }
         }
 
@@ -238,7 +364,9 @@ void MyLongitudinalPlots()
           sigmaEweightedZ[e]=0.0;
           sumOfWeights[e]=0.0;
         }
-
+ 
+  double e_mip = 0.0;
+  int counter = 0;
   auto outputfile = new TFile( "HELPanalysis.root", "RECREATE" );
   TFile *inputFile;
       for (int file=0;file<5;file++)
@@ -258,7 +386,8 @@ void MyLongitudinalPlots()
           tree->SetBranchAddress("hitslayer", &hitsLayer);
           int nhits;
           tree->SetBranchAddress("nhits",&nhits);
-
+          
+          e_mip = 0.;
           //read the events
           int numberOfEvents =  tree->GetEntries();
           std::cout<<numberOfEvents<<std::endl;
@@ -267,14 +396,17 @@ void MyLongitudinalPlots()
               tree->GetEntry(n);
               if ( nhits < 25 ) continue;
               //Last step of the event selection
-              if (isInteraction==1 && reconstructedInteractionLayer >= minLayer && reconstructedInteractionLayer < maxLayer)               {
+              if (isInteraction==1 && reconstructedInteractionLayer >= minLayer && reconstructedInteractionLayer < maxLayer){
               //if (isInteraction)               {
+                  counter = counter+1;
                   double energySum = 0.;
                   for (int layer = reconstructedInteractionLayer; layer < 30; layer++)
                     {
+                      e_mip += energyLayer->at(layer);
                       int relativeLayer = pseudoLayer[layer]-pseudoLayer[reconstructedInteractionLayer];
                       int relativeLayerAbs = layer - reconstructedInteractionLayer;
                       histZ[file]->Fill(relativeLayerAbs,hitsLayer->at(layer));
+                      EnergyZ[file][relativeLayerAbs] += energyLayer->at(layer);
                       histZnorm[file]->Fill(relativeLayerAbs,hitsLayer->at(layer));
                       histSquaredZ[file]->Fill(relativeLayerAbs,hitsLayer->at(layer)*hitsLayer->at(layer));
                       binEntriesZ[file][relativeLayerAbs]++;
@@ -339,6 +471,7 @@ void MyLongitudinalPlots()
             }//loop over events
           outputfile->cd();
           histZ[file]->Write();
+          histLongitudinalProfile[file]->Write();
           meanZ[file] /= sumOfZWeights[file];
           meanZsquared[file] /= sumOfZWeights[file];
           sigmaZ[file] = sqrt(meanZsquared[file] - meanZ[file]*meanZ[file]);
@@ -360,8 +493,9 @@ void MyLongitudinalPlots()
               if (binEntriesZ[file][bin-1]!=0)
                 {
                   meanN = histZ[file]->GetBinContent(bin)/(double)binEntriesZ[file][bin-1];
-                  std::cout<<histZ[file]->GetBinContent(bin)<<" "<<(double)binEntriesZ[file][bin-1]<<std::endl;
-                  std::cout<<histZ[file]->GetBinContent(bin)/(double)binEntriesZ[file][bin-1]<<std::endl;
+                  EnergyZ[file][bin-1] = EnergyZ[file][bin-1]/(double)binEntriesZ[file][bin-1];
+                  //std::cout<<histZ[file]->GetBinContent(bin)<<" "<<(double)binEntriesZ[file][bin-1]<<std::endl;
+                  //std::cout<<histZ[file]->GetBinContent(bin)/(double)binEntriesZ[file][bin-1]<<std::endl;
                   double meanN2 = histSquaredZ[file]->GetBinContent(bin)/(double)binEntriesZ[file][bin-1];
                   double sigma2 = meanN2 -meanN*meanN;
                   double sigma = 0.0;
@@ -378,6 +512,10 @@ void MyLongitudinalPlots()
           //histZ[model][file]->Draw();
           //Calculate the mean plus error for each bin in histLongitudinalProfile
           //The error is sigma/sqrt(N)
+          for(int bin=1;bin<61;bin++){
+              std::cout<<"bin: "<<bin<<" binentries: "<<binEntries[file][bin-1]<<" hist: "<<histLongitudinalProfile[file]->GetBinContent(bin)<<
+                  " divided: "<<histLongitudinalProfile[file]->GetBinContent(bin)/binEntries[file][bin-1]<<std::endl;
+          }
           for (int bin=1;bin<61;bin++)
             {
               double meanE = 0.0;
@@ -395,7 +533,12 @@ void MyLongitudinalPlots()
               histLongitudinalProfile[file]->SetBinError(bin,error);
             }
             //histLongitudinalProfile[file]->Draw();
-
+            e_mip = e_mip/binEntriesZ[file][0];
+            std::cout<<"integral "<<histLongitudinalProfile[file]->Integral()<<std::endl;
+            std::cout<<"energy "<<e_mip<<std::endl;
+            //for(int i=0; i<30; i++){std::cout<<"Media energia: "<<EnergyZ[file][i]<<std::endl;}
+            std::cout<<"counter: "<<counter<<std::endl;
+            counter = 0;
         }//loop over energies
         
   //Arrays for the x-axis
