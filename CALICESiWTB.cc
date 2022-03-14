@@ -13,6 +13,7 @@
 #include "CaliceRunAction.hh" 
 #include "CaliceEventAction.hh" 
 #include "CaliceTrackingAction.hh"
+#include "CaliceSteppingAction.hh"
 
 //Includers from Geant4 and C++
 //
@@ -91,6 +92,7 @@ int main( int argc, char** argv ) {
     runManager->SetUserAction( new CaliceRunAction(outputname, evtaction)  );
     runManager->SetUserAction( evtaction );
     //runManager->SetUserAction( new CaliceTrackingAction );
+    runManager->SetUserAction( new CaliceSteppingAction() );
 
     // Initialize run manager, not needed can be done in macros, to be removed
     //
