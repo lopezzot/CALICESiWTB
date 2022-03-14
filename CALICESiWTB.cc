@@ -90,7 +90,7 @@ int main( int argc, char** argv ) {
     auto evtaction = new CaliceEventAction;
     runManager->SetUserAction( new CaliceRunAction(outputname, evtaction)  );
     runManager->SetUserAction( evtaction );
-    runManager->SetUserAction( new CaliceTrackingAction );
+    //runManager->SetUserAction( new CaliceTrackingAction );
 
     // Initialize run manager, not needed can be done in macros, to be removed
     //

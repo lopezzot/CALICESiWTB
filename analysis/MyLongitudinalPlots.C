@@ -57,137 +57,7 @@ void MyLongitudinalPlots()
 
   //single pion QGSP_BERT
   //filename[0] = "../../build6/results/Calice_FTFP_BERT_pi-_2GeV.root";
-  /*
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputQBBC/Calice_QBBC_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputQBBC/Calice_QBBC_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputQBBC/Calice_QBBC_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputQBBC/Calice_QBBC_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputQBBC/Calice_QBBC_pi-_10GeV.root";
-  */
-  /* 
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomput/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomput/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomput/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomput/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomput/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  /* 
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputnewsamp/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputnewsamp/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputnewsamp/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputnewsamp/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputnewsamp/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  /*
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip240/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip240/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip240/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip240/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip240/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  /* 
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  /*  
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300newcut/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300newcut/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300newcut/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300newcut/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip300newcut/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  /*   
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip300newcut/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip300newcut/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip300newcut/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip300newcut/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip300newcut/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
- /*  
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip300newcut/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip300newcut/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip300newcut/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip300newcut/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip300newcut/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  /*  
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newcut/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newcut/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newcut/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newcut/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newcut/Calice_FTFP_BERT_pi-_10GeV.root";
- */ 
- /* 
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newcut/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newcut/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newcut/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newcut/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newcut/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  /* 
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip155newcut/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip155newcut/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip155newcut/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip155newcut/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2000mip155newcut/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  /* 
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  //filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_QBBC_pi-_2GeV.root";
-  //filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_QBBC_pi-_4GeV.root";
-  //filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_QBBC_pi-_6GeV.root";
-  //filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_QBBC_pi-_8GeV.root";
-  //filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos2601mip155newcut/Calice_QBBC_pi-_10GeV.root";
-  /*
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001mip155newcut/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001mip155newcut/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001mip155newcut/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001mip155newcut/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001mip155newcut/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  /*
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhits/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhits/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhits/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhits/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhits/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  /*
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  /* 
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  /*
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  /*
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos+0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos+0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos+0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos+0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos+0012mip155newhitsnosamp2/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
+
   /*
   filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosamp2newlayer/Calice_FTFP_BERT_pi-_2GeV.root";
   filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosamp2newlayer/Calice_FTFP_BERT_pi-_4GeV.root";
@@ -200,41 +70,28 @@ void MyLongitudinalPlots()
   filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_FTFP_BERT_pi-_6GeV.root";
   filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_FTFP_BERT_pi-_8GeV.root";
   filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_FTFP_BERT_pi-_10GeV.root";
-  /*
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputcenter/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputcenter/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputcenter/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputcenter/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputcenter/Calice_FTFP_BERT_pi-_10GeV.root";
+  /*filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212nosmear/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212nosmear/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212nosmear/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212nosmear/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212nosmear/Calice_FTFP_BERT_pi-_10GeV.root";
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001nosmear/Calice_FTFP_BERT_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001nosmear/Calice_FTFP_BERT_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001nosmear/Calice_FTFP_BERT_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001nosmear/Calice_FTFP_BERT_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001nosmear/Calice_FTFP_BERT_pi-_10GeV.root";
   */
-  /*
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputx25y0/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputx25y0/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputx25y0/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputx25y0/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputx25y0/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  /*
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputx25y12/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputx25y12/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputx25y12/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputx25y12/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputx25y12/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  /*
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputnewpos/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputnewpos/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputnewpos/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputnewpos/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomputnewpos/Calice_FTFP_BERT_pi-_10GeV.root";
-  */ 
-  /* 
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomput10p4/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomput10p4/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomput10p4/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomput10p4/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/newcomput10p4/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
+  //filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_QBBC_pi-_2GeV.root";
+  //filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_QBBC_pi-_4GeV.root";
+  //filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_QBBC_pi-_6GeV.root";
+  //filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_QBBC_pi-_8GeV.root";
+  //filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_QBBC_pi-_10GeV.root";
+  //filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer2/Calice_QBBC_pi-_2GeV.root";
+  //filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer2/Calice_QBBC_pi-_4GeV.root";
+  //filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer2/Calice_QBBC_pi-_6GeV.root";
+  //filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer2/Calice_QBBC_pi-_8GeV.root";
+  //filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer2/Calice_QBBC_pi-_10GeV.root";
+
   //filename[1] = "../../build6/results/Calice_FTFP_BERT_pi-_4GeV.root";
   //filename[2] = "../../build6/results/Calice_FTFP_BERT_pi-_6GeV.root";
   //filename[3] = "../../build6/results/Calice_FTFP_BERT_pi-_8GeV.root";
