@@ -29,10 +29,10 @@ CaliceSteppingAction::~CaliceSteppingAction(){}
 //
 void CaliceSteppingAction::UserSteppingAction( const G4Step* aStep ){
     
-    if ( aStep->GetPreStepPoint()->GetTouchableHandle()->GetVolume()->GetName() == "TerminatingAbsorber0" ){
+    if ( aStep->GetPreStepPoint()->GetTouchableHandle()->GetVolume()->GetName() == "AbsLayerPhys" ){
        
-        aStep->GetTrack()->SetTrackStatus( fStopAndKill );
-        G4cout<<"killed"<<G4endl;
+        aStep->GetTrack()->SetTrackStatus( fKillTrackAndSecondaries );
+        //G4cout<<"killed"<<G4endl;
 
     }
 

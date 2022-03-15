@@ -59,6 +59,9 @@ void CalicePrimaryGeneratorAction::GeneratePrimaries( G4Event* anEvent ) {
     x = xySize*(2.0*G4UniformRand() - 1.0); //->to be understood id needed in SetParticlePosition
     y = xySize*(2.0*G4UniformRand() - 1.0);
     particleGun->SetParticlePosition( G4ThreeVector( x, y, -2*m ) );
+    //x = 0.0*mm + G4UniformRand()*0.5;
+    //y = 0.0*mm + G4UniformRand()*0.5;
+    //particleGun->SetParticlePosition( G4ThreeVector( 0.*mm, 0.*mm, -2*m ) );
     //particleGun->SetParticlePosition( G4ThreeVector( 12.5*mm, 12.5*mm, -2*m ) );
     //particleGun->SetParticlePosition( G4ThreeVector( 2.0*cm, 0.0*cm, -2*m ) );
     //particleGun->SetParticlePosition( G4ThreeVector( 26.0*mm, 1.0*mm, 0.0*mm ) );

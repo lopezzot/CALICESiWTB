@@ -118,6 +118,11 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
         felayer[layerNumber] += samplingFraction*(*caloHC)[i]->GetEdep();
         fhitslayer[layerNumber]++;
         nbhits++;
+        /*if ( i > 0 && (*caloHC)[i]->GetTrackID() != (*caloHC)[i-1]->GetTrackID() && 
+             (*caloHC)[i]->GetLayerID() != (*caloHC)[i-1]->GetLayerID() ) {
+            
+            fhitslayer[layerNumber]++;
+        }*/
     }
     analysisManager->FillNtupleIColumn(2, nbhits );
 
