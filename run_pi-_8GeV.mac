@@ -1,6 +1,6 @@
 /run/initialize
-/run/verbose 0
-/event/verbose 0 
+#/run/verbose 0
+#/event/verbose 0 
 /tracking/verbose 0 
 #
 #/gps/pos/radius 6.5 mm
