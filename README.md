@@ -20,6 +20,7 @@
         <li><a href="#build-compile-and-execute-on-maclinux">Build, compile and execute on Mac/Linux</a></li>
       </ul>
     </li>
+    </li><li><a href="#my-quick-geant4-installation">My quick Geant4 installation</a></li>
     <li><a href="#selected-calice-siw-references">Selected CALICE SiW references</a>
   </ol>                                       
 </details>
@@ -60,6 +61,28 @@ The project targets a standalone Geant4 simulation of the CALICE SiW calorimeter
    ./CALICESiWTB run_pi-_2GeV.mac FTFP_BERT
    ```
 Parser options: argv[1]: a Geant4 macro card, argv[2]: the physics list (optional, default FTFP_BERT)
+
+<!--My quick Geant4 installation-->
+## My quick Geant4 installation
+Here is my standard Geant4 installation (example with Geant4.10.7.p01) starting from the unpacked geant4.10.07.tar.gz file under the example path "path/to".
+
+1. create build directory alongside source files
+      ```sh
+   cd /path/to
+   mkdir geant4.10.07-build
+   cd geant4.10.07-build
+   ```
+2. link libraries with CMAKE (example with my favourite libraries)
+   ```sh
+   cmake -DCMAKE_INSTALL_PREFIX=/Users/lorenzo/myG4/geant4.10.07_p01-install \
+   -DGEANT4_INSTALL_DATA=ON -DGEANT4_USE_QT=ON -DGEANT4_BUILD_MULTITHREADED=ON \
+   -DGEANT4_USE_GDML=ON ../geant4.10.07.p01
+   ```
+3. make it
+   ```sh
+   make -jN
+   make install
+   ```
 
 <!--Selected CALICE SiW references-->
 ## Selected CALICE SiW references
