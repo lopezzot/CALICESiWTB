@@ -52,7 +52,7 @@ The project targets a standalone Geant4 simulation of the CALICE SiW calorimeter
    ```
 3. cmake build directory and make (using geant4.10.07_p01)
    ```sh
-   mkdir ATLHECTB-build; cd ATLHECTB-build/
+   mkdir CALICESiWTB-build; cd CALICESiWTB-build/
    cmake -DGeant4_DIR=/absolute_path_to/geant4.10.07_p01-install/lib/Geant4-10.7.1/ relative_path_to/CALICESiWTB/
    make
    ```
