@@ -368,7 +368,7 @@ void DoLongitudinalPlots( const string physlist ) {
   double longitudinalProfile_QGSP_BERT_6GeV[binsLong];
   double longitudinalProfile_QGSP_BERT_8GeV[binsLong];
   double longitudinalProfile_QGSP_BERT_10GeV[binsLong];
-  for(auto &n : longitudinalProfile_QGSP_BERT_10GeV){std::cout<<"first"<<n<<std::endl;}
+
   for(int iBin=0; iBin<binsZ; iBin++) {
  
       z_QGSP_BERT_2GeV[iBin] = histZ[0]->GetBinContent(iBin+1); 
@@ -387,7 +387,7 @@ void DoLongitudinalPlots( const string physlist ) {
       longitudinalProfile_QGSP_BERT_10GeV[iBin] = histLongitudinalProfile[4]->GetBinContent(iBin+1);
 
 }
-  for(auto &n : longitudinalProfile_QGSP_BERT_10GeV){std::cout<<"second"<<n<<std::endl;}
+
   //---- Z distribution ----
   //Data
   double z_Data_2GeV[] = {0.106231, 0.13303, 0.113666, 0.0966606, 0.0787765, 0.068412, 0.0590184, 0.0494627, 0.0414201, 0.0347868, 0.029769, 0.0258555, 0.021765, 0.0188675, 0.0184092, 0.0157484, 0.0146379, 0.0124826, 0.01277, 0.0133686, 0.0119217, 0.012444, 0.0104963};
