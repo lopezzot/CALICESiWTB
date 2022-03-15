@@ -20,6 +20,7 @@
         <li><a href="#build-compile-and-execute-on-maclinux">Build, compile and execute on Mac/Linux</a></li>
       </ul>
     </li>
+    <li><a href="#selected-calicesiw-references">Selected CALICE SiW references</a>
   </ol>                                       
 </details>
 
@@ -59,3 +60,7 @@ The project targets a standalone Geant4 simulation of the CALICE SiW calorimeter
    ./CALICESiWTB run_pi-_2GeV.mac FTFP_BERT
    ```
 Parser options: argv[1]: a Geant4 macro card, argv[2]: the physics list (optional, default FTFP_BERT)
+
+<!--Selected CALICE SiW references-->
+## Selected CALICE SiW references
+- 📄 <em>Testing hadronic interaction models using a highly granular silicon–tungsten calorimeter</em>, NIM A794 (2015): [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://www.sciencedirect.com/science/article/pii/S0168900215006191?via%3Dihub)
