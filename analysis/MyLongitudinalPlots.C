@@ -8,8 +8,8 @@ TString modelName;
 int minLayer = 7;
 int maxLayer = 28;
 
-void MyLongitudinalPlots()
-{
+
+void DoLongitudinalPlots( const string physlist ) {
 
   //set CALICE style
   int font = 43;
@@ -47,82 +47,26 @@ void MyLongitudinalPlots()
   text.SetTextSize(size);
   text.SetTextFont(font);
   text.SetTextColor(kGray+2);
-
+  
+  //From Katy
+  //
   //---------------------------------------------------------------------
   //Data arrays produced by macro "PrintLongitudinalDistributions.C"
   // Last changed 22/10/2014
   //---------------------------------------------------------------------
  
-  modelName = "QGSP_BERT";
+  modelName = physlist;
 
-  //single pion QGSP_BERT
-  //filename[0] = "../../build6/results/Calice_FTFP_BERT_pi-_2GeV.root";
-
-  /*
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosamp2newlayer/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosamp2newlayer/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosamp2newlayer/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosamp2newlayer/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosamp2newlayer/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  //filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_FTFP_BERT_pi-_2GeV.root";
-  //filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_FTFP_BERT_pi-_4GeV.root";
-  //filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_FTFP_BERT_pi-_6GeV.root";
-  //filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_FTFP_BERT_pi-_8GeV.root";
-  //filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_FTFP_BERT_pi-_10GeV.root";
+  //Need five files from Geant4 (2, 4, 6, 8, 10 GeV - pi-)
+  //
+  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212kill3/Calice_"+modelName+"_pi-_2GeV.root";
+  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212kill3/Calice_"+modelName+"_pi-_4GeV.root";
+  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212kill3/Calice_"+modelName+"_pi-_6GeV.root";
+  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212kill3/Calice_"+modelName+"_pi-_8GeV.root";
+  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212kill3/Calice_"+modelName+"_pi-_10GeV.root";
   
-  //filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212nosmear/Calice_FTFP_BERT_pi-_2GeV.root";
-  //filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212nosmear/Calice_FTFP_BERT_pi-_4GeV.root";
-  //filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212nosmear/Calice_FTFP_BERT_pi-_6GeV.root";
-  //filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212nosmear/Calice_FTFP_BERT_pi-_8GeV.root";
-  //filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212nosmear/Calice_FTFP_BERT_pi-_10GeV.root";
-  
-  /*
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001nosmear/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001nosmear/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001nosmear/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001nosmear/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1001nosmear/Calice_FTFP_BERT_pi-_10GeV.root";
-  */
-  //filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos00smear0p5/Calice_FTFP_BERT_pi-_2GeV.root";
-  //filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos00smear0p5/Calice_FTFP_BERT_pi-_4GeV.root";
-  //filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos00smear0p5/Calice_FTFP_BERT_pi-_6GeV.root";
-  //filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos00smear0p5/Calice_FTFP_BERT_pi-_8GeV.root";
-  //filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos00smear0p5/Calice_FTFP_BERT_pi-_10GeV.root";
- 
-  //filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos00/Calice_FTFP_BERT_pi-_2GeV.root";
-  //filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos00/Calice_FTFP_BERT_pi-_4GeV.root";
-  //filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos00/Calice_FTFP_BERT_pi-_6GeV.root";
-  //filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos00/Calice_FTFP_BERT_pi-_8GeV.root";
-  //filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos00/Calice_FTFP_BERT_pi-_10GeV.root";
-
-  //filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212kill2/Calice_FTFP_BERT_pi-_2GeV.root";
-  //filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212kill2/Calice_FTFP_BERT_pi-_4GeV.root";
-  //filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212kill2/Calice_FTFP_BERT_pi-_6GeV.root";
-  //filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212kill2/Calice_FTFP_BERT_pi-_8GeV.root";
-  //filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212kill2/Calice_FTFP_BERT_pi-_10GeV.root";
-  filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212kill3/Calice_FTFP_BERT_pi-_2GeV.root";
-  filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212kill3/Calice_FTFP_BERT_pi-_4GeV.root";
-  filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212kill3/Calice_FTFP_BERT_pi-_6GeV.root";
-  filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212kill3/Calice_FTFP_BERT_pi-_8GeV.root";
-  filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212kill3/Calice_FTFP_BERT_pi-_10GeV.root";
-  
-  //filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_QBBC_pi-_2GeV.root";
-  //filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_QBBC_pi-_4GeV.root";
-  //filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_QBBC_pi-_6GeV.root";
-  //filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_QBBC_pi-_8GeV.root";
-  //filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer/Calice_QBBC_pi-_10GeV.root";
-  //filename[0] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer2/Calice_QBBC_pi-_2GeV.root";
-  //filename[1] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer2/Calice_QBBC_pi-_4GeV.root";
-  //filename[2] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer2/Calice_QBBC_pi-_6GeV.root";
-  //filename[3] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer2/Calice_QBBC_pi-_8GeV.root";
-  //filename[4] = "/Users/lorenzopezzotti/Desktop/calice/test/pos1212mip155newhitnosampnewlayer2/Calice_QBBC_pi-_10GeV.root";
-
-  //filename[1] = "../../build6/results/Calice_FTFP_BERT_pi-_4GeV.root";
-  //filename[2] = "../../build6/results/Calice_FTFP_BERT_pi-_6GeV.root";
-  //filename[3] = "../../build6/results/Calice_FTFP_BERT_pi-_8GeV.root";
-  //filename[4] = "../../build6/results/Calice_FTFP_BERT_pi-_10GeV.root";
-  
+  //From Katy
+  //
   /* express longitudinal shower shapes in terms of layer numbers (0..30) or pseudolayer numbers (0..60) to account for difference in absorber thickness (sampling) in modules */
   // will be normalised bin-by-bin with the number of entries (= events)
   TH1F* histZ[5];
@@ -248,9 +192,6 @@ void MyLongitudinalPlots()
           sumOfWeights[e]=0.0;
         }
  
-  double e_mip = 0.0;
-  int counter = 0;
-  auto outputfile = new TFile( "HELPanalysis.root", "RECREATE" );
   TFile *inputFile;
       for (int file=0;file<5;file++)
         {
@@ -270,22 +211,18 @@ void MyLongitudinalPlots()
           int nhits;
           tree->SetBranchAddress("nhits",&nhits);
           
-          e_mip = 0.;
           //read the events
           int numberOfEvents =  tree->GetEntries();
-          std::cout<<numberOfEvents<<std::endl;
+          std::cout<<"File number: "<<file<<" events: "<<numberOfEvents<<std::endl;
           for ( int n =  0 ; n < numberOfEvents ; n++ )
             {
               tree->GetEntry(n);
               if ( nhits < 25 ) continue;
               //Last step of the event selection
               if (isInteraction==1 && reconstructedInteractionLayer >= minLayer && reconstructedInteractionLayer < maxLayer){
-              //if (isInteraction)               {
-                  counter = counter+1;
                   double energySum = 0.;
                   for (int layer = reconstructedInteractionLayer; layer < 30; layer++)
                     {
-                      e_mip += energyLayer->at(layer);
                       int relativeLayer = pseudoLayer[layer]-pseudoLayer[reconstructedInteractionLayer];
                       int relativeLayerAbs = layer - reconstructedInteractionLayer;
                       histZ[file]->Fill(relativeLayerAbs,hitsLayer->at(layer));
@@ -352,9 +289,6 @@ void MyLongitudinalPlots()
                     }//loop over layers
                 }//cut on reconstructed layer
             }//loop over events
-          outputfile->cd();
-          histZ[file]->Write();
-          histLongitudinalProfile[file]->Write();
           meanZ[file] /= sumOfZWeights[file];
           meanZsquared[file] /= sumOfZWeights[file];
           sigmaZ[file] = sqrt(meanZsquared[file] - meanZ[file]*meanZ[file]);
@@ -377,8 +311,6 @@ void MyLongitudinalPlots()
                 {
                   meanN = histZ[file]->GetBinContent(bin)/(double)binEntriesZ[file][bin-1];
                   EnergyZ[file][bin-1] = EnergyZ[file][bin-1]/(double)binEntriesZ[file][bin-1];
-                  //std::cout<<histZ[file]->GetBinContent(bin)<<" "<<(double)binEntriesZ[file][bin-1]<<std::endl;
-                  //std::cout<<histZ[file]->GetBinContent(bin)/(double)binEntriesZ[file][bin-1]<<std::endl;
                   double meanN2 = histSquaredZ[file]->GetBinContent(bin)/(double)binEntriesZ[file][bin-1];
                   double sigma2 = meanN2 -meanN*meanN;
                   double sigma = 0.0;
@@ -390,15 +322,10 @@ void MyLongitudinalPlots()
 
             }
           //Now normalise to unity so the shower shape can be compared
-          histZ[file]->Write();
           histZ[file]->Scale(1./histZ[file]->Integral());
-          //histZ[model][file]->Draw();
+
           //Calculate the mean plus error for each bin in histLongitudinalProfile
           //The error is sigma/sqrt(N)
-          for(int bin=1;bin<61;bin++){
-              std::cout<<"bin: "<<bin<<" binentries: "<<binEntries[file][bin-1]<<" hist: "<<histLongitudinalProfile[file]->GetBinContent(bin)<<
-                  " divided: "<<histLongitudinalProfile[file]->GetBinContent(bin)/binEntries[file][bin-1]<<std::endl;
-          }
           for (int bin=1;bin<61;bin++)
             {
               double meanE = 0.0;
@@ -415,13 +342,6 @@ void MyLongitudinalPlots()
               histLongitudinalProfile[file]->SetBinContent(bin,meanE);
               histLongitudinalProfile[file]->SetBinError(bin,error);
             }
-            //histLongitudinalProfile[file]->Draw();
-            e_mip = e_mip/binEntriesZ[file][0];
-            std::cout<<"integral "<<histLongitudinalProfile[file]->Integral()<<std::endl;
-            std::cout<<"energy "<<e_mip<<std::endl;
-            //for(int i=0; i<30; i++){std::cout<<"Media energia: "<<EnergyZ[file][i]<<std::endl;}
-            std::cout<<"counter: "<<counter<<std::endl;
-            counter = 0;
         }//loop over energies
         
   //Arrays for the x-axis
@@ -448,17 +368,10 @@ void MyLongitudinalPlots()
   double longitudinalProfile_QGSP_BERT_6GeV[binsLong];
   double longitudinalProfile_QGSP_BERT_8GeV[binsLong];
   double longitudinalProfile_QGSP_BERT_10GeV[binsLong];
-
+  for(auto &n : longitudinalProfile_QGSP_BERT_10GeV){std::cout<<"first"<<n<<std::endl;}
   for(int iBin=0; iBin<binsZ; iBin++) {
  
-      z_QGSP_BERT_2GeV[iBin] = histZ[0]->GetBinContent(iBin+1); // QGSP_BERT 
-      if (iBin==0){
-          histZ[0]->Write();
-          histZ[1]->Write();
-          histZ[2]->Write();
-          histZ[3]->Write();
-          histZ[4]->Write();
-      }
+      z_QGSP_BERT_2GeV[iBin] = histZ[0]->GetBinContent(iBin+1); 
       z_QGSP_BERT_4GeV[iBin] = histZ[1]->GetBinContent(iBin+1); 
       z_QGSP_BERT_6GeV[iBin] = histZ[2]->GetBinContent(iBin+1); 
       z_QGSP_BERT_8GeV[iBin] = histZ[3]->GetBinContent(iBin+1); 
@@ -468,19 +381,13 @@ void MyLongitudinalPlots()
 
   for(int iBin=0; iBin<binsLong; iBin++) {
       longitudinalProfile_QGSP_BERT_2GeV[iBin] = histLongitudinalProfile[0]->GetBinContent(iBin+1);
-      if (iBin==0){
-          histLongitudinalProfile[0]->Write();
-          histLongitudinalProfile[1]->Write();
-          histLongitudinalProfile[2]->Write();
-          histLongitudinalProfile[3]->Write();
-          histLongitudinalProfile[4]->Write();
-      }
       longitudinalProfile_QGSP_BERT_4GeV[iBin] = histLongitudinalProfile[1]->GetBinContent(iBin+1);
       longitudinalProfile_QGSP_BERT_6GeV[iBin] = histLongitudinalProfile[2]->GetBinContent(iBin+1);
       longitudinalProfile_QGSP_BERT_8GeV[iBin] = histLongitudinalProfile[3]->GetBinContent(iBin+1);
       longitudinalProfile_QGSP_BERT_10GeV[iBin] = histLongitudinalProfile[4]->GetBinContent(iBin+1);
 
 }
+  for(auto &n : longitudinalProfile_QGSP_BERT_10GeV){std::cout<<"second"<<n<<std::endl;}
   //---- Z distribution ----
   //Data
   double z_Data_2GeV[] = {0.106231, 0.13303, 0.113666, 0.0966606, 0.0787765, 0.068412, 0.0590184, 0.0494627, 0.0414201, 0.0347868, 0.029769, 0.0258555, 0.021765, 0.0188675, 0.0184092, 0.0157484, 0.0146379, 0.0124826, 0.01277, 0.0133686, 0.0119217, 0.012444, 0.0104963};
@@ -524,6 +431,8 @@ void MyLongitudinalPlots()
 
   double errorLongitudinalProfile_Data_10GeV[] = {0.0968501, 0.156512, 0.158083, 0.165784, 0.144519, 0.17615, 0.141549, 0.150091, 0.150697, 0.144885, 0.133663, 0.147469, 0.132596, 0.133448, 0.133712, 0.128786, 0.12177, 0.12621, 0.120498, 0.117713, 0.118963, 0.112512, 0.110071, 0.108978, 0.10418, 0.0986425, 0.0980296, 0.0989839, 0.0978708, 0.0954869, 0.0978137, 0.0980419, 0.0936939, 0.0933821, 0.0977084, 0.0955099, 0.101115, 0.100212, 0.0989616, 0.0964551, 0.106428, 0.106368, 0.111488, 0.108361, 0.114204, 0.117519, 0.134541, 0.133455, 0.146011, 0.153163, 0.184159, 0.187571, 0.415923}; 
 
+  //From Katy
+  //
   //---------------------------------------------------------------------
   // Correction factors to the data
   // From "CalculateSystematicError.C"
@@ -814,10 +723,9 @@ void MyLongitudinalPlots()
   legendZ2->SetTextSize(sizeLegend);
   legendZ2->SetHeader("2 GeV");
   legendZ2->AddEntry(gZ_Data_2GeV,"#pi^{-} FNAL 2008","p");
-  legendZ2->AddEntry(gZ_QGSP_BERT_2GeV,"QGSP_BERT","l");
+  legendZ2->AddEntry(gZ_QGSP_BERT_2GeV,modelName,"l");
   legendZ2->Draw();
   text.DrawLatex(5.4,0.14,"#splitline{CALICE}{Si-W ECAL}");
-  canvasZ2->Write();
 
   //4 GeV
   TCanvas* canvasZ4 = new TCanvas("Z4GeV", "layer (z) of hits in the shower at 4 GeV",0,0,1000,900);
@@ -831,10 +739,9 @@ void MyLongitudinalPlots()
   legendZ4->SetTextSize(sizeLegend);
   legendZ4->SetHeader("4 GeV");
   legendZ4->AddEntry(gZ_Data_4GeV,"#pi^{-} FNAL 2008","p");
-  legendZ4->AddEntry(gZ_QGSP_BERT_2GeV,"QGSP_BERT","l");
+  legendZ4->AddEntry(gZ_QGSP_BERT_2GeV,modelName,"l");
   legendZ4->Draw();
   text.DrawLatex(3.9,0.14,"#splitline{CALICE}{Si-W ECAL}");
-  canvasZ4->Write();
 
   //6 GeV
   TCanvas* canvasZ6 = new TCanvas("Z6GeV", "layer (z) of hits in the shower at 6 GeV",0,0,1000,900);
@@ -848,10 +755,9 @@ void MyLongitudinalPlots()
   legendZ6->SetTextSize(sizeLegend);
   legendZ6->SetHeader("6 GeV");
   legendZ6->AddEntry(gZ_Data_6GeV,"#pi^{-} FNAL 2008","p");
-  legendZ6->AddEntry(gZ_QGSP_BERT_2GeV,"QGSP_BERT","l");
+  legendZ6->AddEntry(gZ_QGSP_BERT_2GeV,modelName,"l");
   legendZ6->Draw();
   text.DrawLatex(3.9,0.14,"#splitline{CALICE}{Si-W ECAL}");
-  canvasZ6->Write();
 
   //8 GeV
   TCanvas* canvasZ8 = new TCanvas("Z8GeV", "layer (z) of hits in the shower at 8 GeV",0,0,1000,900);
@@ -865,10 +771,9 @@ void MyLongitudinalPlots()
   legendZ8->SetTextSize(sizeLegend);
   legendZ8->SetHeader("8 GeV");
   legendZ8->AddEntry(gZ_Data_8GeV,"#pi^{-} FNAL 2008","p");
-  legendZ8->AddEntry(gZ_QGSP_BERT_2GeV,"QGSP_BERT","l");
+  legendZ8->AddEntry(gZ_QGSP_BERT_2GeV,modelName,"l");
   legendZ8->Draw();
   text.DrawLatex(3.9,0.14,"#splitline{CALICE}{Si-W ECAL}");
-  canvasZ8->Write();
   
   //10 GeV
   TCanvas* canvasZ10 = new TCanvas("Z10GeV", "layer (z) of hits in the shower at 10 GeV",0,0,1000,900);
@@ -882,10 +787,9 @@ void MyLongitudinalPlots()
   legendZ10->SetTextSize(sizeLegend);
   legendZ10->SetHeader("10 GeV");
   legendZ10->AddEntry(gZ_Data_10GeV,"#pi^{-} FNAL 2008","p");
-  legendZ10->AddEntry(gZ_QGSP_BERT_2GeV,"QGSP_BERT","l");
+  legendZ10->AddEntry(gZ_QGSP_BERT_2GeV,modelName,"l");
   legendZ10->Draw();
   text.DrawLatex(3.9,0.14,"#splitline{CALICE}{Si-W ECAL}");
-  canvasZ10->Write();
 
   //Longitudinal Profile
   //Data
@@ -963,7 +867,7 @@ void MyLongitudinalPlots()
   gLongitudinalProfile_Data_2GeV->Draw("p");
   legendZ2->Draw();
   text.DrawLatex(9.4,49.3,"#splitline{CALICE}{Si-W ECAL}");
-  canvasLongitudinalProfile2->Write();
+
   //4 GeV
   TCanvas* canvasLongitudinalProfile4 = new TCanvas("LongitudinalProfile4GeV","Longitudinal profile of hits at 4 GeV",0,0,1000,900);
   histoLongitudinalProfile->Draw();
@@ -972,7 +876,7 @@ void MyLongitudinalPlots()
   gLongitudinalProfile_Data_4GeV->Draw("p");
   legendZ4->Draw();
   text.DrawLatex(9.4,49.3,"#splitline{CALICE}{Si-W ECAL}");
-  canvasLongitudinalProfile4->Write();
+
   //6 GeV
   TCanvas* canvasLongitudinalProfile6 = new TCanvas("LongitudinalProfile6GeV","Longitudinal profile of hits at 6 GeV",0,0,1000,900);
   histoLongitudinalProfile->Draw();
@@ -981,7 +885,7 @@ void MyLongitudinalPlots()
   gLongitudinalProfile_Data_6GeV->Draw("p");
   legendZ6->Draw();
   text.DrawLatex(9.4,49.3,"#splitline{CALICE}{Si-W ECAL}");
-  canvasLongitudinalProfile6->Write();
+
   //8 GeV
   TCanvas* canvasLongitudinalProfile8 = new TCanvas("LongitudinalProfile8GeV","Longitudinal profile of hits at 8 GeV",0,0,1000,900);
   histoLongitudinalProfile->Draw();
@@ -990,7 +894,6 @@ void MyLongitudinalPlots()
   gLongitudinalProfile_Data_8GeV->Draw("p");
   legendZ8->Draw();
   text.DrawLatex(9.4,7.5,"#splitline{CALICE}{Si-W ECAL}");
-  canvasLongitudinalProfile8->Write();
 
   //10 GeV
   TCanvas* canvasLongitudinalProfile10 = new TCanvas("LongitudinalProfile10GeV","Longitudinal profile of hits at 10 GeV",0,0,1000,900);
@@ -1000,6 +903,9 @@ void MyLongitudinalPlots()
   gLongitudinalProfile_Data_10GeV->Draw("p");
   legendZ10->Draw();
   text.DrawLatex(9.4,7.5,"#splitline{CALICE}{Si-W ECAL}");
-  canvasLongitudinalProfile10->Write();
 
+}
+
+void MyLongitudinalPlots() {
+    DoLongitudinalPlots( "FTFP_BERT" );
 }
