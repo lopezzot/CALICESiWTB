@@ -20,7 +20,7 @@
         <li><a href="#build-compile-and-execute-on-maclinux">Build, compile and execute on Mac/Linux</a></li>
       </ul>
     </li>
-    <li><a href="#selected-calicesiw-references">Selected CALICE SiW references</a>
+    <li><a href="#selected-calice-siw-references">Selected CALICE SiW references</a>
   </ol>                                       
 </details>
 
