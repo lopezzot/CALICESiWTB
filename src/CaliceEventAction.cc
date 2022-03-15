@@ -29,10 +29,10 @@
 //Constructor definition
 //
 CaliceEventAction::CaliceEventAction():
-    debugStarted(false),
+    fFirstInteractionLayer(-1),
+    fnbhits(0),
     felayer{},
     fhitslayer{} {
-    UI = G4UImanager::GetUIpointer();
 }
 
 //Deconstructor definition
@@ -57,21 +57,12 @@ CaliceHitsCollection* CaliceEventAction::GetHitsCollection(const G4String& hcNam
     return hitsCollection;
 }
 
-//PrintEventStatistics method definition
-//
-void CaliceEventAction::PrintEventStatistics(G4double gapEdep, G4double gapTrackLength) const {
-    G4cout
-        << "        Calo: total energy: "
-        << std::setw(7) << G4BestUnit(gapEdep, "Energy")
-        << "       total track length: "
-        << std::setw(7) << G4BestUnit(gapTrackLength, "Length")
-        << G4endl;
-}
-
 //BeginOfEventAction definition
 //
 void CaliceEventAction::BeginOfEventAction(const G4Event* /*evt*/) {
 
+    fnbhits = 0;
+    fFirstInteractionLayer = -1;
     felayer.clear();
     for ( unsigned int i = 0; i<30; i++) { felayer.push_back(0.); }
     fhitslayer.clear();
@@ -85,11 +76,8 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
 
     auto analysisManager = G4AnalysisManager::Instance();
 
-    //if (fCaloHCID == -1 ) fCaloHCID = G4SDManager::GetSDMpointer()->GetCollectionID("CaloHitsCollection");
-    //auto caloHC = GetHitsCollection(fCaloHCID, evt);
     auto caloHC = GetHitsCollection("CaloHitsCollection", evt);
 
-    G4int nbhits = 0;
     float samplingFraction = 1.0;
     int NbHits = caloHC->entries();
     for (G4int i=0;i<NbHits;i++) {
@@ -117,45 +105,33 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
         if ( (*caloHC)[i]->GetEdep() < 0.6 ) continue;
         felayer[layerNumber] += samplingFraction*(*caloHC)[i]->GetEdep();
         fhitslayer[layerNumber]++;
-        nbhits++;
+        fnbhits++;
         /*if ( i > 0 && (*caloHC)[i]->GetTrackID() != (*caloHC)[i-1]->GetTrackID() && 
              (*caloHC)[i]->GetLayerID() != (*caloHC)[i-1]->GetLayerID() ) {
             
             fhitslayer[layerNumber]++;
         }*/
     }
-    analysisManager->FillNtupleIColumn(2, nbhits );
+    analysisManager->FillNtupleIColumn(2, fnbhits );
 
-    G4int checkintlayer=-1;
     for ( int iLayer=0; iLayer<28; iLayer++) {
         //G4cout << "layer " << iLayer << "elayer[iLayer] " << felayer[iLayer] << G4endl;
         if ( felayer[iLayer] > 8 && felayer[iLayer+1] > 8 && felayer[iLayer+2] > 8 ) {
-              checkintlayer = iLayer;
+              fFirstInteractionLayer = iLayer;
               break; 
         }
     }
-    if (checkintlayer == -1){
+    if (fFirstInteractionLayer == -1){
         for ( int iLayer=2; iLayer<28; iLayer++) {
             if ( (felayer[iLayer]+felayer[iLayer+1])/(felayer[iLayer-1]+felayer[iLayer-2]) > 6
                       && (felayer[iLayer+1]+felayer[iLayer+2])/(felayer[iLayer-1]+felayer[iLayer-2]) > 6 ) {
-                checkintlayer = iLayer;
+                fFirstInteractionLayer = iLayer;
                 break;
             }
         }
     }   
-    G4cout<<"new int layer: "<<checkintlayer<<G4endl;
-    analysisManager->FillNtupleIColumn(1, checkintlayer); 
+    analysisManager->FillNtupleIColumn(1, FFirstInteractionLayer); 
     analysisManager->AddNtupleRow();
-
-    auto eventID = evt->GetEventID();
-    
-    if(debugStarted) {
-        UI->ApplyCommand("/tracking/verbose  0");
-        debugStarted = false;
-    }
-
-    //if (!(evt->GetEventID()%1000) )  G4cout << "------>CALICESiWTB::CaliceEventAction: End of event #" << eventID  << G4endl;
-    if (true )  G4cout << "------>CALICESiWTB::CaliceEventAction: End of event #" << eventID  << G4endl;
 
 }
 

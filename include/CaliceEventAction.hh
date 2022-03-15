@@ -42,13 +42,8 @@ class CaliceEventAction : public G4UserEventAction {
 
         CaliceHitsCollection* GetHitsCollection(const G4String& hcName,const G4Event* event) const;
 
-        void PrintEventStatistics(G4double gapEdep, G4double gapTrackLength) const;
-        
-        G4UImanager*          UI;
-        
-        std::vector<G4int>    selectedEvents;
-        G4bool debugStarted;
-        
+        G4int fFirstInteractionLayer;
+        G4int fnbhits;
         std::vector<G4double> felayer;
         std::vector<G4int> fhitslayer;
 };
