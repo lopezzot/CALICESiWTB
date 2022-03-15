@@ -42,6 +42,7 @@ CaliceRunAction::CaliceRunAction(G4String listname, CaliceEventAction* evtaction
     analysisManager->CreateNtupleIColumn("nhits");
     analysisManager->CreateNtupleDColumn("elayer", fEventAction->Getelayer() );
     analysisManager->CreateNtupleIColumn("hitslayer", fEventAction->Gethitslayer() );
+    analysisManager->CreateNtupleIColumn("MCfirstInteractionLayer");
     analysisManager->FinishNtuple();
 
 }

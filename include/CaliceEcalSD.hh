@@ -57,7 +57,7 @@ class CaliceEcalSD : public G4VSensitiveDetector {
         //G4int fNofCells;
         float MeV2MIP;
         G4bool fisInteraction;
-        G4int fFirstInteractionLayer;
+        G4int fMCFirstInteractionLayer;
 
         std::vector<G4double> felayer;
 

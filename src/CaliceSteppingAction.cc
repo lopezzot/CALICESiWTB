@@ -31,8 +31,9 @@ void CaliceSteppingAction::UserSteppingAction( const G4Step* aStep ){
     
     if ( aStep->GetPreStepPoint()->GetTouchableHandle()->GetVolume()->GetName() == "AbsLayerPhys" ){
        
+        //Kill particles entering HCAL
+        //
         aStep->GetTrack()->SetTrackStatus( fKillTrackAndSecondaries );
-        //G4cout<<"killed"<<G4endl;
 
     }
 
