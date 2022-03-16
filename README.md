@@ -14,6 +14,7 @@
   <ol>
     <li><a href="#project-description">Project description</a></li>
     <li><a href="#authors-and-contacts">Authors and contacts</a></li>
+    <li><a href="#available-datasets-and-analyses">Available datasets and analyses</a></li>
     <li>
       <a href="#how-to">How to</a>
       <ul>
@@ -37,6 +38,14 @@ The project targets a standalone Geant4 simulation of the CALICE SiW calorimeter
 - 👨‍🔬 Lorenzo Pezzotti (CERN EP-SFT) - lorenzo.pezzotti@cern.ch 
 - 👨‍🔬 Supervisor: Alberto Ribon (CERN EP-SFT)
 - 👩‍🔬 Katalin Nikolics (CERN EP-SFT)
+
+<!--Available datasets and analyses-->
+## Available datasets and analyses
+We provide datasets and ROOT analyses, as well as instructions for their reproducibility. Ask authors for access to datasets.
+
+| CALICESiWTB         | Reproduce data | Reproduce analysis | Comments     |
+| -------------    | ----------     | -----------        | -----------  |
+| v0p3 <br /> Dataset #1 <br /> tag 0p3_1 | Geant4.10.07.p03 <br /> CALICESiWTB v0p3 <br /> ```./CALICESiWTB run_pi-_x_GeV.mac``` <br /> x = 2, 4, 6, 8, 10 <br /> FTFP_BERT implicit physics list | ```root -l MyLongitudinalPlots.C```  | Analysis reproducable with analysis/v0.3/MyLongitudinalPlots.C macro <br /> assuming Data0p3/ is alongside root macro. <br /> First results on pion energy longitudinal distributions, shown at presentation on 22/03/2022. |
 
 <!--How to:-->
 ## How to
