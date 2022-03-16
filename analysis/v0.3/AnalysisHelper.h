@@ -3,7 +3,7 @@ void myGraphSetUp(TGraph *graph, Color_t color, int style){
   graph->SetMarkerStyle(20);
   graph->SetMarkerColor(color);
   graph->SetLineColor(color);
-  graph->SetLineWidth(3);
+  graph->SetLineWidth(1);
   graph->SetLineStyle(style);
   return;
 }

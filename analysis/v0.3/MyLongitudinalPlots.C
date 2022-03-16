@@ -872,6 +872,7 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver ) {
   gLongitudinalProfile_Data_2GeV->Draw("p");
   legendZ2->Draw();
   text.DrawLatex(9.4,49.3,"#splitline{CALICESiWTB}{v0p3}");
+  canvasLongitudinalProfile2->SaveAs("2energy_longitudinal.pdf");
 
   //4 GeV
   TCanvas* canvasLongitudinalProfile4 = new TCanvas("LongitudinalProfile4GeV","Longitudinal profile of hits at 4 GeV",0,0,1000,900);
@@ -881,6 +882,7 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver ) {
   gLongitudinalProfile_Data_4GeV->Draw("p");
   legendZ4->Draw();
   text.DrawLatex(9.4,49.3,"#splitline{CALICESiWTB}{v0.3}");
+  canvasLongitudinalProfile4->SaveAs("4energy_longitudinal.pdf");
 
   //6 GeV
   TCanvas* canvasLongitudinalProfile6 = new TCanvas("LongitudinalProfile6GeV","Longitudinal profile of hits at 6 GeV",0,0,1000,900);
@@ -890,6 +892,7 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver ) {
   gLongitudinalProfile_Data_6GeV->Draw("p");
   legendZ6->Draw();
   text.DrawLatex(9.4,49.3,"#splitline{CALICESiWTB}{v0.3}");
+  canvasLongitudinalProfile6->SaveAs("6energy_longitudinal.pdf");
 
   //8 GeV
   TCanvas* canvasLongitudinalProfile8 = new TCanvas("LongitudinalProfile8GeV","Longitudinal profile of hits at 8 GeV",0,0,1000,900);
@@ -899,6 +902,7 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver ) {
   gLongitudinalProfile_Data_8GeV->Draw("p");
   legendZ8->Draw();
   text.DrawLatex(9.4,7.5,"#splitline{CALICESiWTB}{v0.3}");
+  canvasLongitudinalProfile8->SaveAs("8energy_longitudinal.pdf");
 
   //10 GeV
   TCanvas* canvasLongitudinalProfile10 = new TCanvas("LongitudinalProfile10GeV","Longitudinal profile of hits at 10 GeV",0,0,1000,900);
@@ -908,6 +912,7 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver ) {
   gLongitudinalProfile_Data_10GeV->Draw("p");
   legendZ10->Draw();
   text.DrawLatex(9.4,7.5,"#splitline{CALICESiWTB}{v0.3}");
+  canvasLongitudinalProfile10->SaveAs("10energy_longitudinal.pdf");
 
 }
 
