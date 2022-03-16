@@ -33,7 +33,7 @@
 //
 CaliceEcalSD::CaliceEcalSD(const G4String& name, const G4String& hitsCollectionName)
     : G4VSensitiveDetector(name),
-      fHitsCollection(0),
+      fHitsCollection(nullptr),
       MeV2MIP(0.155),
       //fNofReadoutLayers(30),
       //fNofCells(9720),

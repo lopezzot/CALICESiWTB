@@ -130,7 +130,7 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
             }
         }
     }   
-    analysisManager->FillNtupleIColumn(1, FFirstInteractionLayer); 
+    analysisManager->FillNtupleIColumn(1, fFirstInteractionLayer); 
     analysisManager->AddNtupleRow();
 
 }

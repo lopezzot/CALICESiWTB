@@ -62,7 +62,7 @@ CaliceRunAction::~CaliceRunAction() {
 void CaliceRunAction::BeginOfRunAction(const G4Run* /*aRun*/) {
     
     //G4int id = aRun->GetRunID();
-    G4cout << "-->CALICESiWTB::CaliceRunAction: Run starts now !" << G4endl; //tell me you alive
+    //G4cout << "-->CALICESiWTB::CaliceRunAction: Run starts now !" << G4endl; //tell me you alive
     
     //Inform G4AnalysisManager out outputfile
     //
@@ -78,7 +78,7 @@ void CaliceRunAction::BeginOfRunAction(const G4Run* /*aRun*/) {
 //
 void CaliceRunAction::EndOfRunAction(const G4Run*) {
   
-    G4cout << "-->CALICESiWTB::CaliceRunAction Run ends now !" << G4endl; //tell me you alive again
+    //G4cout << "-->CALICESiWTB::CaliceRunAction Run ends now !" << G4endl; //tell me you alive again
 
     //Inform G4AnalysisManager its time to end
     //
