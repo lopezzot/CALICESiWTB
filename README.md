@@ -14,6 +14,12 @@
   <ol>
     <li><a href="#project-description">Project description</a></li>
     <li><a href="#authors-and-contacts">Authors and contacts</a></li>
+    <li>
+      <a href="#documentation-and-results">Documentation and results</a>
+      <ul>
+        <li><a href="#selected-presentations">Selected presentations</a></li>
+      </ul>
+    </li>
     <li><a href="#available-datasets-and-analyses">Available datasets and analyses</a></li>
     <li>
       <a href="#how-to">How to</a>
@@ -38,6 +44,12 @@ The project targets a standalone Geant4 simulation of the CALICE SiW calorimeter
 - 👨‍🔬 Lorenzo Pezzotti (CERN EP-SFT) - lorenzo.pezzotti@cern.ch 
 - 👨‍🔬 Supervisor: Alberto Ribon (CERN EP-SFT)
 - 👩‍🔬 Katalin Nikolics (CERN EP-SFT)
+
+<!--Documentation and results-->
+## Documentation and results
+
+### Selected presentations
+- 🗣️ CERN EP-SFT Simulation Group Meeting 22/3/2022, **Validation on the CALICE SiW calorimeter beam test (first test, first results)** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://indico.cern.ch/event/1141927/contributions/4792467/attachments/2411878/4127359/G4_lopezzot_22_3_2022.pdf)
 
 <!--Available datasets and analyses-->
 ## Available datasets and analyses
