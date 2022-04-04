@@ -88,20 +88,12 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
  
     const G4VTouchable* touchable = (aStep->GetPreStepPoint()->GetTouchable());
 
-    const G4TouchableHistory* touchable2 = (G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable());
-
     //Get calorimeter cell id 
     //
     G4StepPoint* preStepPoint = aStep->GetPreStepPoint();
     G4TouchableHandle theHandle = preStepPoint->GetTouchableHandle();
-    const G4VPhysicalVolume* volume = theHandle->GetVolume(3);
     int layerNumber = -1;
     //layerNumber = floor(touchable->GetReplicaNumber(3)/9); //wafer number divded by 9;
-    G4cout<<touchable->GetCopyNumber()<<" "<<touchable->GetReplicaNumber()<<G4endl;
-    G4cout<<touchable2->GetCopyNumber()<<" "<<touchable2->GetReplicaNumber()<<G4endl;
-    G4cout<<volume->GetCopyNo()<<" "<<volume->GetName()<<G4endl;
-    G4cout<<theHandle->GetCopyNumber()<<" "<<theHandle->GetReplicaNumber()<<G4endl;
-    G4cout<<"------"<<G4endl;
     layerNumber = ComputeLayer( touchable->GetCopyNumber(3) );
     //G4cout<<layerNumber<<" "<<ComputeLayer( touchable->GetReplicaNumber(3) )<<" "<<touchable->GetReplicaNumber(3)<<G4endl; 
     int trackID = aStep->GetTrack()->GetTrackID();
