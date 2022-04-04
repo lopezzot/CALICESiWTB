@@ -1,7 +1,7 @@
-/process/em/verbose 0
-/process/had/verbose 0
+#/process/em/verbose 0
+#/process/had/verbose 0
 /run/initialize
-/run/printProgress 1000
+#/run/printProgress 1000
 #/run/verbose 0
 #/event/verbose 0 
 #/tracking/verbose 0 
