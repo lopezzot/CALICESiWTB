@@ -25,9 +25,9 @@
 #include <errno.h>
 #include "G4SystemOfUnits.hh"
 #include "G4ProcessManager.hh"
-#include "G4PhysListFactory.hh"
+//#include "G4PhysListFactory.hh"
 #include "G4VModularPhysicsList.hh"
-#include "G4GenericPhysicsList.hh"
+//#include "G4GenericPhysicsList.hh"
 #include "FTFP_BERT.hh"
 #include "FTFP_BERT_HP.hh"
 #include "QGSP_BERT.hh"
@@ -68,10 +68,10 @@ int main( int argc, char** argv ) {
     if (argc == 3) {                  //argv[2] usage
         custom_pl = argv[2];
     }
-    auto physListFactory = new G4PhysListFactory;
-    auto physList = physListFactory->GetReferencePhysList( custom_pl );
-    runManager->SetUserInitialization( physList );
-
+    //auto physListFactory = new G4PhysListFactory;
+    //auto physList = physListFactory->GetReferencePhysList( custom_pl );
+    //runManager->SetUserInitialization( physList );
+    runManager->SetUserInitialization(new FTFP_BERT()); //force FTFP_BERT for v0.3_g49.6.p01 only
     G4String outputname = "CALICESiWTBout.root";
     if (argc != 1){ 
         //argv[1] usage    
@@ -88,7 +88,7 @@ int main( int argc, char** argv ) {
 
     //Optional user actions
     //
-    auto evtaction = new CaliceEventAction;
+    CaliceEventAction* evtaction = new CaliceEventAction;
     runManager->SetUserAction( new CaliceRunAction(outputname, evtaction)  );
     runManager->SetUserAction( evtaction );
     //runManager->SetUserAction( new CaliceTrackingAction );
@@ -100,7 +100,7 @@ int main( int argc, char** argv ) {
 
     //Visualization
     //
-    auto visManager = new G4VisExecutive;
+    G4VisExecutive* visManager = new G4VisExecutive;
     visManager->Initialize();
 
     //User Interface initialization

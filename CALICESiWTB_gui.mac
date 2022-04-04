@@ -22,5 +22,5 @@
 /gui/addButton viewer "Update scene" "/vis/scene/notifyHandlers"
 #
 # To limit the output flow in the "dump" widget :
-/run/printProgress 100
+#/run/printProgress 100
 #

@@ -39,7 +39,7 @@ G4VPhysicalVolume* CaliceDetectorConstruction::Construct() {
 //
 void CaliceDetectorConstruction::ConstructSDandField() {
     
-    auto ecalSD = new CaliceEcalSD("EcalSD", "CaloHitsCollection");
+    CaliceEcalSD* ecalSD = new CaliceEcalSD("EcalSD", "CaloHitsCollection");
     G4SDManager::GetSDMpointer()->AddNewDetector(ecalSD);
  
     //G4cout << "Constructing Sensitive Detector..." << G4endl; 

@@ -33,7 +33,7 @@
 //
 CaliceEcalSD::CaliceEcalSD(const G4String& name, const G4String& hitsCollectionName)
     : G4VSensitiveDetector(name),
-      fHitsCollection(nullptr),
+      fHitsCollection(0),
       MeV2MIP(0.155),
       //fNofReadoutLayers(30),
       //fNofCells(9720),
@@ -86,15 +86,23 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
     G4double stepLength = 0.;
     stepLength = aStep->GetStepLength()/mm;
  
-    auto touchable = (aStep->GetPreStepPoint()->GetTouchable());
+    const G4VTouchable* touchable = (aStep->GetPreStepPoint()->GetTouchable());
+
+    const G4TouchableHistory* touchable2 = (G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable());
 
     //Get calorimeter cell id 
     //
     G4StepPoint* preStepPoint = aStep->GetPreStepPoint();
     G4TouchableHandle theHandle = preStepPoint->GetTouchableHandle();
+    const G4VPhysicalVolume* volume = theHandle->GetVolume(3);
     int layerNumber = -1;
     //layerNumber = floor(touchable->GetReplicaNumber(3)/9); //wafer number divded by 9;
-    layerNumber = ComputeLayer( touchable->GetReplicaNumber(3) );
+    G4cout<<touchable->GetCopyNumber()<<" "<<touchable->GetReplicaNumber()<<G4endl;
+    G4cout<<touchable2->GetCopyNumber()<<" "<<touchable2->GetReplicaNumber()<<G4endl;
+    G4cout<<volume->GetCopyNo()<<" "<<volume->GetName()<<G4endl;
+    G4cout<<theHandle->GetCopyNumber()<<" "<<theHandle->GetReplicaNumber()<<G4endl;
+    G4cout<<"------"<<G4endl;
+    layerNumber = ComputeLayer( touchable->GetCopyNumber(3) );
     //G4cout<<layerNumber<<" "<<ComputeLayer( touchable->GetReplicaNumber(3) )<<" "<<touchable->GetReplicaNumber(3)<<G4endl; 
     int trackID = aStep->GetTrack()->GetTrackID();
 
@@ -137,9 +145,9 @@ void CaliceEcalSD::EndOfEvent(G4HCofThisEvent*) {
 
     // G4Analysis Manager part
     //
-    auto analysisManager = G4AnalysisManager::Instance();
+    G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
     analysisManager->FillNtupleIColumn(0, fisInteraction);
-    analysisManager->FillNtupleIColumn(5, fMCFirstInteractionLayer); 
+    analysisManager->FillNtupleIColumn(3, fMCFirstInteractionLayer); 
     //analysisManager->AddNtupleRow(); //done later on in EventAction
 
     fisInteraction = false;

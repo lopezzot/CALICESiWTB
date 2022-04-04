@@ -18,7 +18,7 @@
 #include "G4THitsCollection.hh"
 #include "G4Allocator.hh"
 #include "G4ThreeVector.hh"
-#include "G4Threading.hh"
+//#include "G4Threading.hh"
 #include "G4String.hh"
 
 
@@ -93,8 +93,8 @@ class CaliceCalorimeterHit : public G4VHit {
 
 //Aliasing CaliceHitsCollection
 //
-using CaliceHitsCollection = G4THitsCollection<CaliceCalorimeterHit>;
-
+//using CaliceHitsCollection = G4THitsCollection<CaliceCalorimeterHit>;
+typedef G4THitsCollection<CaliceCalorimeterHit> CaliceHitsCollection;
 extern /*G4ThreadLocal*/ G4Allocator<CaliceCalorimeterHit>* CaliceCalorimeterHitAllocator;
 
 //Inline methods declaration

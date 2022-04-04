@@ -30,9 +30,10 @@
 //
 CaliceEventAction::CaliceEventAction():
     fFirstInteractionLayer(-1),
-    fnbhits(0),
-    felayer{},
-    fhitslayer{} {
+    fnbhits(0)
+    //felayer{},
+    //fhitslayer{}
+    {
 }
 
 //Deconstructor definition
@@ -44,14 +45,14 @@ CaliceEventAction::~CaliceEventAction() { }
 CaliceHitsCollection* CaliceEventAction::GetHitsCollection(const G4String& hcName,
                                                            const G4Event* event) const {
     G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID(hcName);
-    auto hitsCollection
+    CaliceHitsCollection* hitsCollection
         = static_cast<CaliceHitsCollection*>(event->GetHCofThisEvent()->GetHC(hcID));
 
     if ( ! hitsCollection ) {
-        G4ExceptionDescription msg;
-        msg << "Cannot access hitsCollection ID " << hcID;
-        G4Exception("CaliceEventAction::GetHitsCollection()",
-            "MyCode0003", FatalException, msg);
+        //G4ExceptionDescription msg;
+        //msg << "Cannot access hitsCollection ID " << hcID;
+        //G4Exception("CaliceEventAction::GetHitsCollection()",
+        //    "MyCode0003", FatalException, msg);
     }
 
     return hitsCollection;
@@ -74,9 +75,9 @@ void CaliceEventAction::BeginOfEventAction(const G4Event* /*evt*/) {
 //
 void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
 
-    auto analysisManager = G4AnalysisManager::Instance();
+    G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
 
-    auto caloHC = GetHitsCollection("CaloHitsCollection", evt);
+    CaliceHitsCollection* caloHC = GetHitsCollection("CaloHitsCollection", evt);
 
     float samplingFraction = 1.0;
     int NbHits = caloHC->entries();
@@ -131,6 +132,39 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
         }
     }   
     analysisManager->FillNtupleIColumn(1, fFirstInteractionLayer); 
+    
+    analysisManager->FillNtupleDColumn(4, felayer[0]);
+    analysisManager->FillNtupleDColumn(5, felayer[1]);
+    analysisManager->FillNtupleDColumn(6, felayer[2]);
+    analysisManager->FillNtupleDColumn(7, felayer[3]);
+    analysisManager->FillNtupleDColumn(8, felayer[4]);
+    analysisManager->FillNtupleDColumn(9, felayer[5]);
+    analysisManager->FillNtupleDColumn(10, felayer[6]);
+    analysisManager->FillNtupleDColumn(11, felayer[7]);
+    analysisManager->FillNtupleDColumn(12, felayer[8]);
+    analysisManager->FillNtupleDColumn(13, felayer[9]);
+    analysisManager->FillNtupleDColumn(14, felayer[10]);
+    analysisManager->FillNtupleDColumn(15, felayer[11]);
+    analysisManager->FillNtupleDColumn(16, felayer[12]);
+    analysisManager->FillNtupleDColumn(17, felayer[13]);
+    analysisManager->FillNtupleDColumn(18, felayer[14]);
+    analysisManager->FillNtupleDColumn(19, felayer[15]);
+    analysisManager->FillNtupleDColumn(20, felayer[16]);
+    analysisManager->FillNtupleDColumn(21, felayer[17]);
+    analysisManager->FillNtupleDColumn(22, felayer[18]);
+    analysisManager->FillNtupleDColumn(23, felayer[19]);
+    analysisManager->FillNtupleDColumn(24, felayer[20]);
+    analysisManager->FillNtupleDColumn(25, felayer[21]);
+    analysisManager->FillNtupleDColumn(26, felayer[22]);
+    analysisManager->FillNtupleDColumn(27, felayer[23]);
+    analysisManager->FillNtupleDColumn(28, felayer[24]);
+    analysisManager->FillNtupleDColumn(29, felayer[25]);
+    analysisManager->FillNtupleDColumn(30, felayer[26]);
+    analysisManager->FillNtupleDColumn(31, felayer[27]);
+    analysisManager->FillNtupleDColumn(32, felayer[28]);
+    analysisManager->FillNtupleDColumn(33, felayer[29]);
+    
+    //analysisManager->FillNtupleIColumn(4, fhitslayer);
     analysisManager->AddNtupleRow();
 
 }
