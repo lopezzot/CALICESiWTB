@@ -9,6 +9,7 @@
 //Includers from project files
 //
 #include "CaliceDetectorConstruction.hh" 
+#include "CaliceActionInitialization.hh"
 #include "CalicePrimaryGeneratorAction.hh" 
 #include "CaliceRunAction.hh" 
 #include "CaliceEventAction.hh" 
@@ -17,7 +18,11 @@
 
 //Includers from Geant4 and C++
 //
-#include "G4RunManager.hh" 
+#ifdef G4MULTITHREADED
+#include "G4MTRunManager.hh"
+#else
+#include "G4RunManager.hh"
+#endif 
 #include "G4UImanager.hh" 
 #include "G4UIterminal.hh" 
 #include <cstring>
@@ -40,6 +45,13 @@
 
 using namespace std;
 
+namespace PrintUsageError {
+    void UsageError() {
+        G4cerr << " Usage: " << G4endl;
+        G4cerr << " ./CALICESiWTB [macro] [physlist (default: FTFP_BERT)] [nthreads (default: 1)]" << G4endl;
+    }
+}
+
 //main() of CALICESiWTB
 //
 int main( int argc, char** argv ) {
@@ -51,10 +63,26 @@ int main( int argc, char** argv ) {
     //CLHEP::HepRandom::setTheEngine( /*&*/defaultEngine );
     //G4long seed = time( NULL );
     //CLHEP::HepRandom::setTheSeed( seed );
+    
+    if ( argc>4 ){
+        PrintUsageError::UsageError();
+        return 1;
+    }
 
     //Initializing RunManager
     //
-    G4RunManager* runManager = new G4RunManager;
+    G4int nthreads = 2;
+    if (argc == 4){
+        nthreads = G4UIcommand::ConvertToInt(argv[3]);
+    }
+    #ifdef G4MULTITHREADED
+    auto runManager = new G4MTRunManager;
+    if ( nthreads > 0 ) { 
+        runManager->SetNumberOfThreads(nthreads);
+    }  
+    #else
+    auto runManager = new G4RunManager;
+    #endif
 
     //Mandatory User Actions: 1- Detector
     //
@@ -82,6 +110,11 @@ int main( int argc, char** argv ) {
         outputname = "Calice_" + custom_pl + "_" + particleName + "_" + particleEnergy + "GeV.root";  
     }
 
+    //Mandatory User Action (for multi-threading): 3- ActionInitialization
+    //
+    auto actioninitialization = new CaliceActionInitialization( outputname );
+    runManager->SetUserInitialization( actioninitialization );
+    /* 
     //Mandatory User Actions: 3- PrimaryGeneratorAction
     //
     runManager->SetUserAction( new CalicePrimaryGeneratorAction );
@@ -93,6 +126,7 @@ int main( int argc, char** argv ) {
     runManager->SetUserAction( evtaction );
     //runManager->SetUserAction( new CaliceTrackingAction );
     runManager->SetUserAction( new CaliceSteppingAction() );
+    */
 
     // Initialize run manager, not needed can be done in macros, to be removed
     //

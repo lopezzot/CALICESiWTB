@@ -23,7 +23,7 @@
 //
 #include <iomanip>
 
-G4Allocator<CaliceCalorimeterHit>* CaliceCalorimeterHitAllocator = 0;
+G4ThreadLocal G4Allocator<CaliceCalorimeterHit>* CaliceCalorimeterHitAllocator = 0;
 
 //Constructor definition
 //
