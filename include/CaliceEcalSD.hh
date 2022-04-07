@@ -56,6 +56,7 @@ class CaliceEcalSD : public G4VSensitiveDetector {
         //G4int fNofReadoutLayers; 
         //G4int fNofCells;
         float MeV2MIP;
+        const G4int fNofCells = 9720;
         G4bool fisInteraction;
         G4int fMCFirstInteractionLayer;
 

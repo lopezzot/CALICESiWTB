@@ -51,13 +51,23 @@ CaliceEcalSD::~CaliceEcalSD() {}
 //Define Initialize() method
 //
 void CaliceEcalSD::Initialize(G4HCofThisEvent* hce) {
-    
+   
+    //Create hits collection
+    //
     fHitsCollection = new CaliceHitsCollection( SensitiveDetectorName, collectionName[0] );
   
-    // Add this collection in hce
+    //Add this collection in hce
+    //
     G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
     hce->AddHitsCollection( hcID, fHitsCollection );
-    totE = 0.;  
+
+    //Create hits: 1 hit per silicon cell -> 9720 hits
+    //
+    for ( G4int i=0; i<fNofCells; i++ ) {
+        fHitsCollection->insert( new CaliceCalorimeterHit() );
+    }
+    
+    totE = 0.; //to do: maybe delete totE variable
  
 }
 
@@ -83,35 +93,30 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
     //Get info from step
     //
     G4double edep = (aStep->GetTotalEnergyDeposit()/MeV)/MeV2MIP; //get energy deposition in units of MIP = 0.155 MeV 
-    G4double stepLength = 0.;
-    stepLength = aStep->GetStepLength()/mm;
- 
+    G4double stepLength = aStep->GetStepLength()/mm;
     auto touchable = (aStep->GetPreStepPoint()->GetTouchable());
-
-    //Get calorimeter cell id 
-    //
-    G4StepPoint* preStepPoint = aStep->GetPreStepPoint();
-    G4TouchableHandle theHandle = preStepPoint->GetTouchableHandle();
-    int layerNumber = -1;
-    //layerNumber = floor(touchable->GetReplicaNumber(3)/9); //wafer number divded by 9;
-    layerNumber = ComputeLayer( touchable->GetReplicaNumber(3) );
-    //G4cout<<layerNumber<<" "<<ComputeLayer( touchable->GetReplicaNumber(3) )<<" "<<touchable->GetReplicaNumber(3)<<G4endl; 
     int trackID = aStep->GetTrack()->GetTrackID();
+
+    //Get calorimeter si cell id and layer number 
+    //
+    int layerNumber = -1;
+    //layerNumber = floor(touchable->GetReplicaNumber(3)/9);      //wafer number divded by 9
+                                                                  //old method by Katy, wrong and deprecated
+    layerNumber = ComputeLayer( touchable->GetReplicaNumber(3) ); //layerNumber from 0 to 29
 
     G4int sicellcp = touchable->GetCopyNumber( );
     G4int sistripcp = touchable->GetCopyNumber( 1 );
     G4int waffercp = touchable->GetReplicaNumber( 3 );
     G4int sicellid = CalculateSiCellID( waffercp, sistripcp, sicellcp ); 
 
-    //Create a new CaliceCalorimeterHit
+    //Find corresponding hit and store hit info
     //
-    CaliceCalorimeterHit* hit = new CaliceCalorimeterHit();
-    hit->Add(edep, stepLength);
-    hit->SetPos(aStep->GetPreStepPoint()->GetPosition());
-    hit->SetTrackID(trackID);
-    hit->SetLayerID(layerNumber);
-    hit->SetSiCellID(sicellid);
-    fHitsCollection->insert( hit ); 
+    auto hit = (*fHitsCollection)[sicellid];
+    hit->Add( edep, stepLength );
+    hit->SetPos( aStep->GetPreStepPoint()->GetPosition() );
+    hit->SetTrackID( trackID );
+    hit->SetLayerID( layerNumber );
+    hit->SetSiCellID( sicellid );
     
     //Add values for G4Analysis
     //
@@ -120,12 +125,6 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
         fMCFirstInteractionLayer = layerNumber;
     }
 
-    //Filling output tree and histograms
-    //
-    x = aStep->GetPreStepPoint()->GetPosition().x()/mm;
-    y = aStep->GetPreStepPoint()->GetPosition().y()/mm;
-    z = aStep->GetPreStepPoint()->GetPosition().z()/mm;
-    
     return true;
     
 }
@@ -141,7 +140,7 @@ void CaliceEcalSD::EndOfEvent(G4HCofThisEvent*) {
         fisInteraction=false;
     }
 
-    // G4Analysis Manager part
+    //G4Analysis Manager part
     //
     auto analysisManager = G4AnalysisManager::Instance();
     analysisManager->FillNtupleIColumn(0, fisInteraction);

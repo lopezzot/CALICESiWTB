@@ -83,10 +83,11 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
 
     float samplingFraction = 1.0;
     int NbHits = caloHC->entries();
+
     for (G4int i=0;i<NbHits;i++) {
 
         int layerNumber = (*caloHC)[i]->GetLayerID();
-        int cellid = (*caloHC)[i]->GetSiCellID();
+        //int cellid = (*caloHC)[i]->GetSiCellID();
         // to account for different amount of dead material preceding even
         // and odd layers + different sampling fraction in the modules
         if ( layerNumber < 10 ) {
@@ -105,8 +106,12 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
             //else samplingFraction = 3.047;
             else samplingFraction = 1.047;
         }
-        //if ( (*caloHC)[i]->GetEdep() < 0.6 ) continue;
-        if ( (*caloHC)[i]->GetEdep() > 0.6 ){ 
+        if ( (*caloHC)[i]->GetEdep() < 0.6 ) continue;
+        felayer[layerNumber] += samplingFraction*(*caloHC)[i]->GetEdep();
+        fhitslayer[layerNumber]++;
+        fnbhits++;
+
+        /*if ( (*caloHC)[i]->GetEdep() > 0.6 ){ 
             felayer[layerNumber] += samplingFraction*(*caloHC)[i]->GetEdep();
             foccupcells_ene[cellid] += samplingFraction*(*caloHC)[i]->GetEdep();
         }
@@ -117,7 +122,7 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
             fhitslayer[layerNumber]++;
             foccupcells_hit[cellid]++;
             fnbhits++;
-        } 
+        }*/ 
         /*if ( i > 0 && (*caloHC)[i]->GetTrackID() != (*caloHC)[i-1]->GetTrackID() && 
              (*caloHC)[i]->GetLayerID() != (*caloHC)[i-1]->GetLayerID() ) {
             
