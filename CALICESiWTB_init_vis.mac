@@ -1,5 +1,5 @@
 #
-# Macro file for the initialization ATLHECTB and visualization settings
+# Macro file for the initialization CALICESiWTB and visualization settings
 # in interactive session
 #
 # Set some default verbose
@@ -17,7 +17,7 @@
 # Visualization setting
 #/control/execute vis.mac
 #
-# Visualization setting for the ATLHECTB project 
+# Visualization setting for the CALICESiWTB project 
 #
 # Use these open statements to open selected visualization
 #
