@@ -32,7 +32,9 @@ CaliceEventAction::CaliceEventAction():
     fFirstInteractionLayer(-1),
     fnbhits(0),
     felayer{},
-    fhitslayer{} {
+    fhitslayer{},
+    foccupcells_hit{},
+    foccupcells_ene{}{
 }
 
 //Deconstructor definition
@@ -67,7 +69,8 @@ void CaliceEventAction::BeginOfEventAction(const G4Event* /*evt*/) {
     for ( unsigned int i = 0; i<30; i++) { felayer.push_back(0.); }
     fhitslayer.clear();
     for ( unsigned int i = 0; i<30; i++) { fhitslayer.push_back(0); }
-
+    for ( unsigned int i = 0; i<numberOfCells; i++ ){ foccupcells_hit[i] = 0; }
+    for ( unsigned int i = 0; i<numberOfCells; i++ ){ foccupcells_ene[i] = 0.; }
 }
 
 //EndOfEventAction definition
@@ -83,7 +86,7 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
     for (G4int i=0;i<NbHits;i++) {
 
         int layerNumber = (*caloHC)[i]->GetLayerID();
-
+        int cellid = (*caloHC)[i]->GetSiCellID();
         // to account for different amount of dead material preceding even
         // and odd layers + different sampling fraction in the modules
         if ( layerNumber < 10 ) {
@@ -102,10 +105,19 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
             //else samplingFraction = 3.047;
             else samplingFraction = 1.047;
         }
-        if ( (*caloHC)[i]->GetEdep() < 0.6 ) continue;
-        felayer[layerNumber] += samplingFraction*(*caloHC)[i]->GetEdep();
-        fhitslayer[layerNumber]++;
-        fnbhits++;
+        //if ( (*caloHC)[i]->GetEdep() < 0.6 ) continue;
+        if ( (*caloHC)[i]->GetEdep() > 0.6 ){ 
+            felayer[layerNumber] += samplingFraction*(*caloHC)[i]->GetEdep();
+            foccupcells_ene[cellid] += samplingFraction*(*caloHC)[i]->GetEdep();
+        }
+        if  ( (*caloHC)[i]->GetEdep() < 0.6 && foccupcells_ene[cellid]>0.6 ) {
+            felayer[layerNumber] += samplingFraction*(*caloHC)[i]->GetEdep();
+        }
+        if ( (*caloHC)[i]->GetEdep() > 0.6 && foccupcells_hit[cellid]==0 ){ 
+            fhitslayer[layerNumber]++;
+            foccupcells_hit[cellid]++;
+            fnbhits++;
+        } 
         /*if ( i > 0 && (*caloHC)[i]->GetTrackID() != (*caloHC)[i-1]->GetTrackID() && 
              (*caloHC)[i]->GetLayerID() != (*caloHC)[i-1]->GetLayerID() ) {
             
@@ -133,6 +145,7 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
     analysisManager->FillNtupleIColumn(1, fFirstInteractionLayer); 
     analysisManager->AddNtupleRow();
 
+    //for(auto&n : foccupcells_hit){G4cout<<n;}
 }
 
 //**************************************************

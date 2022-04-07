@@ -35,8 +35,9 @@ CaliceCalorimeterHit::CaliceCalorimeterHit()
       fEdep(0.),
       fPos(0,0,0),
       fTrackLength(0.),
-      fTrackID(0)
+      fTrackID(0),
       //fVolName 
+      fsicellID(0)
 {}
 
 //Deconstructor definition
@@ -55,7 +56,7 @@ CaliceCalorimeterHit::CaliceCalorimeterHit(const CaliceCalorimeterHit& right) : 
     fPadIDx       = right.fPadIDx;
     fPadIDy       = right.fPadIDy;
     fVolName      = right.fVolName;
-
+    fsicellID     = right.fsicellID;
 }
 
 //operator = definition
@@ -70,6 +71,7 @@ const CaliceCalorimeterHit& CaliceCalorimeterHit::operator=(const CaliceCalorime
     fPadIDx      = right.fPadIDx;
     fPadIDy      = right.fPadIDy;
     fVolName     = right.fVolName;
+    fsicellID    = right.fsicellID;
 
     return *this;
 }

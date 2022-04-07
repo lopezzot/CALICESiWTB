@@ -24,7 +24,8 @@ class G4Step;
 class G4TouchableHistory;
 class G4HCofThisEvent;
 
-#define numberOfCells 9720 //18*18*30
+//#define numberOfCells 9720 //18*18*30
+static constexpr G4int numberOfCells = 9720;
 
 class CaliceEcalSD : public G4VSensitiveDetector {
     
@@ -40,7 +41,6 @@ class CaliceEcalSD : public G4VSensitiveDetector {
         void EndOfEvent(G4HCofThisEvent* hitCollection);
         void clear();
         void PrintAll();
-        std::vector<G4double>& Getfelayer() { return felayer; };
 
         double x,y,z;
         double pixelX, pixelY, pixelZ;
@@ -59,9 +59,19 @@ class CaliceEcalSD : public G4VSensitiveDetector {
         G4bool fisInteraction;
         G4int fMCFirstInteractionLayer;
 
-        std::vector<G4double> felayer;
-
+        G4int CalculateSiCellID( G4int waffercp, G4int sistripcp, G4int sicellcp );
 };
+
+inline G4int CaliceEcalSD::CalculateSiCellID( G4int waffercp, G4int sistripcp, G4int sicellcp ){
+
+    G4double sicellid = (6*6)*waffercp + 6*sistripcp + sicellcp; 
+
+    if(sicellid > 9729){
+        G4cout<<"ERROR in sicellID computation!!!"<<G4endl;
+    }
+
+    return sicellid;
+}
 
 inline G4int CaliceEcalSD::ComputeLayer( G4int copynumber ) {
     

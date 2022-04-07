@@ -71,12 +71,13 @@ class CaliceCalorimeterHit : public G4VHit {
         void SetTrackID(G4int trackID) { fTrackID = trackID; }
         G4int GetTrackID() const { return fTrackID; }
         
+        void SetSiCellID(G4int sicellid){ fsicellID = sicellid; }
+        G4int GetSiCellID() const { return fsicellID; }
         //Get methods
         //
         G4double GetEdep() const;
         G4double GetTrackLength() const;
         G4ThreeVector GetPos(){ return fPos; };
-
       
     private:
         G4int fPadIDx;
@@ -89,6 +90,7 @@ class CaliceCalorimeterHit : public G4VHit {
         G4ThreeVector fWorldPos;
         G4int fTrackID;
         G4String fVolName;
+        G4int fsicellID;
 };
 
 //Aliasing CaliceHitsCollection

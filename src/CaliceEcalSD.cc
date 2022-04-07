@@ -98,6 +98,11 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
     //G4cout<<layerNumber<<" "<<ComputeLayer( touchable->GetReplicaNumber(3) )<<" "<<touchable->GetReplicaNumber(3)<<G4endl; 
     int trackID = aStep->GetTrack()->GetTrackID();
 
+    G4int sicellcp = touchable->GetCopyNumber( );
+    G4int sistripcp = touchable->GetCopyNumber( 1 );
+    G4int waffercp = touchable->GetReplicaNumber( 3 );
+    G4int sicellid = CalculateSiCellID( waffercp, sistripcp, sicellcp ); 
+
     //Create a new CaliceCalorimeterHit
     //
     CaliceCalorimeterHit* hit = new CaliceCalorimeterHit();
@@ -105,6 +110,7 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
     hit->SetPos(aStep->GetPreStepPoint()->GetPosition());
     hit->SetTrackID(trackID);
     hit->SetLayerID(layerNumber);
+    hit->SetSiCellID(sicellid);
     fHitsCollection->insert( hit ); 
     
     //Add values for G4Analysis
