@@ -4,7 +4,7 @@
 //         CaliceCalorimeterHit class
 // \author: Lorenzo Pezzotti (CERN EP-SFT-sim) 
 //          @lopezzot
-// \start date: 21 February 2021
+// \start date: 21 February 2022
 //**************************************************
 
 //Includers from project files
