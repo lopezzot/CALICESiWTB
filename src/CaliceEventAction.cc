@@ -33,9 +33,8 @@ CaliceEventAction::CaliceEventAction():
     fnbhits(0),
     felayer{},
     fhitslayer{},
-    fehits{},
-    foccupcells_hit{},
-    foccupcells_ene{}{
+    fehits{}
+    {
 }
 
 //Deconstructor definition
@@ -73,8 +72,6 @@ void CaliceEventAction::BeginOfEventAction(const G4Event* /*evt*/) {
     fehits.clear();
     for ( unsigned int i = 0; i<numberOfCells; i++) { fehits.push_back(0.); }
 
-    for ( unsigned int i = 0; i<numberOfCells; i++ ){ foccupcells_hit[i] = 0; }
-    for ( unsigned int i = 0; i<numberOfCells; i++ ){ foccupcells_ene[i] = 0.; }
 }
 
 //EndOfEventAction definition
@@ -116,18 +113,6 @@ void CaliceEventAction::EndOfEventAction(const G4Event* evt) {
         fhitslayer[layerNumber]++;
         fnbhits++;
 
-        /*if ( (*caloHC)[i]->GetEdep() > 0.6 ){ 
-            felayer[layerNumber] += samplingFraction*(*caloHC)[i]->GetEdep();
-            foccupcells_ene[cellid] += samplingFraction*(*caloHC)[i]->GetEdep();
-        }
-        if  ( (*caloHC)[i]->GetEdep() < 0.6 && foccupcells_ene[cellid]>0.6 ) {
-            felayer[layerNumber] += samplingFraction*(*caloHC)[i]->GetEdep();
-        }
-        if ( (*caloHC)[i]->GetEdep() > 0.6 && foccupcells_hit[cellid]==0 ){ 
-            fhitslayer[layerNumber]++;
-            foccupcells_hit[cellid]++;
-            fnbhits++;
-        }*/ 
         /*if ( i > 0 && (*caloHC)[i]->GetTrackID() != (*caloHC)[i-1]->GetTrackID() && 
              (*caloHC)[i]->GetLayerID() != (*caloHC)[i-1]->GetLayerID() ) {
             

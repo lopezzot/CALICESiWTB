@@ -49,8 +49,7 @@ class CaliceEventAction : public G4UserEventAction {
         std::vector<G4int> fhitslayer;
         std::vector<G4double> fehits;
         static const G4int numberOfCells = 9720; 
-        G4int foccupcells_hit[numberOfCells];
-        G4double foccupcells_ene[numberOfCells];
+
 };
 
 #endif
