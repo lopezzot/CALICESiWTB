@@ -26,6 +26,7 @@
       <a href="#how-to">How to</a>
       <ul>
         <li><a href="#build-compile-and-execute-on-maclinux">Build, compile and execute on Mac/Linux</a></li>
+        <li><a href="#build-compile-and-execute-on-lxplus">Build, compile and execute on lxplus</a></li>
       </ul>
     </li>
     </li><li><a href="#my-quick-geant4-installation">My quick Geant4 installation</a></li>
@@ -79,11 +80,32 @@ We provide datasets and ROOT analyses, as well as instructions for their reprodu
    cmake -DGeant4_DIR=/absolute_path_to/geant4.10.07_p01-install/lib/Geant4-10.7.1/ relative_path_to/CALICESiWTB/
    make
    ```
-4. execute (example with ```run_pi-_2GeV.mac``` macro card and FTFP_BERT physics list)
+4. execute (example with ```run_pi-_2GeV.mac``` macro card, FTFP_BERT physics list and 2 threads)
    ```sh
-   ./CALICESiWTB run_pi-_2GeV.mac FTFP_BERT
+   ./CALICESiWTB run_pi-_2GeV.mac FTFP_BERT 2
    ```
-Parser options: argv[1]: a Geant4 macro card, argv[2]: the physics list (optional, default FTFP_BERT)
+Parser options: argv[1] a Geant4 macro card, argv[2] the physics list (optional, default FTFP_BERT), argv[3] number of threads
+
+### Build, compile and execute on lxplus
+1. git clone the repo
+   ```sh
+   git clone https://github.com/lopezzot/CALICESiWTB.git
+   ```
+2. cmake build directory and make (using geant4.10.07_p03, check for gcc and cmake dependencies for other versions)
+   ```sh
+   mkdir CALICESiWTB-build; cd CALICESiWTB-build/
+   source /cvmfs/sft.cern.ch/lcg/contrib/gcc/8.3.0/x86_64-centos7/setup.sh 
+   source /cvmfs/geant4.cern.ch/geant4/10.7.p03/x86_64-centos7-gcc8-optdeb-MT/CMake-setup.sh 
+   export CXX=`which g++`
+   export CC=`which gcc`
+   cmake3 -DGeant4_DIR= /cvmfs/geant4.cern.ch/geant4/10.7.p03/x86_64-centos7-gcc8-optdeb-MT/lib64/Geant4-10.7.3 ../CALICESiWTB/
+   make
+   ```
+   Hint: cp and source the scripts/CALICESiWTB_lxplus_10.7.p03.sh file in the build directory.
+3. execute (example 2 GeV pi- macro card, FTFP_BERT physics list and 2 threads)
+   ```sh
+   ./CALICESiWTB run_pi-_2GeV.mac FTFP_BERT 2
+   ```
 
 <!--My quick Geant4 installation-->
 ## My quick Geant4 installation
