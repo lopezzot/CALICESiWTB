@@ -59,11 +59,11 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver ) {
 
   //Need five files from Geant4 (2, 4, 6, 8, 10 GeV - pi-)
   //
-  filename[0] = "Data0p4/Calice_"+modelName+"_pi-_2GeV.root";
-  filename[1] = "Data0p4/Calice_"+modelName+"_pi-_4GeV.root";
-  filename[2] = "Data0p4/Calice_"+modelName+"_pi-_6GeV.root";
-  filename[3] = "Data0p4/Calice_"+modelName+"_pi-_8GeV.root";
-  filename[4] = "Data0p4/Calice_"+modelName+"_pi-_10GeV.root";
+  filename[0] = "Data0p4_1/Calice_"+modelName+"_pi-_2GeV.root";
+  filename[1] = "Data0p4_1/Calice_"+modelName+"_pi-_4GeV.root";
+  filename[2] = "Data0p4_1/Calice_"+modelName+"_pi-_6GeV.root";
+  filename[3] = "Data0p4_1/Calice_"+modelName+"_pi-_8GeV.root";
+  filename[4] = "Data0p4_1/Calice_"+modelName+"_pi-_10GeV.root";
   
   //From Katy
   //
