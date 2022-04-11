@@ -37,6 +37,7 @@ class CaliceEventAction : public G4UserEventAction {
 
         std::vector<G4double>& Getelayer() { return felayer; };
         std::vector<G4int>& Gethitslayer() { return fhitslayer; };
+        std::vector<G4double>& Getehits()  { return fehits; };
 
     private:
 
@@ -46,6 +47,7 @@ class CaliceEventAction : public G4UserEventAction {
         G4int fnbhits;
         std::vector<G4double> felayer;
         std::vector<G4int> fhitslayer;
+        std::vector<G4double> fehits;
         static const G4int numberOfCells = 9720; 
         G4int foccupcells_hit[numberOfCells];
         G4double foccupcells_ene[numberOfCells];

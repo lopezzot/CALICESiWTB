@@ -34,7 +34,7 @@
 CaliceEcalSD::CaliceEcalSD(const G4String& name, const G4String& hitsCollectionName)
     : G4VSensitiveDetector(name),
       fHitsCollection(nullptr),
-      MeV2MIP(0.155),
+      MeV2MIP(0.1806), //MIP=0.1806 (MeV) new 2GeVmu- calibration from Lorenzo, previouse number from Katy MIP=0.155
       //fNofReadoutLayers(30),
       //fNofCells(9720),
       fisInteraction(false),
@@ -89,10 +89,10 @@ G4bool CaliceEcalSD::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
             "z: "<< aStep->GetPreStepPoint()->GetPosition().z() <<G4endl;
             //"Particle "<< aStep->GetTrack()->GetParticleDefinition()->GetParticleName()<< " " <<
             //"Dep(MeV) "<< aStep->GetTotalEnergyDeposit()<<G4endl;*/ 
-    
+
     //Get info from step
     //
-    G4double edep = (aStep->GetTotalEnergyDeposit()/MeV)/MeV2MIP; //get energy deposition in units of MIP = 0.155 MeV 
+    G4double edep = (aStep->GetTotalEnergyDeposit()/MeV)/MeV2MIP; //get energy deposition in units of MIP
     G4double stepLength = aStep->GetStepLength()/mm;
     auto touchable = (aStep->GetPreStepPoint()->GetTouchable());
     int trackID = aStep->GetTrack()->GetTrackID();
