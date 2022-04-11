@@ -27,6 +27,7 @@
       <ul>
         <li><a href="#build-compile-and-execute-on-maclinux">Build, compile and execute on Mac/Linux</a></li>
         <li><a href="#build-compile-and-execute-on-lxplus">Build, compile and execute on lxplus</a></li>
+        <li><a href="#submit-a-job-with-htcondor-on-lxplus">Submit a job with HTCondor on lxplus</a></li>
       </ul>
     </li>
     </li><li><a href="#my-quick-geant4-installation">My quick Geant4 installation</a></li>
@@ -105,6 +106,32 @@ Parser options: argv[1] a Geant4 macro card, argv[2] the physics list (optional,
 3. execute (example 2 GeV pi- macro card, FTFP_BERT physics list and 2 threads)
    ```sh
    ./CALICESiWTB run_pi-_2GeV.mac FTFP_BERT 2
+   ```
+
+### Submit a job with HTCondor on lxplus
+1. git clone the repo
+   ```sh
+   git clone https://github.com/lopezzot/CALICESiWTB.git
+   ```
+2. prepare execution files (example with Geant4.10.07_p03, 2 GeV pi- macro, 2 threads, FTFP_BERT physics list)
+    ```sh
+    mkdir CALICESiWTB-build; cd CALICESiWTB-build
+    mkdir error log output
+    cp ../CALICESiWTB/scripts/CALICESiWTB_lxplus_10.7.p03.sh .
+    source CALICESiWTB_lxplus_10.7.p03.sh
+    ```
+3. prepare for HTCondor submission (example with Geant4.10.07_p03, 2 GeV pi- macro, 2 threads, FTFP_BERT physics list)
+    ```sh
+    cp ../CALICESiWTB/scripts/CALICESiWTB_HTCondor_10.7.p03.sh .
+    export MYHOME=`pwd`
+    echo cd $MYHOME >> CALICESiWTB_HTCondor_10.7.p03.sh
+    echo $MYHOME/CALICESiWTB run_pi-_2GeV.mac FTFP_BERT 2 >> CALICESiWTB_HTCondor_10.7.p03.sh
+    cp ../CALICESiWTB/scripts/CALICESiWTB_HTCondor.sub .
+    sed -i '1 i executable = CALICESiWTB_HTCondor_10.7.p03.sh' CALICESiWTB_HTCondor.sub
+    ```
+4. submit a job
+   ```sh
+   condor_submit CALICESiWTB_HTCondor.sub 
    ```
 
 <!--My quick Geant4 installation-->
