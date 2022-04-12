@@ -48,7 +48,7 @@ using namespace std;
 namespace PrintUsageError {
     void UsageError() {
         G4cerr << " Usage: " << G4endl;
-        G4cerr << " ./CALICESiWTB [macro] [physlist (default: FTFP_BERT)] [nthreads (default: 1)]" << G4endl;
+        G4cerr << " ./CALICESiWTB [macro] [physlist (default: FTFP_BERT)] [nthreads (default: 1)] [geantval (default: false)]" << G4endl;
     }
 }
 
@@ -64,7 +64,7 @@ int main( int argc, char** argv ) {
     //G4long seed = time( NULL );
     //CLHEP::HepRandom::setTheSeed( seed );
     
-    if ( argc>4 ){
+    if ( argc>5 ){
         PrintUsageError::UsageError();
         return 1;
     }
@@ -72,7 +72,7 @@ int main( int argc, char** argv ) {
     //Initializing RunManager
     //
     G4int nthreads = 2;
-    if (argc == 4){
+    if (argc > 4){
         nthreads = G4UIcommand::ConvertToInt(argv[3]);
     }
     #ifdef G4MULTITHREADED
@@ -108,6 +108,13 @@ int main( int argc, char** argv ) {
         G4String particleEnergy = ((string)argv[1]).substr(8);
         particleEnergy = particleEnergy.substr(0,particleEnergy.find("GeV"));
         outputname = "Calice_" + custom_pl + "_" + particleName + "_" + particleEnergy + "GeV.root";  
+    }
+    if (argc == 5){
+        G4bool geantval = G4UIcommand::ConvertToBool(argv[4]);
+	if (geantval){
+	    outputname = "CALICESiWTBout.root";
+	    G4cout<<"Setup for geantval usage"<<G4endl;
+	}
     }
 
     //Mandatory User Action (for multi-threading): 3- ActionInitialization
