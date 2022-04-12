@@ -2,7 +2,6 @@
 
 # Environment variables
 export PHYSLIST="%PHYSLIST%"
-
+export ENERGY="%ENERGY"
 # Execute
-CALICESiWTB CALICESiWTB.mac %PHYSLIST% 12
-#12 threads
+CALICESiWTB run_pi-_%ENERGY%GeV.mac %PHYSLIST% 4
