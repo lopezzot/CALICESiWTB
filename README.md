@@ -9,6 +9,12 @@
 
 <br/><br/>
 
+<video align="center" src="https://user-images.githubusercontent.com/34685792/163427512-4597b1dc-d543-4167-939a-6277087c91fd.mp4" alt="Trulli" controls="controls" style="width:100%">
+</video>
+<figcaption align="center"><b>Vid. - Video example of how to use CALICESiWTB in Geant Val.</b></figcaption>
+
+<br/><br/>
+
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
