@@ -78,7 +78,7 @@ class Test(BaseParser):
 			          #secondaryParticle="e-",
 				  beamParticle=job["PARTICLE"],
 				  targetName="CALICE-SiW",
-				  beamEnergies=energy,
+				  beamEnergies=[energy],
                                   title="Energy per layer (pi-)",
                                   xAxisName="Shower depth [pseudolayer]",
                                   yAxisName="Erec/pseudolayer [MIP]",
@@ -96,7 +96,7 @@ class Test(BaseParser):
 			          #secondaryParticle="e-",
 				  beamParticle=job["PARTICLE"],
 				  targetName="CALICE-SiW",
-				  beamEnergies=energy,
+				  beamEnergies=[energy],
                                   title="Hit per layer (pi-)",
                                   xAxisName="Shower depth [layer]",
                                   yAxisName="Entries (normalised to unity)",
@@ -107,7 +107,7 @@ class Test(BaseParser):
                                   )
            
 	    #Part for data json creation (extract FTFP_BERT phys list jobs)
-	    '''
+	    
 	    if str(jobs[0]["PHYSLIST"])=="FTFP_BERT":
 		y_energy_data, y_energy_data_error = GetDataObservables(path+"/"+str(energy)+"GeVenergydata.txt")
 		y_hit_data, y_hit_data_error = GetDataObservables(path+"/"+str(energy)+"GeVhitdata.txt")
@@ -124,7 +124,7 @@ class Test(BaseParser):
 				      #secondaryParticle="e-",
 				      beamParticle="pi-",
 				      targetName="CALICE-SiW",
-			    	      beamEnergies=energy,
+			    	      beamEnergies=[energy],
                                       title="Energy per layer (pi-)",
                                       xAxisName="Shower depth [pseudolayer]",
                                       yAxisName="Erec/pseudolayer [MIP]",
@@ -145,7 +145,7 @@ class Test(BaseParser):
 				      #secondaryParticle="e-",
 				      beamParticle="pi-",
 				      targetName="CALICE-SiW",
-				      beamEnergies=energy,
+				      beamEnergies=[energy],
                                       title="Hit per layer (pi-)",
                                       xAxisName="Shower depth [layer]",
                                       yAxisName="Entries (normalised to unity)",
@@ -154,5 +154,5 @@ class Test(BaseParser):
 	                              yStatErrorsMinus=y_hit_data_error,
 				      yStatErrorsPlus=y_hit_data_error
                                       )
-	    ''' 
+	    
 ##**************************************************
