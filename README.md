@@ -21,6 +21,12 @@
         <li><a href="#selected-presentations">Selected presentations</a></li>
       </ul>
     </li>
+    <li>
+      <a href="#geant-val-integration">Geant Val integration</a>
+      <ul>
+        <li><a href="#list-of-results-on-geant-val">List of results on Geant Val</a></li>
+      </ul>
+    </li> 
     <li><a href="#available-datasets-and-analyses">Available datasets and analyses</a></li>
     <li>
       <a href="#how-to">How to</a>
@@ -53,6 +59,66 @@ The project targets a standalone Geant4 simulation of the CALICE SiW calorimeter
 
 ### Selected presentations
 - 🗣️ CERN EP-SFT Simulation Group Meeting 22/3/2022, **Validation on the CALICE SiW calorimeter beam test (first test, first results)** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://indico.cern.ch/event/1141927/contributions/4792467/attachments/2411878/4127542/G4_lopezzot_22_3_2022.pdf)
+
+<!--Geant Val integration-->
+## Geant Val integration
+Geant Val [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://geant-val.cern.ch/) is the Geant4 testing and validation suite. It is a project hosted on gitlab.cern.ch [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://gitlab.cern.ch/GeantValidation) used to facilitate the maintenance and validation of Geant4 applications, referred to as <em> tests</em>.\
+The following are instructions to use CALICESiWTB within Geant Val, from batch submission to website deployment.
+1. On lxplus git clone ATLHECTB and the Geant Val/geant-config-generator
+   ```sh
+   git clone git@github.com:lopezzot/CALICESiWTB.git
+   git clone ssh://git@gitlab.cern.ch:7999/GeantValidation/geant-config-generator.git
+   ```
+2. Copy the CALICESiWTB geant val scripts into tests/geant4/; cd geant-config-generator
+   ```sh
+   cp -r CALICESiWTB/geantval_scripts/CALICESiWTB/ geant-config-generator/tests/geant4/
+   cd geant-config-generator
+   ```
+   Note that file inside ```tests/geant/CALICESiWTB/files/``` will be used by Geant Val for execution and data analysis.
+3. We will execute CALICESiWTB via Geant Val using Geant4.10.7.p03, therefore we must make sure file ```10.7.p03.sh``` exists into ```configs/geant/```. In file ```10.7.p03.sh``` we also export the path to the CALICESiWTB 10.7.p03 executable file (for instruction on how to compile CALICESiWTB see [How to: Build, compile and execute on lxplus](#build-compile-and-execute-on-lxplus)).\
+Hence ```10.7.p03.sh``` looks like this:
+   ```sh
+   #!/bin/bash
+
+   VERSION="10.7.p03"
+   PLATFORM="x86_64-centos7-gcc8-optdeb"
+
+   # Geant4 libraries
+   source /cvmfs/geant4.cern.ch/geant4/$VERSION/${PLATFORM}/bin/geant4.sh
+   [ -e /cvmfs/geant4.cern.ch/geant4/$VERSION/setup_g4datasets.sh ] && source/cvmfs/geant4.cern.ch/geant4/$VERSION/setup_g4datasets.sh
+
+   # Test path
+   export PATH="/cvmfs/geant4.cern.ch/opt-geant-val/$VERSION/$PLATFORM/bin:/cvmfs/geant4.cern.ch/opt/$VERSION/$PLATFORM/bin:$PATH:/afs/cern.ch/work/l/lopezzot/Fellow/CALICE/geantval/build/"
+
+   # Compiler
+   source /cvmfs/sft.cern.ch/lcg/contrib/gcc/8/x86_64-centos7/setup.sh
+
+   # Externals
+   #export LD_LIBRARY_PATH="/cvmfs/sft.cern.ch/lcg/releases/LCG_88/ROOT/6.08.06/x86_64-centos7-gcc62-opt/lib:/cvmfs/sft.cern.ch/lcg/releases/LCG_88/qt5/5.6.0/x86_64-centos7-gcc62-opt/lib/:/cvmfs/sft.cern.ch/lcg/releases/LCG_88/hdf5/1.8.18/x86_64-centos7-gcc62-opt/lib/:$LD_LIBRARY_PATH"
+   ```
+4. Create macros and metadata for Geant Val execution
+   ```sh
+   python mc-config-generator.py submit -t CALICESiWTB -d OUTPUT -v 10.7.p03 -q "testmatch" -r
+   ```
+   this command creates the Geant Val files for batch submission using HTCondor under the ```OUTPUT``` folder, using CALICESiWTB, Geant4.10.7.p03 and the ```testmatch``` job flavour.
+5. To monitor the jobs use
+   ```sh
+   python mc-config-generator.py status -t CALICESiWTB -d OUTPUT
+   ```
+   When the job execution ends, the root output files are stored in the corresponding job folder.
+6. Execute the analysis on the root files in the ```OUTPUT``` folder to create Geant Val JSON output files
+    ```sh
+    python mc-config-generator.py parse -t CALICESiWTB -d OUTPUT 
+    ```
+    the analysis is coded in ```tests/geant4/CALICESiWTB/parser.py``` and in the root macros stored in each job folder. The ```OUTPUTJSON``` folder is created with the corresponding JSON files.
+7. The last part is to deploy the results on Geant Val. The CALICESiWTB layout on the Geant Val website is defined in the ```CALICESiWTB.xml``` file on ```gitlab.com/thegriglat/geant-val-layouts``` (additional info are in the ```tags.json``` file).\
+   Deploy JSON files on the Geant Val database
+   ```sh
+    find . -name '*.json' | while read i; do curl -H "Content-Type: application/json" -H "token: askauthor" --data @$i https://geant-val.cern.ch/upload; echo; done
+   ```
+
+### List of results on Geant Val
+The following are results deployed on Geant Val so far. A copy of the used config files is stored in ```geantval_scripts/configs/```.
 
 <!--Available datasets and analyses-->
 ## Available datasets and analyses
