@@ -124,6 +124,10 @@ The following are results deployed on Geant Val so far. A copy of the used confi
 ## Available datasets and analyses
 We provide datasets and ROOT analyses, as well as instructions for their reproducibility. Ask authors for access to datasets.
 
+| CALICESiWTB         | Reproduce data | Reproduce analysis | Comments     |
+| -------------    | ----------     | -----------        | -----------  |
+| v1.0 <br /> Dataset #1 <br /> (Geant4.10.07.p03, CALICESiWTB v1.0, FTFP_BERT, FTFP_INCLXX, QGSP_BERT) <br /> Added on 14/4/2022 <br /> | python mc-config-generator.py submit -t CALICESiWTB -d OUTPUT -v 10.7.p03 -q "testmatch" -r | python mc-config-generator.py parse -t CALICESiWTB -d OUTPUT |  Results for one Geant4 versions, three physics list. Results for experiment included as well, use last parser part for it.|
+
 | CALICESiWTB      | Reproduce data | Reproduce analysis | Comments     |
 | -------------    | ----------     | -----------        | -----------  |
 | v0p4 <br /> Dataset #1 <br /> tag 0p4_1 | Geant4.10.07.p03 <br /> CALICESiWTB v0p4 <br /> ```./CALICESiWTB run_pi-_x_GeV.mac FTFP_BERT #nThreads``` <br /> x = 2, 4, 6, 8, 10 <br /> using FTFP_BERT physics list | ```root -l MyLongitudinalPlots.C```  | Analysis reproducable with analysis/v0.4/MyLongitudinalPlots.C macro <br /> assuming Data0p4_1/ is alongside root macro. <br /> New results on pion energy and hit longitudinal distributions. Prepared for the CALICE Collaboration Meeting April 2022. |
