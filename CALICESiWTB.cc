@@ -72,7 +72,7 @@ int main( int argc, char** argv ) {
     //Initializing RunManager
     //
     G4int nthreads = 2;
-    if (argc > 4){
+    if (argc >= 4){
         nthreads = G4UIcommand::ConvertToInt(argv[3]);
     }
     #ifdef G4MULTITHREADED
@@ -93,7 +93,7 @@ int main( int argc, char** argv ) {
     //Mandatory User Actions: 2- Physics List
     //
     G4String custom_pl = "FTFP_BERT"; //FTFP_BERT default PL
-    if (argc == 3) {                  //argv[2] usage
+    if (argc >= 3) {                  //argv[2] usage
         custom_pl = argv[2];
     }
     auto physListFactory = new G4PhysListFactory;
