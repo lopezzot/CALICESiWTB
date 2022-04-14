@@ -26,6 +26,15 @@ def GetObservables(filename):
     listfloat = [float(x) for x in listline]
     return listfloat
 
+def GetDataObservables(filename):
+    with open(filename) as f:
+	line = f.readlines()
+    listline = line[0].split()
+    listfloat = [float(x) for x in listline]
+    listlineerror = line[1].split()
+    listfloaterror = [float(x) for x in listlineerror]
+    return listfloat, listfloaterror
+
 class Test(BaseParser):
     TEST = "CALICESiWTB"
     IGNOREKEYS = ["ENERGY"] 
@@ -39,7 +48,8 @@ class Test(BaseParser):
 
 	xpseudolayer_values = [x for x in range(0,53)]    
         xlayer_values = [x for x in range(0,23)]    
-	ystaterrorMC = [0. for x in range(0,23)]
+	ystaterrorMC_pseudolayer = [0. for x in range(0,53)]
+	ystaterrorMC_layer = [0. for x in range(0,23)]
 	
 	#Prepare jobs for analysis
 	#
@@ -58,8 +68,10 @@ class Test(BaseParser):
 	    #print root_command
 	    #os.system(root_command)
 	    yenergy_values = GetObservables(path+"/"+str(energy)+"GeVenergy.txt")
+	    yhit_values = GetObservables(path+"/"+str(energy)+"GeVhit.txt")
 	    print "--->energy values: " + str(yenergy_values) + " ,physlist: " + str(set([x["PHYSLIST"] for x in jobs]))
-             
+	    print "--->hit values: " + str(yhit_values) + " ,physlist: " + str(set([x["PHYSLIST"] for x in jobs]))
+            '''
 	    #Create JSON output files for energy (graph)
 	    #
 	    yield getJSON(jobs[0], "chart",
@@ -75,8 +87,69 @@ class Test(BaseParser):
                                   yAxisName="Erec/pseudolayer [MIP]",
                                   xValues=xpseudolayer_values,
                                   yValues=yenergy_values,
-	                          yStatErrorsMinus=ystaterrorMC,
-			          yStatErrorsPlus=ystaterrorMC
+	                          yStatErrorsMinus=ystaterrorMC_pseudolayer,
+				  yStatErrorsPlus=ystaterrorMC_pseudolayer
                                   )
+	    #Create JSON output files for hit (graph)
+	    #
+	    yield getJSON(jobs[0], "chart",
+		                  mctool_name="GEANT4",
+		                  mctool_model=jobs[0]["PHYSLIST"],
+			          observableName="hit per layer",
+			          #secondaryParticle="e-",
+				  beamParticle=job["PARTICLE"],
+				  targetName="CALICE-SiW",
+				  beamEnergies=energy,
+                                  title="Hit per layer (pi-)",
+                                  xAxisName="Shower depth [layer]",
+                                  yAxisName="Entries (normalised to unity)",
+                                  xValues=xlayer_values,
+                                  yValues=yhit_values,
+	                          yStatErrorsMinus=ystaterrorMC_layer,
+				  yStatErrorsPlus=ystaterrorMC_layer
+                                  )
+            '''
+	    #Part for data json creation (extract FTFP_BERT phys list jobs)
+	    #if jobs[0]["PHYSLIST"]=="FTFP_BERT":
+	    if True:
+		y_energy_data, y_energy_data_error = GetDataObservables(path+"/"+str(energy)+"GeVenergydata.txt")
+		y_hit_data, y_hit_data_error = GetDataObservables(path+"/"+str(energy)+"GeVhitdata.txt")
+		
+		#Create JSON output files for energy (graph)
+		#
+		yield getJSON(jobs[0], "chart",
+		                      mctool_name="experiment",
+			              mctool_model="experiment",
+			              observableName="energy per layer",
+				      #secondaryParticle="e-",
+				      beamParticle="pi-",
+				      targetName="CALICE-SiW",
+			    	      beamEnergies=energy,
+                                      title="Energy per layer (pi-)",
+                                      xAxisName="Shower depth [pseudolayer]",
+                                      yAxisName="Erec/pseudolayer [MIP]",
+                                      xValues=xpseudolayer_values,
+                                      yValues=y_energy_data,
+	                              yStatErrorsMinus=y_energy_data_error,
+				      yStatErrorsPlus=y_energy_data_error
+                                      )
+		#Create JSON output files for hit (graph)
+		#
+		yield getJSON(jobs[0], "chart",
+		                      mctool_name="experiment",
+			              mctool_model="experiment",
+			              observableName="hit per layer",
+				      #secondaryParticle="e-",
+				      beamParticle="pi-",
+				      targetName="CALICE-SiW",
+				      beamEnergies=energy,
+                                      title="Hit per layer (pi-)",
+                                      xAxisName="Shower depth [layer]",
+                                      yAxisName="Entries (normalised to unity)",
+                                      xValues=xlayer_values,
+                                      yValues=y_hit_data,
+	                              yStatErrorsMinus=y_hit_data_error,
+				      yStatErrorsPlus=y_hit_data_error
+                                      )
 	    
 ##**************************************************

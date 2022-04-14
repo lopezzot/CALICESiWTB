@@ -653,6 +653,12 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver, int fileno
   gZ_Data_2GeV_tot->SetLineWidth(1);
   gZ_Data_2GeV_tot->SetFillColor(kRed-7);
   gZ_Data_2GeV_tot->SetFillStyle(3002);
+  ofstream myZdatafile;
+  myZdatafile.open("2GeVhitdata.txt");
+  for (const auto &e : z_Data_2GeV) myZdatafile << e << " ";
+  myZdatafile << "\n";
+  for (const auto &e : totError_Z_2GeV) myZdatafile << e << " ";
+  myZdatafile.close();
 
   TGraphErrors* gZ_Data_4GeV = new TGraphErrors(nBinsZ,x,z_Data_4GeV,ex0,errorZ_Data_4GeV);
   myGraphSetUp(gZ_Data_4GeV, kRed,1);
@@ -662,6 +668,11 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver, int fileno
   gZ_Data_4GeV_tot->SetLineWidth(1);
   gZ_Data_4GeV_tot->SetFillColor(kRed-7);
   gZ_Data_4GeV_tot->SetFillStyle(3002);
+  myZdatafile.open("4GeVhitdata.txt");
+  for (const auto &e : z_Data_4GeV) myZdatafile << e << " ";
+  myZdatafile << "\n";
+  for (const auto &e : totError_Z_4GeV) myZdatafile << e << " ";
+  myZdatafile.close();
 
   TGraphErrors* gZ_Data_6GeV = new TGraphErrors(nBinsZ,x,z_Data_6GeV,ex0,errorZ_Data_6GeV);
   myGraphSetUp(gZ_Data_6GeV, kRed,1);
@@ -671,6 +682,11 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver, int fileno
   gZ_Data_6GeV_tot->SetLineWidth(1);
   gZ_Data_6GeV_tot->SetFillColor(kRed-7);
   gZ_Data_6GeV_tot->SetFillStyle(3002);
+  myZdatafile.open("6GeVhitdata.txt");
+  for (const auto &e : z_Data_6GeV) myZdatafile << e << " ";
+  myZdatafile << "\n";
+  for (const auto &e : totError_Z_6GeV) myZdatafile << e << " ";
+  myZdatafile.close();
 
   TGraphErrors* gZ_Data_8GeV = new TGraphErrors(nBinsZ,x,z_Data_8GeV,ex0,errorZ_Data_8GeV);
   myGraphSetUp(gZ_Data_8GeV, kRed,1);
@@ -680,6 +696,11 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver, int fileno
   gZ_Data_8GeV_tot->SetLineWidth(1);
   gZ_Data_8GeV_tot->SetFillColor(kRed-7);
   gZ_Data_8GeV_tot->SetFillStyle(3002);
+  myZdatafile.open("8GeVhitdata.txt");
+  for (const auto &e : z_Data_8GeV) myZdatafile << e << " ";
+  myZdatafile << "\n";
+  for (const auto &e : totError_Z_8GeV) myZdatafile << e << " ";
+  myZdatafile.close();
 
   TGraphErrors* gZ_Data_10GeV = new TGraphErrors(nBinsZ,x,z_Data_10GeV,ex0,errorZ_Data_10GeV);
   myGraphSetUp(gZ_Data_10GeV, kRed,1);
@@ -689,22 +710,43 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver, int fileno
   gZ_Data_10GeV_tot->SetLineWidth(1);
   gZ_Data_10GeV_tot->SetFillColor(kRed-7);
   gZ_Data_10GeV_tot->SetFillStyle(3002);
+  myZdatafile.open("10GeVhitdata.txt");
+  for (const auto &e : z_Data_10GeV) myZdatafile << e << " ";
+  myZdatafile << "\n";
+  for (const auto &e : totError_Z_10GeV) myZdatafile << e << " ";
+  myZdatafile.close();
 
   //QGSP_BERT
   TGraph* gZ_QGSP_BERT_2GeV = new TGraph(nBinsZ,x,z_QGSP_BERT_2GeV);
   myGraphSetUp(gZ_QGSP_BERT_2GeV, kMagenta+4,1);
+  ofstream myZfile;
+  myZfile.open("2GeVhit.txt");
+  for (const auto &e : z_QGSP_BERT_2GeV) myZfile << e << " ";
+  myZfile.close();
 
   TGraph* gZ_QGSP_BERT_4GeV = new TGraph(nBinsZ,x,z_QGSP_BERT_4GeV);
   myGraphSetUp(gZ_QGSP_BERT_4GeV, kMagenta+4,1);
+  myZfile.open("4GeVhit.txt");
+  for (const auto &e : z_QGSP_BERT_4GeV) myZfile << e << " ";
+  myZfile.close();
 
   TGraph* gZ_QGSP_BERT_6GeV = new TGraph(nBinsZ,x,z_QGSP_BERT_6GeV);
   myGraphSetUp(gZ_QGSP_BERT_6GeV, kMagenta+4,1);
+  myZfile.open("6GeVhit.txt");
+  for (const auto &e : z_QGSP_BERT_6GeV) myZfile << e << " ";
+  myZfile.close();
 
   TGraph* gZ_QGSP_BERT_8GeV = new TGraph(nBinsZ,x,z_QGSP_BERT_8GeV);
   myGraphSetUp(gZ_QGSP_BERT_8GeV, kMagenta+4,1);
+  myZfile.open("8GeVhit.txt");
+  for (const auto &e : z_QGSP_BERT_8GeV) myZfile << e << " ";
+  myZfile.close();
 
   TGraph* gZ_QGSP_BERT_10GeV = new TGraph(nBinsZ,x,z_QGSP_BERT_10GeV);
   myGraphSetUp(gZ_QGSP_BERT_10GeV, kMagenta+4,1);
+  myZfile.open("10GeVhit.txt");
+  for (const auto &e : z_QGSP_BERT_10GeV) myZfile << e << " ";
+  myZfile.close();
   
   //Define histograms for the axis
   TH1F* histoZ = new TH1F("Z","Z",nBinsZ,-0.5,22.5);
@@ -811,6 +853,12 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver, int fileno
   gLongitudinalProfile_Data_2GeV_tot->SetLineWidth(1);
   gLongitudinalProfile_Data_2GeV_tot->SetFillStyle(3002);
   gLongitudinalProfile_Data_2GeV_tot->SetFillColor(kRed-7);
+  ofstream myfiledata;
+  myfiledata.open("2GeVenergydata.txt");
+  for (const auto &e : longitudinalProfile_Data_2GeV) myfiledata << e << " ";
+  myfiledata << "\n";
+  for (const auto &e : totError_LongitudinalProfile_2GeV) myfiledata << e << " ";
+  myfiledata.close();
    
   TGraphErrors* gLongitudinalProfile_Data_4GeV = new TGraphErrors(nBins,x,longitudinalProfile_Data_4GeV,ex0,errorZ_Data_4GeV);
   myGraphSetUp(gLongitudinalProfile_Data_4GeV, kRed,1);
@@ -820,6 +868,11 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver, int fileno
   gLongitudinalProfile_Data_4GeV_tot->SetLineWidth(1);
   gLongitudinalProfile_Data_4GeV_tot->SetFillStyle(3002);
   gLongitudinalProfile_Data_4GeV_tot->SetFillColor(kRed-7);
+  myfiledata.open("4GeVenergydata.txt");
+  for (const auto &e : longitudinalProfile_Data_4GeV) myfiledata << e << " ";
+  myfiledata << "\n";
+  for (const auto &e : totError_LongitudinalProfile_4GeV) myfiledata << e << " ";
+  myfiledata.close();
 
   TGraphErrors* gLongitudinalProfile_Data_6GeV = new TGraphErrors(nBins,x,longitudinalProfile_Data_6GeV,ex0,errorZ_Data_6GeV);
   myGraphSetUp(gLongitudinalProfile_Data_6GeV, kRed,1);
@@ -829,6 +882,11 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver, int fileno
   gLongitudinalProfile_Data_6GeV_tot->SetLineWidth(1);
   gLongitudinalProfile_Data_6GeV_tot->SetFillStyle(3002);
   gLongitudinalProfile_Data_6GeV_tot->SetFillColor(kRed-7);
+  myfiledata.open("6GeVenergydata.txt");
+  for (const auto &e : longitudinalProfile_Data_6GeV) myfiledata << e << " ";
+  myfiledata << "\n";
+  for (const auto &e : totError_LongitudinalProfile_6GeV) myfiledata << e << " ";
+  myfiledata.close();
 
   TGraphErrors* gLongitudinalProfile_Data_8GeV = new TGraphErrors(nBins,x,longitudinalProfile_Data_8GeV,ex0,errorZ_Data_8GeV);
   myGraphSetUp(gLongitudinalProfile_Data_8GeV, kRed,1);
@@ -838,6 +896,11 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver, int fileno
   gLongitudinalProfile_Data_8GeV_tot->SetLineWidth(1);
   gLongitudinalProfile_Data_8GeV_tot->SetFillStyle(3002);
   gLongitudinalProfile_Data_8GeV_tot->SetFillColor(kRed-7);
+  myfiledata.open("8GeVenergydata.txt");
+  for (const auto &e : longitudinalProfile_Data_8GeV) myfiledata << e << " ";
+  myfiledata << "\n";
+  for (const auto &e : totError_LongitudinalProfile_8GeV) myfiledata << e << " ";
+  myfiledata.close();
 
   TGraphErrors* gLongitudinalProfile_Data_10GeV = new TGraphErrors(nBins,x,longitudinalProfile_Data_10GeV,ex0,errorZ_Data_10GeV);
   myGraphSetUp(gLongitudinalProfile_Data_10GeV, kRed,1);
@@ -847,6 +910,11 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver, int fileno
   gLongitudinalProfile_Data_10GeV_tot->SetLineWidth(1);
   gLongitudinalProfile_Data_10GeV_tot->SetFillColor(kRed-7);
   gLongitudinalProfile_Data_10GeV_tot->SetFillStyle(3002);
+  myfiledata.open("10GeVenergydata.txt");
+  for (const auto &e : longitudinalProfile_Data_10GeV) myfiledata << e << " ";
+  myfiledata << "\n";
+  for (const auto &e : totError_LongitudinalProfile_10GeV) myfiledata << e << " ";
+  myfiledata.close();
 
   //QGSP_BERT
   TGraph* gLongitudinalProfile_QGSP_BERT_2GeV = new TGraph(nBins,x,longitudinalProfile_QGSP_BERT_2GeV);
@@ -937,8 +1005,10 @@ void DoLongitudinalPlots( const string physlist, const TString g4ver, int fileno
 
 }
 
-void MyLongitudinalPlots(int filenumber, TString fullfilepath) {
+int MyLongitudinalPlots(int filenumber, TString fullfilepath) {
     int fileno = filenumber;
     TString g4ver = "geantval";
     DoLongitudinalPlots( "geantval", g4ver, fileno, fullfilepath );
+    gApplication->Terminate();
+    return 1;
 }
