@@ -63,7 +63,7 @@ class Test(BaseParser):
 	    #infile = TFile.Open(os.path.join(job["path"],"CALICESiWTBout.root"))
 	    root_command = "cd " + job["path"] + ";root -l 'MyLongitudinalPlots.C(" + str(counter) + "," + "\"CALICESiWTBout.root\")'"
 	    #print root_command
-	    #os.system(root_command)
+	    os.system(root_command)
 	    yenergy_values = GetObservables(path+"/"+str(energy)+"GeVenergy.txt")
 	    yhit_values = GetObservables(path+"/"+str(energy)+"GeVhit.txt")
 	    print "--->energy values: " + str(yenergy_values) + " ,physlist: " + str(set([x["PHYSLIST"] for x in jobs]))
@@ -107,7 +107,7 @@ class Test(BaseParser):
                                   )
            
 	    #Part for data json creation (extract FTFP_BERT phys list jobs)
-	    
+	    ''' 
 	    if str(jobs[0]["PHYSLIST"])=="FTFP_BERT":
 		y_energy_data, y_energy_data_error = GetDataObservables(path+"/"+str(energy)+"GeVenergydata.txt")
 		y_hit_data, y_hit_data_error = GetDataObservables(path+"/"+str(energy)+"GeVhitdata.txt")
@@ -154,5 +154,5 @@ class Test(BaseParser):
 	                              yStatErrorsMinus=y_hit_data_error,
 				      yStatErrorsPlus=y_hit_data_error
                                       )
-	    
+	    '''
 ##**************************************************
