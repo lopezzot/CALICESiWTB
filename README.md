@@ -129,7 +129,8 @@ The following are results deployed on Geant Val so far. A copy of the used confi
 
 | CALICESiWTB         | Reproduce data | Reproduce analysis | Comments     |
 | -------------       | ----------     | -----------        | -----------  |
-| v1.0 <br /> Dataset #1 <br /> (Geant4.10.07.p03, CALICESiWTB v1.0, FTFP_BERT, FTFP_INCLXX, QGSP_BERT) <br /> Added on 14/4/2022 <br /> | python mc-config-generator.py submit -t CALICESiWTB -d OUTPUT -v 10.7.p03 -q "testmatch" -r | python mc-config-generator.py parse -t CALICESiWTB -d OUTPUT |  Results for one Geant4 versions, three physics list. Results for experiment included as well, use last parser part for it.|
+| v1.0 <br /> Dataset #2 tag 1.0_2<br /> (Geant4.10.06.p03, Geant4.10.5.p01, Geant4.10.4.p01, CALICESiWTB v1.0, FTFP_BERT, FTFP_INCLXX, QGSP_BERT) <br /> Added on 16/4/2022 <br /> | python mc-config-generator.py submit -t CALICESiWTB -d OUTPUT -v version -q "testmatch" -r | python mc-config-generator.py parse -t CALICESiWTB -d OUTPUT |  Results for three Geant4 versions, three physics list. Results for 10.5.p01 and 10.4.p01 obtained in single thread mode.|
+| v1.0 <br /> Dataset #1 tag 1.0_1<br /> (Geant4.10.07.p03, CALICESiWTB v1.0, FTFP_BERT, FTFP_INCLXX, QGSP_BERT) <br /> Added on 14/4/2022 <br /> | python mc-config-generator.py submit -t CALICESiWTB -d OUTPUT -v 10.7.p03 -q "testmatch" -r | python mc-config-generator.py parse -t CALICESiWTB -d OUTPUT |  Results for one Geant4 versions, three physics list. Results for experiment included as well, use last parser part for it.|
 
 <!--Available datasets and analyses-->
 ## Available datasets and analyses
