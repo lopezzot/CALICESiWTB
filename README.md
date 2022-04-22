@@ -65,6 +65,7 @@ The project targets a standalone Geant4 simulation of the CALICE SiW calorimeter
 ## Documentation and results
 
 ### Selected presentations
+- 🗣️ CALICE Collaboration Meeting 21/4/2022, **CALICE prototypes beam tests integration into Geant-val** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://agenda.linearcollider.org/event/9571/contributions/50483/attachments/38097/59809/G4_CALICE2022_lopezzot.pdf)
 - 🗣️ CERN EP-SFT Simulation Group Meeting 22/3/2022, **Validation on the CALICE SiW calorimeter beam test (first test, first results)** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://indico.cern.ch/event/1141927/contributions/4792467/attachments/2411878/4127542/G4_lopezzot_22_3_2022.pdf)
 
 <!--Geant Val integration-->
