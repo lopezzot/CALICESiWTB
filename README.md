@@ -25,6 +25,7 @@
     <li>
       <a href="#documentation-and-results">Documentation and results</a>
       <ul>
+        <li><a href="#selected-articles">Selected articles</a></li>
         <li><a href="#selected-presentations">Selected presentations</a></li>
       </ul>
     </li>
@@ -54,6 +55,7 @@ The project targets a standalone Geant4 simulation of the CALICE SiW calorimeter
 - ⏰ Start date: 17 February 2022 
 - 📌 Status: under development
 - ❕ DO NOTE: A first implementation was provided by Katalin Nikolics around 2018, the code is available in GitLab ( restricted link [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://gitlab.cern.ch/ep-sft/calice-siw-ecal-tb/) ). This repo is an adaptation of it aiming to produce results with the same level of accuracy while reducing the code to a Geant4 advanced example.
+- :page_facing_up: Citation: if you want to use the code read the [LICENSE](https://github.com/lopezzot/CALICESiWTB/blob/main/LICENSE) and cite [![DOI:10.3390/instruments6030041](https://zenodo.org/badge/DOI/10.3390/instruments6030041.svg)](https://doi.org/10.3390/instruments6030041)
 
 <!--Authors and contacts-->
 ## Authors and contacts
@@ -63,6 +65,9 @@ The project targets a standalone Geant4 simulation of the CALICE SiW calorimeter
 
 <!--Documentation and results-->
 ## Documentation and results
+### Selected articles
+- :page_facing_up: Pezzotti, L.; Kiryunin, A.; Konstantinov, D.; Ribon, A.; Strizenec, P.; on behalf of the Geant4 Collaboration. Including Calorimeter Test Beams in Geant-val—The Physics Validation Testing Suite of Geant4. Instruments 2022, 6, 41.
+[![DOI:10.3390/instruments6030041](https://zenodo.org/badge/DOI/10.3390/instruments6030041.svg)](https://doi.org/10.3390/instruments6030041)
 
 ### Selected presentations
 - 🗣️ CALOR2022 17/5/2022, **Including calorimeter test-beams into geant-val** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://indico.cern.ch/event/847884/contributions/4833199/attachments/2445590/4190486/lopezzot_CALOR2022.pdf)
