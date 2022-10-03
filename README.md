@@ -70,6 +70,7 @@ The project targets a standalone Geant4 simulation of the CALICE SiW calorimeter
 [![DOI:10.3390/instruments6030041](https://zenodo.org/badge/DOI/10.3390/instruments6030041.svg)](https://doi.org/10.3390/instruments6030041)
 
 ### Selected presentations
+- 🗣️ Geant4 Collaboration Meeting 28/9/2022, **Physics validation of Geant4 via calorimeter test-beams** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://indico.cern.ch/event/1156193/contributions/5051067/attachments/2517516/4328428/lopezzot_G4Collab2022.pdf)
 - 🗣️ CALOR2022 17/5/2022, **Including calorimeter test-beams into geant-val** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://indico.cern.ch/event/847884/contributions/4833199/attachments/2445590/4190486/lopezzot_CALOR2022.pdf)
 - 🗣️ CERN EP-SFT Group Meeting 2/5/2022, **Highlights from recent Geant4 validation on test-beam data** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://indico.cern.ch/event/1155403/contributions/4851266/attachments/2435130/4170273/EPSFT_2_5_2022_lopezzot.pdf)
 - 🗣️ CERN EP-SFT Simulation Group Meeting 26/4/2022, **Physics lists’ comparison and regression testing on CALICE SiW data** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://indico.cern.ch/event/1154040/contributions/4846863/attachments/2431451/4163741/G4_26_4_2022_lopezzot.pdf)
