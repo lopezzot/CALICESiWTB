@@ -47,6 +47,7 @@ set(CALICESiWTB_SCRIPTS
     run_pi-_6GeV.mac 
     run_pi-_8GeV.mac 
     run_pi-_10GeV.mac 
+    CI_run.mac
     CALICESiWTB_init_vis.mac
     CALICESiWTB_gui.mac
     )
