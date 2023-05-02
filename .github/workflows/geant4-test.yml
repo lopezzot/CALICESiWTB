@@ -28,7 +28,7 @@ jobs:
           cd build
           cmake ../
           make
-          ./CALICESiWTB run_pi-_2GeV.mac FTFP_BERT 1
+          ./CALICESiWTB CI_run.mac FTFP_BERT 1
           ls -ltr
       - name: Check job status
         run: echo "Job is ${{ job.status }}."
@@ -58,7 +58,7 @@ jobs:
           cd build
           cmake ../
           make
-          ./CALICESiWTB run_pi-_2GeV.mac FTFP_BERT 1
+          ./CALICESiWTB CI_run.mac FTFP_BERT 1
           ls -ltr
       - name: Check job status
         run: echo "Job is ${{ job.status }}."
