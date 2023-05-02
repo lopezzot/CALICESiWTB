@@ -14,7 +14,12 @@
 
 //Includers from Geant4
 //
+#include "G4Version.hh"
+#if G4VERSION_NUMBER < 1100
 #include "g4root.hh"
+#else
+#include "G4AnalysisManager.hh"
+#endif
 #include "G4HCofThisEvent.hh"
 #include "G4TouchableHistory.hh"
 #include "G4Step.hh"
