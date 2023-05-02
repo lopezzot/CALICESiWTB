@@ -59,7 +59,9 @@ CaliceRunAction::~CaliceRunAction() {
     
     //Delete G4AnalysisManager
     //
-    delete G4AnalysisManager::Instance();
+    #if G4VERSION_NUMBER < 1100
+    delete G4AnalysisManager::Instance();  // not needed for G4 v11 and up
+    #endif
 
 }
 
