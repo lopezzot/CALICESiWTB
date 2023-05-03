@@ -30,7 +30,6 @@ CaliceDetectorConstruction::CaliceDetectorConstruction(const G4GDMLParser& parse
 //
 G4VPhysicalVolume* CaliceDetectorConstruction::Construct() {
     
-    ConstructSDandField();
     return fParser.GetWorldVolume();
 
 }
