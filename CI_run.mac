@@ -1,0 +1,16 @@
+/process/em/verbose 0
+/process/had/verbose 0
+/run/initialize
+/run/printProgress 1000
+#/run/verbose 0
+#/event/verbose 0 
+#/tracking/verbose 0 
+#
+#/gps/pos/radius 6.5 mm
+/gun/particle pi-
+/gun/energy 2 GeV
+#/gun/position 0 0 -1.0 m
+#
+/run/beamOn 100
+#
+
