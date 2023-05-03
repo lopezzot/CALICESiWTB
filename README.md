@@ -173,7 +173,8 @@ We provide datasets and ROOT analyses, as well as instructions for their reprodu
    ```sh
    ./CALICESiWTB run_pi-_2GeV.mac FTFP_BERT 2
    ```
-Parser options: argv[1] a Geant4 macro card, argv[2] the physics list (optional, default FTFP_BERT), argv[3] number of threads
+- Parser options: argv[1] a Geant4 macro card, argv[2] the physics list (optional, default FTFP_BERT), argv[3] number of threads
+- It is possible to select alternative FTF tunings with PL_tuneID (example FTFP_BERT_tune1) [only for Geant4-11.1.0 or higher]
 
 ### Build, compile and execute on lxplus
 1. git clone the repo
