@@ -1,5 +1,5 @@
 # CALICESiWTB
-**A Geant4 simulation of the CALICE SiW calorimeter beam tests.**\
+**A Geant4 simulation of the CALICE SiW calorimeter beam tests.**
 
 ![example workflow](https://github.com/lopezzot/CALICESiWTB/actions/workflows/geant4-test.yml/badge.svg)
 ![GitHub commits since latest release (by date) for a branch](https://img.shields.io/github/commits-since/lopezzot/CALICESiWTB/latest?color=github&logo=github)
