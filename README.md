@@ -71,13 +71,14 @@ The project targets a standalone Geant4 simulation of the CALICE SiW calorimeter
 [![DOI:10.3390/instruments6030041](https://zenodo.org/badge/DOI/10.3390/instruments6030041.svg)](https://doi.org/10.3390/instruments6030041)
 
 ### Selected presentations
-- 🗣️ 11th BTTB Workshop 19/4/2023, **Geant4 Validation on Test-Beam Calorimetry Data** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://indico.cern.ch/event/1232761/contributions/5320333/attachments/2631283/4551077/lopezzot_11thBTTBWS_19_4_2023.pdf)
-- 🗣️ Geant4 Collaboration Meeting 28/9/2022, **Physics validation of Geant4 via calorimeter test-beams** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://indico.cern.ch/event/1156193/contributions/5051067/attachments/2517516/4328428/lopezzot_G4Collab2022.pdf)
-- 🗣️ CALOR2022 17/5/2022, **Including calorimeter test-beams into geant-val** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://indico.cern.ch/event/847884/contributions/4833199/attachments/2445590/4190486/lopezzot_CALOR2022.pdf)
-- 🗣️ CERN EP-SFT Group Meeting 2/5/2022, **Highlights from recent Geant4 validation on test-beam data** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://indico.cern.ch/event/1155403/contributions/4851266/attachments/2435130/4170273/EPSFT_2_5_2022_lopezzot.pdf)
-- 🗣️ CERN EP-SFT Simulation Group Meeting 26/4/2022, **Physics lists’ comparison and regression testing on CALICE SiW data** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://indico.cern.ch/event/1154040/contributions/4846863/attachments/2431451/4163741/G4_26_4_2022_lopezzot.pdf)
-- 🗣️ CALICE Collaboration Meeting, Valencia 21/4/2022, **CALICE prototypes beam tests integration into Geant-val** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://agenda.linearcollider.org/event/9571/contributions/50483/attachments/38097/59809/G4_CALICE2022_lopezzot.pdf)
-- 🗣️ CERN EP-SFT Simulation Group Meeting 22/3/2022, **Validation on the CALICE SiW calorimeter beam test (first test, first results)** [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://indico.cern.ch/event/1141927/contributions/4792467/attachments/2411878/4127542/G4_lopezzot_22_3_2022.pdf)
+- 🗣️ CERN EP-SFT Group Meeting, [**End of Fellowship Report**](https://indico.cern.ch/event/1395384/contributions/5865083/attachments/2841640/4967534/lopezzot_epsft_22_4_2024.pdf)
+- 🗣️ 11th BTTB Workshop 19/4/2023, [**Geant4 Validation on Test-Beam Calorimetry Data**](https://indico.cern.ch/event/1232761/contributions/5320333/attachments/2631283/4551077/lopezzot_11thBTTBWS_19_4_2023.pdf)
+- 🗣️ Geant4 Collaboration Meeting 28/9/2022, [**Physics validation of Geant4 via calorimeter test-beams**](https://indico.cern.ch/event/1156193/contributions/5051067/attachments/2517516/4328428/lopezzot_G4Collab2022.pdf)
+- 🗣️ CALOR2022 17/5/2022, [**Including calorimeter test-beams into geant-val**](https://indico.cern.ch/event/847884/contributions/4833199/attachments/2445590/4190486/lopezzot_CALOR2022.pdf)
+- 🗣️ CERN EP-SFT Group Meeting 2/5/2022, [**Highlights from recent Geant4 validation on test-beam data**](https://indico.cern.ch/event/1155403/contributions/4851266/attachments/2435130/4170273/EPSFT_2_5_2022_lopezzot.pdf)
+- 🗣️ CERN EP-SFT Simulation Group Meeting 26/4/2022, [**Physics lists’ comparison and regression testing on CALICE SiW data**](https://indico.cern.ch/event/1154040/contributions/4846863/attachments/2431451/4163741/G4_26_4_2022_lopezzot.pdf)
+- 🗣️ CALICE Collaboration Meeting, Valencia 21/4/2022, [**CALICE prototypes beam tests integration into Geant-val**](https://agenda.linearcollider.org/event/9571/contributions/50483/attachments/38097/59809/G4_CALICE2022_lopezzot.pdf)
+- 🗣️ CERN EP-SFT Simulation Group Meeting 22/3/2022, [**Validation on the CALICE SiW calorimeter beam test (first test, first results)**](https://indico.cern.ch/event/1141927/contributions/4792467/attachments/2411878/4127542/G4_lopezzot_22_3_2022.pdf)
 
 <!--Geant Val integration-->
 ## Geant Val integration
